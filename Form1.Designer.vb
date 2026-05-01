@@ -23,13 +23,13 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Button1 = New Button()
-        nome_txt = New TextBox()
-        email_txt = New TextBox()
-        senha_txt = New TextBox()
-        confirmacaoSenha_txt = New TextBox()
-        cpf_txt = New TextBox()
-        telefone_txt = New TextBox()
-        dataNasc_txt = New TextBox()
+        Nome_txt = New TextBox()
+        Email_txt = New TextBox()
+        Senha_txt = New TextBox()
+        ConfirmacaoSenha_txt = New TextBox()
+        Cpf_txt = New TextBox()
+        Telefone_txt = New TextBox()
+        DataNasc_txt = New TextBox()
         SuspendLayout()
         ' 
         ' Button1
@@ -41,67 +41,67 @@ Partial Class Form1
         Button1.Text = "Button1"
         Button1.UseVisualStyleBackColor = True
         ' 
-        ' nome_txt
+        ' Nome_txt
         ' 
-        nome_txt.Location = New Point(238, 97)
-        nome_txt.Name = "nome_txt"
-        nome_txt.Size = New Size(243, 23)
-        nome_txt.TabIndex = 1
+        Nome_txt.Location = New Point(238, 97)
+        Nome_txt.Name = "Nome_txt"
+        Nome_txt.Size = New Size(243, 23)
+        Nome_txt.TabIndex = 1
         ' 
-        ' email_txt
+        ' Email_txt
         ' 
-        email_txt.Location = New Point(238, 126)
-        email_txt.Name = "email_txt"
-        email_txt.Size = New Size(243, 23)
-        email_txt.TabIndex = 2
+        Email_txt.Location = New Point(238, 126)
+        Email_txt.Name = "Email_txt"
+        Email_txt.Size = New Size(243, 23)
+        Email_txt.TabIndex = 2
         ' 
-        ' senha_txt
+        ' Senha_txt
         ' 
-        senha_txt.Location = New Point(238, 155)
-        senha_txt.Name = "senha_txt"
-        senha_txt.Size = New Size(243, 23)
-        senha_txt.TabIndex = 3
+        Senha_txt.Location = New Point(238, 155)
+        Senha_txt.Name = "Senha_txt"
+        Senha_txt.Size = New Size(243, 23)
+        Senha_txt.TabIndex = 3
         ' 
-        ' confirmacaoSenha_txt
+        ' ConfirmacaoSenha_txt
         ' 
-        confirmacaoSenha_txt.Location = New Point(238, 184)
-        confirmacaoSenha_txt.Name = "confirmacaoSenha_txt"
-        confirmacaoSenha_txt.Size = New Size(243, 23)
-        confirmacaoSenha_txt.TabIndex = 4
+        ConfirmacaoSenha_txt.Location = New Point(238, 184)
+        ConfirmacaoSenha_txt.Name = "ConfirmacaoSenha_txt"
+        ConfirmacaoSenha_txt.Size = New Size(243, 23)
+        ConfirmacaoSenha_txt.TabIndex = 4
         ' 
-        ' cpf_txt
+        ' Cpf_txt
         ' 
-        cpf_txt.Location = New Point(238, 213)
-        cpf_txt.Name = "cpf_txt"
-        cpf_txt.Size = New Size(243, 23)
-        cpf_txt.TabIndex = 5
+        Cpf_txt.Location = New Point(238, 213)
+        Cpf_txt.Name = "Cpf_txt"
+        Cpf_txt.Size = New Size(243, 23)
+        Cpf_txt.TabIndex = 5
         ' 
-        ' telefone_txt
+        ' Telefone_txt
         ' 
-        telefone_txt.Location = New Point(238, 242)
-        telefone_txt.Name = "telefone_txt"
-        telefone_txt.Size = New Size(243, 23)
-        telefone_txt.TabIndex = 6
+        Telefone_txt.Location = New Point(238, 242)
+        Telefone_txt.Name = "Telefone_txt"
+        Telefone_txt.Size = New Size(243, 23)
+        Telefone_txt.TabIndex = 6
         ' 
-        ' dataNasc_txt
+        ' DataNasc_txt
         ' 
-        dataNasc_txt.Location = New Point(238, 271)
-        dataNasc_txt.Name = "dataNasc_txt"
-        dataNasc_txt.Size = New Size(243, 23)
-        dataNasc_txt.TabIndex = 7
+        DataNasc_txt.Location = New Point(238, 271)
+        DataNasc_txt.Name = "DataNasc_txt"
+        DataNasc_txt.Size = New Size(243, 23)
+        DataNasc_txt.TabIndex = 7
         ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
-        Controls.Add(dataNasc_txt)
-        Controls.Add(telefone_txt)
-        Controls.Add(cpf_txt)
-        Controls.Add(confirmacaoSenha_txt)
-        Controls.Add(senha_txt)
-        Controls.Add(email_txt)
-        Controls.Add(nome_txt)
+        Controls.Add(DataNasc_txt)
+        Controls.Add(Telefone_txt)
+        Controls.Add(Cpf_txt)
+        Controls.Add(ConfirmacaoSenha_txt)
+        Controls.Add(Senha_txt)
+        Controls.Add(Email_txt)
+        Controls.Add(Nome_txt)
         Controls.Add(Button1)
         Name = "Form1"
         Text = "Form1"
@@ -110,12 +110,12 @@ Partial Class Form1
     End Sub
 
     Friend WithEvents Button1 As Button
-    Friend WithEvents nome_txt As TextBox
-    Friend WithEvents email_txt As TextBox
-    Friend WithEvents senha_txt As TextBox
-    Friend WithEvents confirmacaoSenha_txt As TextBox
-    Friend WithEvents cpf_txt As TextBox
-    Friend WithEvents telefone_txt As TextBox
-    Friend WithEvents dataNasc_txt As TextBox
+    Friend WithEvents Nome_txt As TextBox
+    Friend WithEvents Email_txt As TextBox
+    Friend WithEvents Senha_txt As TextBox
+    Friend WithEvents ConfirmacaoSenha_txt As TextBox
+    Friend WithEvents Cpf_txt As TextBox
+    Friend WithEvents Telefone_txt As TextBox
+    Friend WithEvents DataNasc_txt As TextBox
 
 End Class
