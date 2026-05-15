@@ -1,7 +1,7 @@
 ﻿Public Class Homevb
     Dim cadForm As New CadForm()
-    Private Sub Homevb_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+    Private Async Sub Homevb_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Await GetConnectionAsync()
     End Sub
 
     Private Sub Cad_btn_Click(sender As Object, e As EventArgs) Handles Cad_btn.Click
