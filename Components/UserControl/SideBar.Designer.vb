@@ -1,0 +1,139 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class SideBar
+    Inherits System.Windows.Forms.UserControl
+
+    'O UserControl substitui o descarte para limpar a lista de componentes.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Exigido pelo Windows Form Designer
+    Private components As System.ComponentModel.IContainer
+
+    'OBSERVAÇÃO: o procedimento a seguir é exigido pelo Windows Form Designer
+    'Pode ser modificado usando o Windows Form Designer.  
+    'Não o modifique usando o editor de códigos.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        SidebarBtn = New Krypton.Toolkit.KryptonButton()
+        KryptonLabel1 = New Krypton.Toolkit.KryptonLabel()
+        KryptonButton1 = New Krypton.Toolkit.KryptonButton()
+        KryptonButton2 = New Krypton.Toolkit.KryptonButton()
+        KryptonBorderEdge1 = New Krypton.Toolkit.KryptonBorderEdge()
+        KryptonBorderEdge2 = New Krypton.Toolkit.KryptonBorderEdge()
+        KryptonButton3 = New Krypton.Toolkit.KryptonButton()
+        KryptonButton4 = New Krypton.Toolkit.KryptonButton()
+        SuspendLayout()
+        ' 
+        ' SidebarBtn
+        ' 
+        SidebarBtn.Location = New Point(3, 3)
+        SidebarBtn.Name = "SidebarBtn"
+        SidebarBtn.Size = New Size(55, 55)
+        SidebarBtn.StateCommon.Border.Rounding = 10F
+        SidebarBtn.TabIndex = 3
+        SidebarBtn.Values.DropDownArrowColor = Color.Empty
+        SidebarBtn.Values.Text = ""
+        ' 
+        ' KryptonLabel1
+        ' 
+        KryptonLabel1.Location = New Point(64, 3)
+        KryptonLabel1.Name = "KryptonLabel1"
+        KryptonLabel1.Size = New Size(149, 55)
+        KryptonLabel1.StateCommon.ShortText.Font = New Font("Segoe UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        KryptonLabel1.TabIndex = 4
+        KryptonLabel1.Values.Text = "ForFans"
+        ' 
+        ' KryptonButton1
+        ' 
+        KryptonButton1.Location = New Point(3, 143)
+        KryptonButton1.Name = "KryptonButton1"
+        KryptonButton1.Size = New Size(55, 55)
+        KryptonButton1.StateCommon.Border.Rounding = 10F
+        KryptonButton1.TabIndex = 5
+        KryptonButton1.Values.DropDownArrowColor = Color.Empty
+        KryptonButton1.Values.Text = ""
+        ' 
+        ' KryptonButton2
+        ' 
+        KryptonButton2.Location = New Point(3, 221)
+        KryptonButton2.Name = "KryptonButton2"
+        KryptonButton2.Size = New Size(55, 55)
+        KryptonButton2.StateCommon.Border.Rounding = 10F
+        KryptonButton2.TabIndex = 6
+        KryptonButton2.Values.DropDownArrowColor = Color.Empty
+        KryptonButton2.Values.Text = ""
+        ' 
+        ' KryptonBorderEdge1
+        ' 
+        KryptonBorderEdge1.Location = New Point(0, 64)
+        KryptonBorderEdge1.Name = "KryptonBorderEdge1"
+        KryptonBorderEdge1.Size = New Size(353, 1)
+        KryptonBorderEdge1.StateCommon.Color1 = Color.CornflowerBlue
+        KryptonBorderEdge1.Text = "KryptonBorderEdge1"
+        ' 
+        ' KryptonBorderEdge2
+        ' 
+        KryptonBorderEdge2.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
+        KryptonBorderEdge2.Location = New Point(-31, 640)
+        KryptonBorderEdge2.Name = "KryptonBorderEdge2"
+        KryptonBorderEdge2.Size = New Size(353, 1)
+        KryptonBorderEdge2.StateCommon.Color1 = Color.CornflowerBlue
+        KryptonBorderEdge2.Text = "KryptonBorderEdge2"
+        ' 
+        ' KryptonButton3
+        ' 
+        KryptonButton3.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
+        KryptonButton3.Location = New Point(3, 647)
+        KryptonButton3.Name = "KryptonButton3"
+        KryptonButton3.Size = New Size(55, 55)
+        KryptonButton3.StateCommon.Border.Rounding = 10F
+        KryptonButton3.TabIndex = 9
+        KryptonButton3.Values.DropDownArrowColor = Color.Empty
+        KryptonButton3.Values.Text = ""
+        ' 
+        ' KryptonButton4
+        ' 
+        KryptonButton4.Location = New Point(3, 299)
+        KryptonButton4.Name = "KryptonButton4"
+        KryptonButton4.Size = New Size(55, 55)
+        KryptonButton4.StateCommon.Border.Rounding = 10F
+        KryptonButton4.TabIndex = 12
+        KryptonButton4.Values.DropDownArrowColor = Color.Empty
+        KryptonButton4.Values.Text = ""
+        ' 
+        ' SideBar
+        ' 
+        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleMode = AutoScaleMode.Font
+        BackColor = SystemColors.ActiveCaption
+        Controls.Add(KryptonButton4)
+        Controls.Add(KryptonButton3)
+        Controls.Add(KryptonBorderEdge2)
+        Controls.Add(KryptonBorderEdge1)
+        Controls.Add(KryptonButton2)
+        Controls.Add(KryptonButton1)
+        Controls.Add(KryptonLabel1)
+        Controls.Add(SidebarBtn)
+        Name = "SideBar"
+        Size = New Size(242, 708)
+        ResumeLayout(False)
+        PerformLayout()
+    End Sub
+    Friend WithEvents SidebarBtn As Krypton.Toolkit.KryptonButton
+    Friend WithEvents KryptonLabel1 As Krypton.Toolkit.KryptonLabel
+    Friend WithEvents KryptonButton1 As Krypton.Toolkit.KryptonButton
+    Friend WithEvents KryptonButton2 As Krypton.Toolkit.KryptonButton
+    Friend WithEvents KryptonBorderEdge1 As Krypton.Toolkit.KryptonBorderEdge
+    Friend WithEvents KryptonBorderEdge2 As Krypton.Toolkit.KryptonBorderEdge
+    Friend WithEvents KryptonButton3 As Krypton.Toolkit.KryptonButton
+    Friend WithEvents KryptonButton4 As Krypton.Toolkit.KryptonButton
+
+End Class

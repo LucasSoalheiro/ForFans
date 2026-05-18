@@ -1,6 +1,6 @@
 ﻿Imports MySql.Data.MySqlClient
 
-Public Module ConexaoBD
+Public Module Database
     Private connStr As String
     Sub New()
         Try
@@ -13,14 +13,13 @@ Public Module ConexaoBD
             Dim pass As String = Environment.GetEnvironmentVariable("DB_PASS")
             connStr = $"Server={host};Database={name};user={user};password={pass};"
         Catch ex As Exception
-            MsgBox($"Erro de Configuração: {ex.Message}", MsgBoxStyle.Critical)
+            MsgBox($"Config Error: {ex.Message}", MsgBoxStyle.Critical)
             connStr = String.Empty
         End Try
     End Sub
     Public Async Function GetConnectionAsync() As Task(Of MySqlConnection)
         Dim conn As New MySqlConnection(connStr)
         Await conn.OpenAsync()
-        MsgBox("deubom")
         Return conn
     End Function
 
