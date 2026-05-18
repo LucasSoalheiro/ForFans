@@ -25,6 +25,6 @@ Partial Class Login
         components = New System.ComponentModel.Container
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Text = "Log"
+        Me.Text = "Login"
     End Sub
 End Class

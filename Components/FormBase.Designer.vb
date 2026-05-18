@@ -32,8 +32,9 @@ Partial Class FormBase
         sidebar.BackColor = SystemColors.ActiveCaption
         sidebar.Dock = DockStyle.Left
         sidebar.Location = New Point(0, 0)
+        sidebar.Margin = New Padding(3, 5, 3, 5)
         sidebar.Name = "sidebar"
-        sidebar.Size = New Size(233, 881)
+        sidebar.Size = New Size(266, 1055)
         sidebar.TabIndex = 1
         ' 
         ' TimerSidebar
@@ -42,12 +43,13 @@ Partial Class FormBase
         ' 
         ' FormBase
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
-        ClientSize = New Size(1064, 881)
+        ClientSize = New Size(1216, 1055)
         Controls.Add(sidebar)
-        MinimumSize = New Size(1080, 890)
+        Margin = New Padding(3, 4, 3, 4)
+        MinimumSize = New Size(1232, 1018)
         Name = "FormBase"
         Text = "FormBase"
         ResumeLayout(False)
