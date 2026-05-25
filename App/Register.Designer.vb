@@ -22,64 +22,80 @@ Partial Class Register
     'Não o modifique usando o editor de códigos.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        UserName = New Krypton.Toolkit.KryptonTextBox()
         UserEmail = New Krypton.Toolkit.KryptonTextBox()
         UserPassword = New Krypton.Toolkit.KryptonTextBox()
         RegiterBtn = New Krypton.Toolkit.KryptonButton()
+        UserName = New Krypton.Toolkit.KryptonTextBox()
+        LoginLink = New Krypton.Toolkit.KryptonLinkLabel()
         SuspendLayout()
-        ' 
-        ' UserName
-        ' 
-        UserName.Location = New Point(799, 192)
-        UserName.Name = "UserName"
-        UserName.Size = New Size(276, 27)
-        UserName.TabIndex = 1
         ' 
         ' UserEmail
         ' 
-        UserEmail.Location = New Point(799, 274)
+        UserEmail.Location = New Point(699, 206)
+        UserEmail.Margin = New Padding(3, 2, 3, 2)
         UserEmail.Name = "UserEmail"
-        UserEmail.Size = New Size(276, 27)
+        UserEmail.Size = New Size(242, 23)
         UserEmail.TabIndex = 2
         UserEmail.Tag = ""
         ' 
         ' UserPassword
         ' 
-        UserPassword.Location = New Point(799, 343)
+        UserPassword.Location = New Point(699, 257)
+        UserPassword.Margin = New Padding(3, 2, 3, 2)
         UserPassword.Name = "UserPassword"
-        UserPassword.Size = New Size(276, 27)
+        UserPassword.Size = New Size(242, 23)
         UserPassword.TabIndex = 3
         ' 
         ' RegiterBtn
         ' 
-        RegiterBtn.Location = New Point(875, 458)
+        RegiterBtn.Location = New Point(766, 344)
+        RegiterBtn.Margin = New Padding(3, 2, 3, 2)
         RegiterBtn.Name = "RegiterBtn"
-        RegiterBtn.Size = New Size(128, 31)
+        RegiterBtn.Size = New Size(112, 23)
         RegiterBtn.TabIndex = 4
         RegiterBtn.Values.DropDownArrowColor = Color.Empty
         RegiterBtn.Values.Text = "Register Account"
         ' 
+        ' UserName
+        ' 
+        UserName.Location = New Point(699, 144)
+        UserName.Margin = New Padding(3, 2, 3, 2)
+        UserName.Name = "UserName"
+        UserName.Size = New Size(242, 23)
+        UserName.TabIndex = 1
+        ' 
+        ' LoginLink
+        ' 
+        LoginLink.Location = New Point(872, 502)
+        LoginLink.Name = "LoginLink"
+        LoginLink.Size = New Size(149, 25)
+        LoginLink.TabIndex = 5
+        LoginLink.Values.Text = "i already have an account"
+        ' 
         ' Register
         ' 
-        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1179, 711)
+        ClientSize = New Size(1033, 539)
+        Controls.Add(LoginLink)
         Controls.Add(RegiterBtn)
         Controls.Add(UserPassword)
         Controls.Add(UserEmail)
         Controls.Add(UserName)
+        Margin = New Padding(3, 2, 3, 2)
         Name = "Register"
         Text = "Register"
         Controls.SetChildIndex(UserName, 0)
         Controls.SetChildIndex(UserEmail, 0)
         Controls.SetChildIndex(UserPassword, 0)
         Controls.SetChildIndex(RegiterBtn, 0)
+        Controls.SetChildIndex(LoginLink, 0)
         ResumeLayout(False)
         PerformLayout()
     End Sub
-
-    Friend WithEvents UserName As Krypton.Toolkit.KryptonTextBox
     Friend WithEvents UserEmail As Krypton.Toolkit.KryptonTextBox
     Friend WithEvents UserPassword As Krypton.Toolkit.KryptonTextBox
     Friend WithEvents RegiterBtn As Krypton.Toolkit.KryptonButton
+    Friend WithEvents UserName As Krypton.Toolkit.KryptonTextBox
+    Friend WithEvents LoginLink As Krypton.Toolkit.KryptonLinkLabel
 End Class

@@ -22,15 +22,29 @@ Partial Class Home
     'Não o modifique usando o editor de códigos.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        FContainer = New FlowLayoutPanel()
         SuspendLayout()
+        ' 
+        ' FContainer
+        ' 
+        FContainer.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        FContainer.AutoScroll = True
+        FContainer.Location = New Point(259, 0)
+        FContainer.Name = "FContainer"
+        FContainer.Size = New Size(805, 677)
+        FContainer.TabIndex = 2
         ' 
         ' Home
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(800, 450)
+        ClientSize = New Size(1064, 734)
+        Controls.Add(FContainer)
         Name = "Home"
         Text = "Home"
+        Controls.SetChildIndex(FContainer, 0)
         ResumeLayout(False)
     End Sub
+
+    Friend WithEvents FContainer As FlowLayoutPanel
 End Class

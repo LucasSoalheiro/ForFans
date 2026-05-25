@@ -23,6 +23,19 @@ Public Module Database
         Return conn
     End Function
 
+    Public Async Function QueryAsync(sql As String) As Task(Of DataTable)
+        Dim dt As New DataTable()
+        Using conn As MySqlConnection = Await GetConnectionAsync()
+            Using cmd As New MySqlCommand(sql, conn)
+                Using da As New MySqlDataAdapter(cmd)
+                    Await Task.Run(Sub() da.Fill(dt))
+                End Using
+            End Using
+        End Using
+        Return dt
+    End Function
+
+
     Public Async Function ReadAllAsync(table As String, Optional where As String = "") As Task(Of DataTable)
         Dim dt As New DataTable()
         Using conn As MySqlConnection = Await GetConnectionAsync()

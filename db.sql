@@ -13,30 +13,17 @@ CREATE TABLE Users (
     createdAt      DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3)
 );
 
-CREATE TABLE SubscriptionPlan (
-    id           INT PRIMARY KEY AUTO_INCREMENT,
-    creatorId    INT NOT NULL,
-    name         VARCHAR(100) NOT NULL,
-    description  TEXT,
-    price        DECIMAL(10,2) NOT NULL,
-    durationDays INT NOT NULL DEFAULT 30,
-    active       BOOLEAN NOT NULL DEFAULT TRUE,
-    createdAt    DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
-    FOREIGN KEY (creatorId) REFERENCES Users(id)
-);
 
 CREATE TABLE Subscription (
     id           INT PRIMARY KEY AUTO_INCREMENT,
     subscriberId INT NOT NULL,
     creatorId    INT NOT NULL,
-    planId       INT NOT NULL,
     startDate    DATETIME NOT NULL,
     endDate      DATETIME NOT NULL,
     status       ENUM('active', 'expired', 'canceled') NOT NULL DEFAULT 'active',
     createdAt    DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     FOREIGN KEY (subscriberId) REFERENCES Users(id),
     FOREIGN KEY (creatorId)    REFERENCES Users(id),
-    FOREIGN KEY (planId)       REFERENCES SubscriptionPlan(id)
 );
 
 CREATE TABLE Content (
@@ -52,14 +39,6 @@ CREATE TABLE Content (
     FOREIGN KEY (creatorId) REFERENCES Users(id)
 );
 
--- Which plans unlock which content
-CREATE TABLE ContentPlan (
-    planId    INT NOT NULL,
-    contentId INT NOT NULL,
-    PRIMARY KEY (planId, contentId),
-    FOREIGN KEY (planId)    REFERENCES SubscriptionPlan(id),
-    FOREIGN KEY (contentId) REFERENCES Content(id)
-);
 
 CREATE TABLE LikeContent (
     id        INT PRIMARY KEY AUTO_INCREMENT,

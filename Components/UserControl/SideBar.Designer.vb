@@ -27,9 +27,12 @@ Partial Class SideBar
         KryptonButton1 = New Krypton.Toolkit.KryptonButton()
         KryptonButton2 = New Krypton.Toolkit.KryptonButton()
         KryptonBorderEdge1 = New Krypton.Toolkit.KryptonBorderEdge()
-        KryptonBorderEdge2 = New Krypton.Toolkit.KryptonBorderEdge()
         KryptonButton3 = New Krypton.Toolkit.KryptonButton()
         KryptonButton4 = New Krypton.Toolkit.KryptonButton()
+        AccountLbl = New Krypton.Toolkit.KryptonLabel()
+        KryptonLabel3 = New Krypton.Toolkit.KryptonLabel()
+        KryptonLabel4 = New Krypton.Toolkit.KryptonLabel()
+        KryptonLabel5 = New Krypton.Toolkit.KryptonLabel()
         SuspendLayout()
         ' 
         ' SidebarBtn
@@ -79,19 +82,10 @@ Partial Class SideBar
         KryptonBorderEdge1.StateCommon.Color1 = Color.CornflowerBlue
         KryptonBorderEdge1.Text = "KryptonBorderEdge1"
         ' 
-        ' KryptonBorderEdge2
-        ' 
-        KryptonBorderEdge2.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
-        KryptonBorderEdge2.Location = New Point(-31, 640)
-        KryptonBorderEdge2.Name = "KryptonBorderEdge2"
-        KryptonBorderEdge2.Size = New Size(353, 1)
-        KryptonBorderEdge2.StateCommon.Color1 = Color.CornflowerBlue
-        KryptonBorderEdge2.Text = "KryptonBorderEdge2"
-        ' 
         ' KryptonButton3
         ' 
         KryptonButton3.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
-        KryptonButton3.Location = New Point(3, 647)
+        KryptonButton3.Location = New Point(3, 373)
         KryptonButton3.Name = "KryptonButton3"
         KryptonButton3.Size = New Size(55, 55)
         KryptonButton3.StateCommon.Border.Rounding = 10F
@@ -109,14 +103,54 @@ Partial Class SideBar
         KryptonButton4.Values.DropDownArrowColor = Color.Empty
         KryptonButton4.Values.Text = ""
         ' 
+        ' AccountLbl
+        ' 
+        AccountLbl.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
+        AccountLbl.Location = New Point(64, 373)
+        AccountLbl.Name = "AccountLbl"
+        AccountLbl.Size = New Size(100, 55)
+        AccountLbl.StateCommon.ShortText.Font = New Font("Segoe UI", 16.15F, FontStyle.Bold)
+        AccountLbl.TabIndex = 15
+        AccountLbl.Values.Text = ""
+        ' 
+        ' KryptonLabel3
+        ' 
+        KryptonLabel3.Location = New Point(64, 299)
+        KryptonLabel3.Name = "KryptonLabel3"
+        KryptonLabel3.Size = New Size(166, 55)
+        KryptonLabel3.StateCommon.ShortText.Font = New Font("Segoe UI", 16.15F, FontStyle.Bold)
+        KryptonLabel3.TabIndex = 16
+        KryptonLabel3.Values.Text = "KryptonLabel3"
+        ' 
+        ' KryptonLabel4
+        ' 
+        KryptonLabel4.Location = New Point(64, 221)
+        KryptonLabel4.Name = "KryptonLabel4"
+        KryptonLabel4.Size = New Size(166, 55)
+        KryptonLabel4.StateCommon.ShortText.Font = New Font("Segoe UI", 16.15F, FontStyle.Bold)
+        KryptonLabel4.TabIndex = 17
+        KryptonLabel4.Values.Text = "KryptonLabel4"
+        ' 
+        ' KryptonLabel5
+        ' 
+        KryptonLabel5.Location = New Point(64, 143)
+        KryptonLabel5.Name = "KryptonLabel5"
+        KryptonLabel5.Size = New Size(166, 55)
+        KryptonLabel5.StateCommon.ShortText.Font = New Font("Segoe UI", 16.15F, FontStyle.Bold)
+        KryptonLabel5.TabIndex = 18
+        KryptonLabel5.Values.Text = "KryptonLabel5"
+        ' 
         ' SideBar
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = SystemColors.ActiveCaption
+        Controls.Add(KryptonLabel5)
+        Controls.Add(KryptonLabel4)
+        Controls.Add(KryptonLabel3)
+        Controls.Add(AccountLbl)
         Controls.Add(KryptonButton4)
         Controls.Add(KryptonButton3)
-        Controls.Add(KryptonBorderEdge2)
         Controls.Add(KryptonBorderEdge1)
         Controls.Add(KryptonButton2)
         Controls.Add(KryptonButton1)
@@ -132,8 +166,11 @@ Partial Class SideBar
     Friend WithEvents KryptonButton1 As Krypton.Toolkit.KryptonButton
     Friend WithEvents KryptonButton2 As Krypton.Toolkit.KryptonButton
     Friend WithEvents KryptonBorderEdge1 As Krypton.Toolkit.KryptonBorderEdge
-    Friend WithEvents KryptonBorderEdge2 As Krypton.Toolkit.KryptonBorderEdge
     Friend WithEvents KryptonButton3 As Krypton.Toolkit.KryptonButton
     Friend WithEvents KryptonButton4 As Krypton.Toolkit.KryptonButton
+    Friend WithEvents AccountLbl As Krypton.Toolkit.KryptonLabel
+    Friend WithEvents KryptonLabel3 As Krypton.Toolkit.KryptonLabel
+    Friend WithEvents KryptonLabel4 As Krypton.Toolkit.KryptonLabel
+    Friend WithEvents KryptonLabel5 As Krypton.Toolkit.KryptonLabel
 
 End Class
