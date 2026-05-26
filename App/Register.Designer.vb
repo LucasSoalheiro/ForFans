@@ -35,6 +35,9 @@ Partial Class Register
         ' 
         ' UserEmail
         ' 
+        UserEmail.CueHint.Color1 = SystemColors.ButtonShadow
+        UserEmail.CueHint.CueHintText = "seu@email.com"
+        UserEmail.CueHint.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         UserEmail.Location = New Point(638, 230)
         UserEmail.Margin = New Padding(3, 2, 3, 2)
         UserEmail.Name = "UserEmail"
@@ -47,6 +50,9 @@ Partial Class Register
         ' 
         ' UserPassword
         ' 
+        UserPassword.CueHint.Color1 = SystemColors.ButtonShadow
+        UserPassword.CueHint.CueHintText = "●●●●●●●●"
+        UserPassword.CueHint.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         UserPassword.Location = New Point(638, 334)
         UserPassword.Margin = New Padding(3, 2, 3, 2)
         UserPassword.Name = "UserPassword"
@@ -76,6 +82,9 @@ Partial Class Register
         ' 
         ' UserName
         ' 
+        UserName.CueHint.Color1 = SystemColors.ButtonShadow
+        UserName.CueHint.CueHintText = "Seu Nome"
+        UserName.CueHint.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         UserName.Location = New Point(638, 137)
         UserName.Margin = New Padding(3, 2, 3, 2)
         UserName.Name = "UserName"

@@ -33,6 +33,9 @@ Partial Class Login
         ' 
         ' LoginEmail
         ' 
+        LoginEmail.CueHint.Color1 = SystemColors.ButtonShadow
+        LoginEmail.CueHint.CueHintText = "seu@email.com"
+        LoginEmail.CueHint.Font = New Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         LoginEmail.Location = New Point(622, 139)
         LoginEmail.Name = "LoginEmail"
         LoginEmail.Size = New Size(199, 40)
@@ -44,6 +47,9 @@ Partial Class Login
         ' 
         ' LoginPassword
         ' 
+        LoginPassword.CueHint.Color1 = SystemColors.ButtonShadow
+        LoginPassword.CueHint.CueHintText = "●●●●●●●●●●●"
+        LoginPassword.CueHint.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         LoginPassword.Location = New Point(622, 268)
         LoginPassword.Name = "LoginPassword"
         LoginPassword.PasswordChar = "●"c
