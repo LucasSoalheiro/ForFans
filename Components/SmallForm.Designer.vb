@@ -40,7 +40,7 @@ Partial Class SmallForm
         ' 
         ' Title
         ' 
-        Title.Location = New Point(175, 104)
+        Title.Location = New Point(387, 279)
         Title.Margin = New Padding(3, 2, 3, 2)
         Title.Name = "Title"
         Title.Size = New Size(194, 74)

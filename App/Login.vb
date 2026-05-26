@@ -25,10 +25,5 @@
         KryptonPanel1.StateCommon.Color2 = Color.FromArgb(4, 41, 84)
 
         KryptonPanel1.StateCommon.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid
-
-    End Sub
-
-    Private Sub KryptonLabel1_Click(sender As Object, e As EventArgs) Handles KryptonLabel1.Click
-
     End Sub
 End Class
