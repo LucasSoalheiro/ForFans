@@ -33,15 +33,17 @@ Partial Class SmallForm
         KryptonPanel1.Controls.Add(Title)
         KryptonPanel1.Dock = DockStyle.Left
         KryptonPanel1.Location = New Point(0, 0)
+        KryptonPanel1.Margin = New Padding(3, 2, 3, 2)
         KryptonPanel1.Name = "KryptonPanel1"
-        KryptonPanel1.Size = New Size(668, 711)
+        KryptonPanel1.Size = New Size(584, 539)
         KryptonPanel1.TabIndex = 0
         ' 
         ' Title
         ' 
-        Title.Location = New Point(200, 138)
+        Title.Location = New Point(175, 104)
+        Title.Margin = New Padding(3, 2, 3, 2)
         Title.Name = "Title"
-        Title.Size = New Size(222, 99)
+        Title.Size = New Size(194, 74)
         Title.StateCommon.LongText.Font = New Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Title.StateCommon.ShortText.Font = New Font("Segoe UI", 29F, FontStyle.Bold)
         Title.TabIndex = 0
@@ -49,13 +51,12 @@ Partial Class SmallForm
         ' 
         ' SmallForm
         ' 
-        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1179, 711)
+        ClientSize = New Size(1033, 539)
         Controls.Add(KryptonPanel1)
-        Margin = New Padding(3, 4, 3, 4)
-        MaximumSize = New Size(1197, 758)
-        MinimumSize = New Size(1197, 758)
+        MaximumSize = New Size(1049, 578)
+        MinimumSize = New Size(1049, 578)
         Name = "SmallForm"
         Text = "SmallForm"
         CType(KryptonPanel1, ComponentModel.ISupportInitialize).EndInit()
@@ -63,7 +64,6 @@ Partial Class SmallForm
         KryptonPanel1.PerformLayout()
         ResumeLayout(False)
     End Sub
-
-    Friend WithEvents KryptonPanel1 As Krypton.Toolkit.KryptonPanel
     Friend WithEvents Title As Krypton.Toolkit.KryptonLabel
+    Friend WithEvents KryptonPanel1 As Krypton.Toolkit.KryptonPanel
 End Class
