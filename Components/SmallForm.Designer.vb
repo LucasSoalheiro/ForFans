@@ -45,6 +45,7 @@ Partial Class SmallForm
         Title.Name = "Title"
         Title.Size = New Size(194, 74)
         Title.StateCommon.LongText.Font = New Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Title.StateCommon.ShortText.Color1 = Color.White
         Title.StateCommon.ShortText.Font = New Font("Segoe UI", 29F, FontStyle.Bold)
         Title.TabIndex = 0
         Title.Values.Text = "ForFans"

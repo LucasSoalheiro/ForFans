@@ -22,6 +22,7 @@ Partial Class Register
     'Não o modifique usando o editor de códigos.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Register))
         UserEmail = New Krypton.Toolkit.KryptonTextBox()
         UserPassword = New Krypton.Toolkit.KryptonTextBox()
         RegiterBtn = New Krypton.Toolkit.KryptonButton()
@@ -31,14 +32,26 @@ Partial Class Register
         KryptonLabel2 = New Krypton.Toolkit.KryptonLabel()
         KryptonLabel3 = New Krypton.Toolkit.KryptonLabel()
         KryptonLabel4 = New Krypton.Toolkit.KryptonLabel()
+        KryptonPictureBox1 = New Krypton.Toolkit.KryptonPictureBox()
+        KryptonLabel7 = New Krypton.Toolkit.KryptonLabel()
+        CType(KryptonPanel1, ComponentModel.ISupportInitialize).BeginInit()
+        KryptonPanel1.SuspendLayout()
+        CType(KryptonPictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
+        ' 
+        ' KryptonPanel1
+        ' 
+        KryptonPanel1.Controls.Add(KryptonLabel7)
+        KryptonPanel1.StateCommon.Color1 = Color.FromArgb(CByte(4), CByte(44), CByte(83))
+        KryptonPanel1.StateCommon.Color2 = Color.FromArgb(CByte(40), CByte(120), CByte(225))
+        KryptonPanel1.Controls.SetChildIndex(KryptonLabel7, 0)
         ' 
         ' UserEmail
         ' 
         UserEmail.CueHint.Color1 = SystemColors.ButtonShadow
         UserEmail.CueHint.CueHintText = "seu@email.com"
         UserEmail.CueHint.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        UserEmail.Location = New Point(638, 230)
+        UserEmail.Location = New Point(624, 245)
         UserEmail.Margin = New Padding(3, 2, 3, 2)
         UserEmail.Name = "UserEmail"
         UserEmail.Size = New Size(242, 40)
@@ -53,7 +66,7 @@ Partial Class Register
         UserPassword.CueHint.Color1 = SystemColors.ButtonShadow
         UserPassword.CueHint.CueHintText = "●●●●●●●●"
         UserPassword.CueHint.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        UserPassword.Location = New Point(638, 334)
+        UserPassword.Location = New Point(624, 356)
         UserPassword.Margin = New Padding(3, 2, 3, 2)
         UserPassword.Name = "UserPassword"
         UserPassword.PasswordChar = "●"c
@@ -66,11 +79,11 @@ Partial Class Register
         ' RegiterBtn
         ' 
         RegiterBtn.ButtonStyle = Krypton.Toolkit.ButtonStyle.Custom2
-        RegiterBtn.Location = New Point(624, 411)
+        RegiterBtn.Location = New Point(624, 431)
         RegiterBtn.Margin = New Padding(3, 2, 3, 2)
         RegiterBtn.Name = "RegiterBtn"
         RegiterBtn.Size = New Size(364, 45)
-        RegiterBtn.StateCommon.Back.Color1 = Color.FromArgb(CByte(59), CByte(130), CByte(246))
+        RegiterBtn.StateCommon.Back.Color1 = Color.FromArgb(CByte(4), CByte(44), CByte(83))
         RegiterBtn.StateCommon.Back.Color2 = Color.FromArgb(CByte(59), CByte(130), CByte(246))
         RegiterBtn.StateCommon.Border.Color1 = Color.FromArgb(CByte(59), CByte(130), CByte(246))
         RegiterBtn.StateCommon.Border.Rounding = 8F
@@ -85,7 +98,7 @@ Partial Class Register
         UserName.CueHint.Color1 = SystemColors.ButtonShadow
         UserName.CueHint.CueHintText = "Seu Nome"
         UserName.CueHint.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        UserName.Location = New Point(638, 137)
+        UserName.Location = New Point(624, 137)
         UserName.Margin = New Padding(3, 2, 3, 2)
         UserName.Name = "UserName"
         UserName.Size = New Size(242, 40)
@@ -96,7 +109,7 @@ Partial Class Register
         ' 
         ' LoginLink
         ' 
-        LoginLink.Location = New Point(731, 486)
+        LoginLink.Location = New Point(731, 491)
         LoginLink.Name = "LoginLink"
         LoginLink.Size = New Size(149, 25)
         LoginLink.TabIndex = 5
@@ -113,7 +126,7 @@ Partial Class Register
         ' 
         ' KryptonLabel2
         ' 
-        KryptonLabel2.Location = New Point(638, 99)
+        KryptonLabel2.Location = New Point(624, 90)
         KryptonLabel2.Name = "KryptonLabel2"
         KryptonLabel2.Size = New Size(172, 33)
         KryptonLabel2.StateCommon.ShortText.Color1 = Color.FromArgb(CByte(4), CByte(41), CByte(84))
@@ -123,7 +136,7 @@ Partial Class Register
         ' 
         ' KryptonLabel3
         ' 
-        KryptonLabel3.Location = New Point(638, 181)
+        KryptonLabel3.Location = New Point(624, 197)
         KryptonLabel3.Name = "KryptonLabel3"
         KryptonLabel3.Size = New Size(90, 33)
         KryptonLabel3.StateCommon.ShortText.Color1 = Color.FromArgb(CByte(4), CByte(41), CByte(84))
@@ -133,7 +146,7 @@ Partial Class Register
         ' 
         ' KryptonLabel4
         ' 
-        KryptonLabel4.Location = New Point(638, 280)
+        KryptonLabel4.Location = New Point(624, 306)
         KryptonLabel4.Name = "KryptonLabel4"
         KryptonLabel4.Size = New Size(90, 33)
         KryptonLabel4.StateCommon.ShortText.Color1 = Color.FromArgb(CByte(4), CByte(41), CByte(84))
@@ -141,12 +154,33 @@ Partial Class Register
         KryptonLabel4.TabIndex = 9
         KryptonLabel4.Values.Text = "Senha"
         ' 
+        ' KryptonPictureBox1
+        ' 
+        KryptonPictureBox1.Image = My.Resources.Resources.logo
+        KryptonPictureBox1.Location = New Point(931, 12)
+        KryptonPictureBox1.Name = "KryptonPictureBox1"
+        KryptonPictureBox1.Size = New Size(70, 70)
+        KryptonPictureBox1.SizeMode = PictureBoxSizeMode.Zoom
+        KryptonPictureBox1.TabIndex = 12
+        KryptonPictureBox1.TabStop = False
+        ' 
+        ' KryptonLabel7
+        ' 
+        KryptonLabel7.Location = New Point(56, 169)
+        KryptonLabel7.Name = "KryptonLabel7"
+        KryptonLabel7.Size = New Size(487, 142)
+        KryptonLabel7.StateCommon.ShortText.Color1 = Color.White
+        KryptonLabel7.StateCommon.ShortText.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        KryptonLabel7.TabIndex = 12
+        KryptonLabel7.Values.Text = resources.GetString("KryptonLabel7.Values.Text")
+        ' 
         ' Register
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        BackColor = Color.FromArgb(CByte(235), CByte(242), CByte(250))
+        BackColor = Color.White
         ClientSize = New Size(1033, 539)
+        Controls.Add(KryptonPictureBox1)
         Controls.Add(KryptonLabel4)
         Controls.Add(KryptonLabel3)
         Controls.Add(KryptonLabel2)
@@ -159,6 +193,7 @@ Partial Class Register
         Margin = New Padding(3, 2, 3, 2)
         Name = "Register"
         Text = "Register"
+        Controls.SetChildIndex(KryptonPanel1, 0)
         Controls.SetChildIndex(UserName, 0)
         Controls.SetChildIndex(UserEmail, 0)
         Controls.SetChildIndex(UserPassword, 0)
@@ -168,6 +203,11 @@ Partial Class Register
         Controls.SetChildIndex(KryptonLabel2, 0)
         Controls.SetChildIndex(KryptonLabel3, 0)
         Controls.SetChildIndex(KryptonLabel4, 0)
+        Controls.SetChildIndex(KryptonPictureBox1, 0)
+        CType(KryptonPanel1, ComponentModel.ISupportInitialize).EndInit()
+        KryptonPanel1.ResumeLayout(False)
+        KryptonPanel1.PerformLayout()
+        CType(KryptonPictureBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -180,4 +220,6 @@ Partial Class Register
     Friend WithEvents KryptonLabel2 As Krypton.Toolkit.KryptonLabel
     Friend WithEvents KryptonLabel3 As Krypton.Toolkit.KryptonLabel
     Friend WithEvents KryptonLabel4 As Krypton.Toolkit.KryptonLabel
+    Friend WithEvents KryptonPictureBox1 As Krypton.Toolkit.KryptonPictureBox
+    Friend WithEvents KryptonLabel7 As Krypton.Toolkit.KryptonLabel
 End Class

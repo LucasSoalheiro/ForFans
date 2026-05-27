@@ -20,10 +20,18 @@
         Me.Hide()
     End Sub
 
-    Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        KryptonPanel1.StateCommon.Color1 = Color.FromArgb(4, 41, 84)
-        KryptonPanel1.StateCommon.Color2 = Color.FromArgb(4, 41, 84)
+    Private Sub KryptonPictureBox1_Click(sender As Object, e As EventArgs) Handles KryptonPictureBox1.Click
 
-        KryptonPanel1.StateCommon.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid
     End Sub
+
+    Private Sub KryptonLabel7_Click(sender As Object, e As EventArgs) Handles KryptonLabel7.Click
+
+    End Sub
+
+    'Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    'KryptonPanel1.StateCommon.Color1 = Color.FromArgb(4, 41, 84)
+    'KryptonPanel1.StateCommon.Color2 = Color.FromArgb(4, 41, 84)
+
+    ' KryptonPanel1.StateCommon.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid
+    'End Sub
 End Class
