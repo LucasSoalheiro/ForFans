@@ -65,5 +65,5 @@ Partial Class SmallForm
         ResumeLayout(False)
     End Sub
     Friend WithEvents Title As Krypton.Toolkit.KryptonLabel
-    Friend WithEvents KryptonPanel1 As Krypton.Toolkit.KryptonPanel
+    Public WithEvents KryptonPanel1 As Krypton.Toolkit.KryptonPanel
 End Class
