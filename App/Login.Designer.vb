@@ -35,6 +35,8 @@ Partial Class Login
         KryptonLabel6 = New Krypton.Toolkit.KryptonLabel()
         KryptonPictureBox1 = New Krypton.Toolkit.KryptonPictureBox()
         KryptonLabel7 = New Krypton.Toolkit.KryptonLabel()
+        ButtonSpecAny1 = New Krypton.Toolkit.ButtonSpecAny()
+        ButtonSpecAny2 = New Krypton.Toolkit.ButtonSpecAny()
         CType(KryptonPanel1, ComponentModel.ISupportInitialize).BeginInit()
         KryptonPanel1.SuspendLayout()
         CType(KryptonPictureBox1, ComponentModel.ISupportInitialize).BeginInit()
@@ -56,6 +58,7 @@ Partial Class Login
         ' 
         ' LoginEmail
         ' 
+        LoginEmail.ButtonSpecs.Add(ButtonSpecAny1)
         LoginEmail.CueHint.Color1 = SystemColors.ButtonShadow
         LoginEmail.CueHint.CueHintText = "seu@email.com"
         LoginEmail.CueHint.Font = New Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
@@ -70,6 +73,7 @@ Partial Class Login
         ' 
         ' LoginPassword
         ' 
+        LoginPassword.ButtonSpecs.Add(ButtonSpecAny2)
         LoginPassword.CueHint.Color1 = SystemColors.ButtonShadow
         LoginPassword.CueHint.CueHintText = "●●●●●●●●●●●"
         LoginPassword.CueHint.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
@@ -189,6 +193,20 @@ Partial Class Login
         KryptonLabel7.TabIndex = 11
         KryptonLabel7.Values.Text = resources.GetString("KryptonLabel7.Values.Text")
         ' 
+        ' ButtonSpecAny1
+        ' 
+        ButtonSpecAny1.Edge = Krypton.Toolkit.PaletteRelativeEdgeAlign.Near
+        ButtonSpecAny1.Image = My.Resources.Resources.mail_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24
+        ButtonSpecAny1.Style = Krypton.Toolkit.PaletteButtonStyle.LowProfile
+        ButtonSpecAny1.UniqueName = "c270eeb79dc04a2ea326182dfb21fe7c"
+        ' 
+        ' ButtonSpecAny2
+        ' 
+        ButtonSpecAny2.Edge = Krypton.Toolkit.PaletteRelativeEdgeAlign.Near
+        ButtonSpecAny2.Image = My.Resources.Resources.lock_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24
+        ButtonSpecAny2.Style = Krypton.Toolkit.PaletteButtonStyle.LowProfile
+        ButtonSpecAny2.UniqueName = "a82d61f24f0842a8ac4e9ba60f4fd0bf"
+        ' 
         ' Login
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -236,4 +254,6 @@ Partial Class Login
     Friend WithEvents KryptonLabel5 As Krypton.Toolkit.KryptonLabel
     Friend WithEvents KryptonPictureBox1 As Krypton.Toolkit.KryptonPictureBox
     Friend WithEvents KryptonLabel7 As Krypton.Toolkit.KryptonLabel
+    Friend WithEvents ButtonSpecAny1 As Krypton.Toolkit.ButtonSpecAny
+    Friend WithEvents ButtonSpecAny2 As Krypton.Toolkit.ButtonSpecAny
 End Class

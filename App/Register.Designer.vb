@@ -34,6 +34,9 @@ Partial Class Register
         KryptonLabel4 = New Krypton.Toolkit.KryptonLabel()
         KryptonPictureBox1 = New Krypton.Toolkit.KryptonPictureBox()
         KryptonLabel7 = New Krypton.Toolkit.KryptonLabel()
+        ButtonSpecAny1 = New Krypton.Toolkit.ButtonSpecAny()
+        ButtonSpecAny2 = New Krypton.Toolkit.ButtonSpecAny()
+        ButtonSpecAny3 = New Krypton.Toolkit.ButtonSpecAny()
         CType(KryptonPanel1, ComponentModel.ISupportInitialize).BeginInit()
         KryptonPanel1.SuspendLayout()
         CType(KryptonPictureBox1, ComponentModel.ISupportInitialize).BeginInit()
@@ -48,6 +51,7 @@ Partial Class Register
         ' 
         ' UserEmail
         ' 
+        UserEmail.ButtonSpecs.Add(ButtonSpecAny1)
         UserEmail.CueHint.Color1 = SystemColors.ButtonShadow
         UserEmail.CueHint.CueHintText = "seu@email.com"
         UserEmail.CueHint.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
@@ -63,6 +67,7 @@ Partial Class Register
         ' 
         ' UserPassword
         ' 
+        UserPassword.ButtonSpecs.Add(ButtonSpecAny2)
         UserPassword.CueHint.Color1 = SystemColors.ButtonShadow
         UserPassword.CueHint.CueHintText = "●●●●●●●●"
         UserPassword.CueHint.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
@@ -95,6 +100,7 @@ Partial Class Register
         ' 
         ' UserName
         ' 
+        UserName.ButtonSpecs.Add(ButtonSpecAny3)
         UserName.CueHint.Color1 = SystemColors.ButtonShadow
         UserName.CueHint.CueHintText = "Seu Nome"
         UserName.CueHint.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
@@ -174,6 +180,27 @@ Partial Class Register
         KryptonLabel7.TabIndex = 12
         KryptonLabel7.Values.Text = resources.GetString("KryptonLabel7.Values.Text")
         ' 
+        ' ButtonSpecAny1
+        ' 
+        ButtonSpecAny1.Edge = Krypton.Toolkit.PaletteRelativeEdgeAlign.Near
+        ButtonSpecAny1.Image = My.Resources.Resources.mail_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24
+        ButtonSpecAny1.Style = Krypton.Toolkit.PaletteButtonStyle.LowProfile
+        ButtonSpecAny1.UniqueName = "333908ef851f46db893fc3f660a5f04e"
+        ' 
+        ' ButtonSpecAny2
+        ' 
+        ButtonSpecAny2.Edge = Krypton.Toolkit.PaletteRelativeEdgeAlign.Near
+        ButtonSpecAny2.Image = My.Resources.Resources.lock_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24
+        ButtonSpecAny2.Style = Krypton.Toolkit.PaletteButtonStyle.LowProfile
+        ButtonSpecAny2.UniqueName = "8750b3591275411eabb855db4107e8a6"
+        ' 
+        ' ButtonSpecAny3
+        ' 
+        ButtonSpecAny3.Edge = Krypton.Toolkit.PaletteRelativeEdgeAlign.Near
+        ButtonSpecAny3.Image = My.Resources.Resources.person_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24
+        ButtonSpecAny3.Style = Krypton.Toolkit.PaletteButtonStyle.LowProfile
+        ButtonSpecAny3.UniqueName = "47875131b7744449b822340344225181"
+        ' 
         ' Register
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -222,4 +249,7 @@ Partial Class Register
     Friend WithEvents KryptonLabel4 As Krypton.Toolkit.KryptonLabel
     Friend WithEvents KryptonPictureBox1 As Krypton.Toolkit.KryptonPictureBox
     Friend WithEvents KryptonLabel7 As Krypton.Toolkit.KryptonLabel
+    Friend WithEvents ButtonSpecAny1 As Krypton.Toolkit.ButtonSpecAny
+    Friend WithEvents ButtonSpecAny2 As Krypton.Toolkit.ButtonSpecAny
+    Friend WithEvents ButtonSpecAny3 As Krypton.Toolkit.ButtonSpecAny
 End Class
