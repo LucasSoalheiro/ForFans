@@ -23,7 +23,7 @@ CREATE TABLE Subscription (
     status       ENUM('active', 'expired', 'canceled') NOT NULL DEFAULT 'active',
     createdAt    DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     FOREIGN KEY (subscriberId) REFERENCES Users(id),
-    FOREIGN KEY (creatorId)    REFERENCES Users(id),
+    FOREIGN KEY (creatorId)    REFERENCES Users(id)
 );
 
 CREATE TABLE Content (
