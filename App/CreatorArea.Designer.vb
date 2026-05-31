@@ -29,15 +29,13 @@ Partial Class CreatorArea
         lblFileName = New Krypton.Toolkit.KryptonLabel()
         lblType = New Krypton.Toolkit.KryptonLabel()
         ThumbnailBtn = New Krypton.Toolkit.KryptonButton()
-        Button1 = New Button()
-        Button2 = New Button()
         SaveBtn = New Krypton.Toolkit.KryptonButton()
         CType(picPreview, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' txtTitle
         ' 
-        txtTitle.Location = New Point(349, 25)
+        txtTitle.Location = New Point(242, 27)
         txtTitle.Name = "txtTitle"
         txtTitle.Size = New Size(100, 23)
         txtTitle.TabIndex = 2
@@ -93,24 +91,6 @@ Partial Class CreatorArea
         ThumbnailBtn.Values.DropDownArrowColor = Color.Empty
         ThumbnailBtn.Values.Text = "KryptonButton1"
         ' 
-        ' Button1
-        ' 
-        Button1.Location = New Point(0, 0)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(75, 23)
-        Button1.TabIndex = 9
-        Button1.Text = "Button1"
-        Button1.UseVisualStyleBackColor = True
-        ' 
-        ' Button2
-        ' 
-        Button2.Location = New Point(8, 8)
-        Button2.Name = "Button2"
-        Button2.Size = New Size(75, 23)
-        Button2.TabIndex = 10
-        Button2.Text = "Button2"
-        Button2.UseVisualStyleBackColor = True
-        ' 
         ' SaveBtn
         ' 
         SaveBtn.Location = New Point(379, 396)
@@ -122,12 +102,10 @@ Partial Class CreatorArea
         ' 
         ' CreatorArea
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1064, 734)
         Controls.Add(SaveBtn)
-        Controls.Add(Button2)
-        Controls.Add(Button1)
         Controls.Add(ThumbnailBtn)
         Controls.Add(lblType)
         Controls.Add(lblFileName)
@@ -144,8 +122,6 @@ Partial Class CreatorArea
         Controls.SetChildIndex(lblFileName, 0)
         Controls.SetChildIndex(lblType, 0)
         Controls.SetChildIndex(ThumbnailBtn, 0)
-        Controls.SetChildIndex(Button1, 0)
-        Controls.SetChildIndex(Button2, 0)
         Controls.SetChildIndex(SaveBtn, 0)
         CType(picPreview, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
@@ -159,7 +135,5 @@ Partial Class CreatorArea
     Friend WithEvents lblFileName As Krypton.Toolkit.KryptonLabel
     Friend WithEvents lblType As Krypton.Toolkit.KryptonLabel
     Friend WithEvents ThumbnailBtn As Krypton.Toolkit.KryptonButton
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
     Friend WithEvents SaveBtn As Krypton.Toolkit.KryptonButton
 End Class

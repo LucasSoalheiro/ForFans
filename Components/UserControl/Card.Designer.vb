@@ -24,6 +24,8 @@ Partial Class Card
     Private Sub InitializeComponent()
         TitleContent = New Krypton.Toolkit.KryptonLabel()
         CreatorNamelbl = New Krypton.Toolkit.KryptonLabel()
+        ThumbnailImage = New Krypton.Toolkit.KryptonPictureBox()
+        CType(ThumbnailImage, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' TitleContent
@@ -42,19 +44,31 @@ Partial Class Card
         CreatorNamelbl.TabIndex = 1
         CreatorNamelbl.Values.Text = "Creator of Content"
         ' 
+        ' ThumbnailImage
+        ' 
+        ThumbnailImage.Location = New Point(3, 94)
+        ThumbnailImage.Name = "ThumbnailImage"
+        ThumbnailImage.Size = New Size(610, 248)
+        ThumbnailImage.TabIndex = 2
+        ThumbnailImage.TabStop = False
+        ' 
         ' Card
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
+        Controls.Add(ThumbnailImage)
         Controls.Add(CreatorNamelbl)
         Controls.Add(TitleContent)
         Name = "Card"
         Size = New Size(616, 345)
+        CType(ThumbnailImage, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
 
     Friend WithEvents TitleContent As Krypton.Toolkit.KryptonLabel
     Friend WithEvents CreatorNamelbl As Krypton.Toolkit.KryptonLabel
+    Friend WithEvents KryptonPictureBox1 As Krypton.Toolkit.KryptonPictureBox
+    Friend WithEvents ThumbnailImage As Krypton.Toolkit.KryptonPictureBox
 
 End Class

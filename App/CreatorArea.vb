@@ -1,5 +1,4 @@
 ﻿Imports System.IO
-'C:\Users\User\source\repos\forfans\bin\Debug\net10.0-windows\uploads é caminho das imagens
 
 Public Class CreatorArea
     Inherits FormBase
@@ -8,97 +7,243 @@ Public Class CreatorArea
     Private _thumbnailUrl As String = ""
     Private _contentType As String = ""
 
+    Private ReadOnly _imageExtensions As String() =
+        {".jpg", ".jpeg", ".png", ".gif"}
+
     Private Sub SelectFileBtn_Click(sender As Object, e As EventArgs) Handles SelectFileBtn.Click
         Using ofd As New OpenFileDialog()
-            ofd.Filter = "Imagens (*.jpg;*.jpeg;*.png;*.gif)|*.jpg;*.jpeg;*.png;*.gif|" &
-                         "Vídeos (*.mp4;*.avi;*.mov;*.mkv)|*.mp4;*.avi;*.mov;*.mkv|" &
-                         "Todos os arquivos|*.*"
+
+            ofd.Filter =
+                "Imagens (*.jpg;*.jpeg;*.png;*.gif)|*.jpg;*.jpeg;*.png;*.gif|" &
+                "Vídeos (*.mp4;*.avi;*.mov;*.mkv)|*.mp4;*.avi;*.mov;*.mkv|" &
+                "Todos os arquivos|*.*"
+
             ofd.Title = "Selecione uma imagem ou vídeo"
 
-            If ofd.ShowDialog() = DialogResult.OK Then
-                Dim ext = Path.GetExtension(ofd.FileName).ToLower()
-
-                If ext = ".jpg" OrElse ext = ".jpeg" OrElse ext = ".png" OrElse ext = ".gif" Then
-                    _contentType = "photo"
-                Else
-                    _contentType = "video"
-                End If
-
-                _fileUrl = UploadFile(ofd.FileName)
-
-                lblFileName.Text = Path.GetFileName(ofd.FileName)
-                lblType.Text = _contentType
-
-                If _contentType = "photo" Then
-                    Dim fullPath = Path.Combine(Application.StartupPath, _fileUrl)
-                    picPreview.Image = Image.FromFile(fullPath)
-                End If
+            If ofd.ShowDialog() <> DialogResult.OK Then
+                Return
             End If
+
+            Dim ext = Path.GetExtension(ofd.FileName).ToLower()
+
+            If _imageExtensions.Contains(ext) Then
+                _contentType = "photo"
+            Else
+                _contentType = "video"
+            End If
+
+            _fileUrl = UploadFile(ofd.FileName)
+
+            If String.IsNullOrEmpty(_fileUrl) Then
+                Return
+            End If
+
+            lblFileName.Text = Path.GetFileName(ofd.FileName)
+            lblType.Text = _contentType
+
+            If _contentType = "photo" Then
+                Dim fullPath = Path.Combine(Application.StartupPath, _fileUrl.Replace("/", "\"))
+
+                Try
+                    LoadPreviewImage(fullPath)
+                Catch ex As Exception
+                    MessageBox.Show(
+                        $"Erro ao carregar imagem: {ex.Message}",
+                        "Erro",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    )
+                End Try
+            End If
+
         End Using
     End Sub
 
     Private Sub ThumbnailBtn_Click(sender As Object, e As EventArgs) Handles ThumbnailBtn.Click
         Using ofd As New OpenFileDialog()
-            ofd.Filter = "Imagens (*.jpg;*.jpeg;*.png;*.gif)|*.jpg;*.jpeg;*.png;*.gif"
+
+            ofd.Filter =
+                "Imagens (*.jpg;*.jpeg;*.png;*.gif)|*.jpg;*.jpeg;*.png;*.gif"
+
             ofd.Title = "Selecione a thumbnail"
 
-            If ofd.ShowDialog() = DialogResult.OK Then
-                _thumbnailUrl = UploadFile(ofd.FileName)
-
-                Dim fullPath = Path.Combine(Application.StartupPath, _thumbnailUrl)
-                picPreview.Image = Image.FromFile(fullPath)
+            If ofd.ShowDialog() <> DialogResult.OK Then
+                Return
             End If
+
+            _thumbnailUrl = UploadFile(ofd.FileName)
+
+            If String.IsNullOrEmpty(_thumbnailUrl) Then
+                Return
+            End If
+
+            Dim fullPath = Path.Combine(Application.StartupPath, _thumbnailUrl.Replace("/", "\"))
+
+            Try
+                LoadPreviewImage(fullPath)
+            Catch ex As Exception
+                MessageBox.Show(
+                    $"Erro ao carregar thumbnail: {ex.Message}",
+                    "Erro",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                )
+            End Try
+
         End Using
     End Sub
 
+    Private Async Sub SaveBtn_Click(sender As Object, e As EventArgs) Handles SaveBtn.Click
 
-    Private Sub SaveBtn_Click(sender As Object, e As EventArgs) Handles SaveBtn.Click
         If String.IsNullOrEmpty(_fileUrl) Then
-            MessageBox.Show("Selecione um arquivo primeiro!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            MessageBox.Show(
+                "Selecione um arquivo primeiro!",
+                "Atenção",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning
+            )
             Return
         End If
 
         If String.IsNullOrWhiteSpace(txtTitle.Text) Then
-            MessageBox.Show("Informe o título!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            MessageBox.Show(
+                "Informe o título!",
+                "Atenção",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning
+            )
+            Return
+        End If
+
+        ' Remova esta validação caso thumbnail não seja obrigatória
+        If String.IsNullOrEmpty(_thumbnailUrl) Then
+            MessageBox.Show(
+                "Selecione uma thumbnail!",
+                "Atenção",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning
+            )
             Return
         End If
 
         Try
 
+            MessageBox.Show(
+                $"Arquivo: {_fileUrl}{vbCrLf}" &
+                $"Thumbnail: {_thumbnailUrl}{vbCrLf}" &
+                $"Tipo: {_contentType}",
+                "Dados do Conteúdo"
+            )
 
-            MessageBox.Show("Conteúdo salvo com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Await CreateAsync("Content", New Dictionary(Of String, Object) From {
+                {"creatorId", "1"},
+                {"title", txtTitle.Text.Trim()},
+                {"description", txtDescription.Text.Trim()},
+                {"fileUrl", _fileUrl},
+                {"thumbnailUrl", _thumbnailUrl},
+                {"type", _contentType}
+            })
+
+
+            MessageBox.Show(
+                "Conteúdo salvo com sucesso!",
+                "Sucesso",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+            )
+
             LimparFormulario()
 
         Catch ex As Exception
-            MessageBox.Show($"Erro ao salvar: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+            MessageBox.Show(
+                $"Erro ao salvar: {ex.Message}",
+                "Erro",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error
+            )
+
         End Try
+
     End Sub
 
     Private Function UploadFile(localPath As String) As String
-        Dim uploadsFolder = Path.Combine(Application.StartupPath, "uploads")
 
-        If Not Directory.Exists(uploadsFolder) Then
-            Directory.CreateDirectory(uploadsFolder)
-        End If
+        Try
 
-        Dim fileName = $"{Guid.NewGuid()}{Path.GetExtension(localPath)}"
-        Dim destPath = Path.Combine(uploadsFolder, fileName)
+            Dim uploadsFolder =
+                Path.Combine(Application.StartupPath, "uploads")
 
-        File.Copy(localPath, destPath)
+            If Not Directory.Exists(uploadsFolder) Then
+                Directory.CreateDirectory(uploadsFolder)
+            End If
 
-        Return Path.Combine("uploads", fileName)
+            Dim fileName =
+                $"{Guid.NewGuid()}{Path.GetExtension(localPath)}"
+
+            Dim destPath =
+                Path.Combine(uploadsFolder, fileName)
+
+            File.Copy(localPath, destPath, True)
+
+            Return $"uploads/{fileName}"
+
+        Catch ex As Exception
+
+            MessageBox.Show(
+                $"Erro ao fazer upload: {ex.Message}",
+                "Erro",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error
+            )
+
+            Return ""
+
+        End Try
+
     End Function
 
+    Private Sub LoadPreviewImage(imagePath As String)
+
+        If picPreview.Image IsNot Nothing Then
+            picPreview.Image.Dispose()
+            picPreview.Image = Nothing
+        End If
+
+        Using img As Image = Image.FromFile(imagePath)
+            picPreview.Image = New Bitmap(img)
+        End Using
+
+    End Sub
 
     Private Sub LimparFormulario()
-        txtTitle.Text = ""
-        txtDescription.Text = ""
+
+        txtTitle.Clear()
+        txtDescription.Clear()
+
         lblFileName.Text = "Nenhum arquivo selecionado"
         lblType.Text = ""
-        picPreview.Image = Nothing
+
+        If picPreview.Image IsNot Nothing Then
+            picPreview.Image.Dispose()
+            picPreview.Image = Nothing
+        End If
+
         _fileUrl = ""
         _thumbnailUrl = ""
         _contentType = ""
+
+    End Sub
+
+    Protected Overrides Sub OnFormClosed(e As FormClosedEventArgs)
+
+        If picPreview.Image IsNot Nothing Then
+            picPreview.Image.Dispose()
+            picPreview.Image = Nothing
+        End If
+
+        MyBase.OnFormClosed(e)
+
     End Sub
 
 End Class

@@ -1,4 +1,5 @@
-﻿Imports System.Diagnostics.Eventing
+﻿Imports System.IO
+
 
 Public Class Home
     Inherits FormBase
@@ -28,6 +29,15 @@ Public Class Home
             Dim contentCard As New Card()
             contentCard.TitleContent.Text = row("title").ToString()
             contentCard.CreatorNamelbl.Text = row("creatorName").ToString()
+            Dim thumbnailUrl As String = row("thumbnailUrl").ToString()
+
+            Dim fullPath = Path.Combine(
+            Application.StartupPath,
+            thumbnailUrl.Replace("/", "\")
+            )
+            Using img As Image = Image.FromFile(fullPath)
+                contentCard.ThumbnailImage.Image = New Bitmap(img)
+            End Using
             FContainer.Controls.Add(contentCard)
         Next
         FContainer.ResumeLayout()
