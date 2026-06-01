@@ -2,6 +2,9 @@
 Public Class SideBar
     Public Event ToggleSideBar()
 
+    Public UserId As String
+    Public ActualForm As Form
+
     Public Property AccountName As String
         Get
             Return AccountLbl.Text
@@ -16,6 +19,24 @@ Public Class SideBar
     End Sub
 
     Private Sub SideBar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    End Sub
+
+    Private Sub LabelCreatorArea_Click(sender As Object, e As EventArgs) Handles LabelCreatorArea.Click
+        Dim creatorArea As New CreatorArea(UserId)
+        creatorArea.Show()
+        ActualForm.Hide()
+    End Sub
+
+    Private Sub ButtonCreatorArea_Click(sender As Object, e As EventArgs) Handles ButtonCreatorArea.Click
+        Dim creatorArea As New CreatorArea(UserId)
+        creatorArea.Show()
+        ActualForm.Hide()
+    End Sub
+
+    Private Sub KryptonLabel1_Click(sender As Object, e As EventArgs) Handles KryptonLabel1.Click
+        Dim home As New Home(UserId)
+        home.Show()
+        ActualForm.Hide()
     End Sub
 End Class
 

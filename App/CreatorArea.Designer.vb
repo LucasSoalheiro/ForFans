@@ -26,8 +26,6 @@ Partial Class CreatorArea
         txtDescription = New Krypton.Toolkit.KryptonTextBox()
         picPreview = New Krypton.Toolkit.KryptonPictureBox()
         SelectFileBtn = New Krypton.Toolkit.KryptonButton()
-        lblFileName = New Krypton.Toolkit.KryptonLabel()
-        lblType = New Krypton.Toolkit.KryptonLabel()
         ThumbnailBtn = New Krypton.Toolkit.KryptonButton()
         SaveBtn = New Krypton.Toolkit.KryptonButton()
         CType(picPreview, ComponentModel.ISupportInitialize).BeginInit()
@@ -35,70 +33,52 @@ Partial Class CreatorArea
         ' 
         ' txtTitle
         ' 
-        txtTitle.Location = New Point(242, 27)
+        txtTitle.Location = New Point(349, 25)
         txtTitle.Name = "txtTitle"
-        txtTitle.Size = New Size(100, 23)
+        txtTitle.Size = New Size(575, 23)
         txtTitle.TabIndex = 2
-        txtTitle.Text = "KryptonTextBox1"
         ' 
         ' txtDescription
         ' 
-        txtDescription.Location = New Point(349, 54)
+        txtDescription.Location = New Point(349, 93)
         txtDescription.Name = "txtDescription"
-        txtDescription.Size = New Size(100, 23)
+        txtDescription.Size = New Size(575, 23)
         txtDescription.TabIndex = 3
-        txtDescription.Text = "KryptonTextBox2"
         ' 
         ' picPreview
         ' 
-        picPreview.Location = New Point(418, 214)
+        picPreview.Location = New Point(536, 246)
         picPreview.Name = "picPreview"
-        picPreview.Size = New Size(100, 50)
+        picPreview.Size = New Size(471, 276)
         picPreview.TabIndex = 4
         picPreview.TabStop = False
         ' 
         ' SelectFileBtn
         ' 
-        SelectFileBtn.Location = New Point(533, 220)
+        SelectFileBtn.Location = New Point(349, 302)
         SelectFileBtn.Name = "SelectFileBtn"
-        SelectFileBtn.Size = New Size(103, 44)
+        SelectFileBtn.Size = New Size(145, 44)
         SelectFileBtn.TabIndex = 5
         SelectFileBtn.Values.DropDownArrowColor = Color.Empty
-        SelectFileBtn.Values.Text = "Selecionar Imagem"
-        ' 
-        ' lblFileName
-        ' 
-        lblFileName.Location = New Point(242, 275)
-        lblFileName.Name = "lblFileName"
-        lblFileName.Size = New Size(243, 65)
-        lblFileName.TabIndex = 6
-        lblFileName.Values.Text = "KryptonLabel1"
-        ' 
-        ' lblType
-        ' 
-        lblType.Location = New Point(491, 299)
-        lblType.Name = "lblType"
-        lblType.Size = New Size(389, 61)
-        lblType.TabIndex = 7
-        lblType.Values.Text = "KryptonLabel2"
+        SelectFileBtn.Values.Text = "Selecionar o contéudo"
         ' 
         ' ThumbnailBtn
         ' 
-        ThumbnailBtn.Location = New Point(359, 106)
+        ThumbnailBtn.Location = New Point(349, 246)
         ThumbnailBtn.Name = "ThumbnailBtn"
-        ThumbnailBtn.Size = New Size(90, 25)
+        ThumbnailBtn.Size = New Size(145, 50)
         ThumbnailBtn.TabIndex = 8
         ThumbnailBtn.Values.DropDownArrowColor = Color.Empty
-        ThumbnailBtn.Values.Text = "KryptonButton1"
+        ThumbnailBtn.Values.Text = "Selecione a thumbnail"
         ' 
         ' SaveBtn
         ' 
-        SaveBtn.Location = New Point(379, 396)
+        SaveBtn.Location = New Point(349, 518)
         SaveBtn.Name = "SaveBtn"
-        SaveBtn.Size = New Size(90, 25)
+        SaveBtn.Size = New Size(100, 25)
         SaveBtn.TabIndex = 11
         SaveBtn.Values.DropDownArrowColor = Color.Empty
-        SaveBtn.Values.Text = "KryptonButton1"
+        SaveBtn.Values.Text = "Criar"
         ' 
         ' CreatorArea
         ' 
@@ -107,8 +87,6 @@ Partial Class CreatorArea
         ClientSize = New Size(1064, 734)
         Controls.Add(SaveBtn)
         Controls.Add(ThumbnailBtn)
-        Controls.Add(lblType)
-        Controls.Add(lblFileName)
         Controls.Add(SelectFileBtn)
         Controls.Add(picPreview)
         Controls.Add(txtDescription)
@@ -119,8 +97,6 @@ Partial Class CreatorArea
         Controls.SetChildIndex(txtDescription, 0)
         Controls.SetChildIndex(picPreview, 0)
         Controls.SetChildIndex(SelectFileBtn, 0)
-        Controls.SetChildIndex(lblFileName, 0)
-        Controls.SetChildIndex(lblType, 0)
         Controls.SetChildIndex(ThumbnailBtn, 0)
         Controls.SetChildIndex(SaveBtn, 0)
         CType(picPreview, ComponentModel.ISupportInitialize).EndInit()
@@ -132,8 +108,6 @@ Partial Class CreatorArea
     Friend WithEvents txtDescription As Krypton.Toolkit.KryptonTextBox
     Friend WithEvents picPreview As Krypton.Toolkit.KryptonPictureBox
     Friend WithEvents SelectFileBtn As Krypton.Toolkit.KryptonButton
-    Friend WithEvents lblFileName As Krypton.Toolkit.KryptonLabel
-    Friend WithEvents lblType As Krypton.Toolkit.KryptonLabel
     Friend WithEvents ThumbnailBtn As Krypton.Toolkit.KryptonButton
     Friend WithEvents SaveBtn As Krypton.Toolkit.KryptonButton
 End Class

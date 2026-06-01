@@ -3,12 +3,23 @@
 Public Class CreatorArea
     Inherits FormBase
 
+    Private UserId As String
     Private _fileUrl As String = ""
     Private _thumbnailUrl As String = ""
     Private _contentType As String = ""
 
-    Private ReadOnly _imageExtensions As String() =
-        {".jpg", ".jpeg", ".png", ".gif"}
+    Public Sub New(userId As String)
+        InitializeComponent()
+        Me.UserId = userId
+    End Sub
+
+    Private Sub CreatorArea_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.sidebar.UserId = UserId
+        Me.sidebar.ActualForm = Me
+    End Sub
+
+
+    Private ReadOnly _imageExtensions As String() = {".jpg", ".jpeg", ".png", ".gif"}
 
     Private Sub SelectFileBtn_Click(sender As Object, e As EventArgs) Handles SelectFileBtn.Click
         Using ofd As New OpenFileDialog()
@@ -38,8 +49,6 @@ Public Class CreatorArea
                 Return
             End If
 
-            lblFileName.Text = Path.GetFileName(ofd.FileName)
-            lblType.Text = _contentType
 
             If _contentType = "photo" Then
                 Dim fullPath = Path.Combine(Application.StartupPath, _fileUrl.Replace("/", "\"))
@@ -221,8 +230,6 @@ Public Class CreatorArea
         txtTitle.Clear()
         txtDescription.Clear()
 
-        lblFileName.Text = "Nenhum arquivo selecionado"
-        lblType.Text = ""
 
         If picPreview.Image IsNot Nothing Then
             picPreview.Image.Dispose()
@@ -245,5 +252,6 @@ Public Class CreatorArea
         MyBase.OnFormClosed(e)
 
     End Sub
+
 
 End Class

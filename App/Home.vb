@@ -20,6 +20,8 @@ Public Class Home
         Username = User("name").ToString()
         Useremail = User("email").ToString()
         Me.sidebar.AccountName = Username
+        Me.sidebar.UserId = id
+        Me.sidebar.ActualForm = Me
     End Sub
 
     Private Async Function LoadContent() As Task
