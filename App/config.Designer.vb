@@ -1,6 +1,6 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Content
-    Inherits FormBase
+Partial Class config
+    Inherits System.Windows.Forms.Form
 
     'Descartar substituições de formulário para limpar a lista de componentes.
     <System.Diagnostics.DebuggerNonUserCode()> _
@@ -22,16 +22,9 @@ Partial Class Content
     'Não o modifique usando o editor de códigos.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        SuspendLayout()
-        ' 
-        ' Content
-        ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
-        AutoScaleMode = AutoScaleMode.Font
-        BackColor = Color.LightSteelBlue
-        ClientSize = New Size(1064, 734)
-        Name = "Content"
-        Text = "Content"
-        ResumeLayout(False)
+        components = New System.ComponentModel.Container
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Text = "config"
     End Sub
 End Class

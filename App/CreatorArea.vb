@@ -252,6 +252,4 @@ Public Class CreatorArea
         MyBase.OnFormClosed(e)
 
     End Sub
-
-
 End Class

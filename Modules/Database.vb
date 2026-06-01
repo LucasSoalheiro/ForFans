@@ -8,10 +8,11 @@ Public Module Database
             dotenv.net.DotEnv.Load(opcoes)
 
             Dim host As String = Environment.GetEnvironmentVariable("DB_HOST")
+            Dim port As String = Environment.GetEnvironmentVariable("DB_PORT")
             Dim name As String = Environment.GetEnvironmentVariable("DB_NAME")
             Dim user As String = Environment.GetEnvironmentVariable("DB_USER")
             Dim pass As String = Environment.GetEnvironmentVariable("DB_PASS")
-            connStr = $"Server={host};Database={name};user={user};password={pass};"
+            connStr = $"Server={host};Port={port};Database={name};user={user};password={pass};"
         Catch ex As Exception
             MsgBox($"Config Error: {ex.Message}", MsgBoxStyle.Critical)
             connStr = String.Empty
