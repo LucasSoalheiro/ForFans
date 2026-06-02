@@ -1,6 +1,6 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class signatures
-    Inherits System.Windows.Forms.Form
+    Inherits FormBase
 
     'Descartar substituições de formulário para limpar a lista de componentes.
     <System.Diagnostics.DebuggerNonUserCode()> _

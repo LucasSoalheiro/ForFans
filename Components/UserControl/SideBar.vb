@@ -38,5 +38,17 @@ Public Class SideBar
         home.Show()
         ActualForm.Hide()
     End Sub
+
+    Private Sub KryptonButton3_Click(sender As Object, e As EventArgs) Handles KryptonButton3.Click
+        Dim screenconfig As New config(UserId)
+        screenconfig.Show()
+        ActualForm.Hide()
+    End Sub
+
+    Private Sub KryptonButton2_Click(sender As Object, e As EventArgs) Handles KryptonButton2.Click
+        Dim Assignaturearea As New signatures(UserId)
+        Assignaturearea.show()
+        ActualForm.Hide()
+    End Sub
 End Class
 

@@ -50,7 +50,7 @@ Partial Class SideBar
         KryptonLabel1.Location = New Point(64, 3)
         KryptonLabel1.Name = "KryptonLabel1"
         KryptonLabel1.Size = New Size(149, 55)
-        KryptonLabel1.StateCommon.ShortText.Font = New Font("Segoe UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0)
+        KryptonLabel1.StateCommon.ShortText.Font = New Font("Segoe UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         KryptonLabel1.TabIndex = 4
         KryptonLabel1.Values.Text = "ForFans"
         ' 
