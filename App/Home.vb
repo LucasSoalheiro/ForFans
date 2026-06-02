@@ -22,13 +22,14 @@ Public Class Home
         Me.sidebar.AccountName = Username
         Me.sidebar.UserId = id
         Me.sidebar.ActualForm = Me
+
     End Sub
 
     Private Async Function LoadContent() As Task
         FContainer.SuspendLayout()
         Dim Contents = Await QueryAsync("SELECT c.id AS contentId, u.id AS creatorId, u.name AS creatorName, c.title, c.thumbnailUrl, c.description FROM Content c JOIN Users u ON c.creatorId = u.id;")
         For Each row As DataRow In Contents.Rows
-            Dim contentCard As New Card()
+            Dim contentCard As New Card(row("contentId").ToString(), Me, Me.sidebar.UserId)
             contentCard.TitleContent.Text = row("title").ToString()
             contentCard.CreatorNamelbl.Text = row("creatorName").ToString()
             Dim thumbnailUrl As String = row("thumbnailUrl").ToString()
