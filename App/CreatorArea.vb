@@ -13,9 +13,11 @@ Public Class CreatorArea
         Me.UserId = userId
     End Sub
 
-    Private Sub CreatorArea_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Async Sub CreatorArea_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.sidebar.UserId = UserId
         Me.sidebar.ActualForm = Me
+        Dim user = Await ReadAsync("Users", $"id = {UserId}")
+        Me.sidebar.AccountName = user("name").ToString()
     End Sub
 
 

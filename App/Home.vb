@@ -29,7 +29,7 @@ Public Class Home
         FContainer.SuspendLayout()
         Dim Contents = Await QueryAsync("SELECT c.id AS contentId, u.id AS creatorId, u.name AS creatorName, c.title, c.thumbnailUrl, c.description FROM Content c JOIN Users u ON c.creatorId = u.id;")
         For Each row As DataRow In Contents.Rows
-            Dim contentCard As New Card(row("contentId").ToString(), Me, Me.sidebar.UserId)
+            Dim contentCard As New Card(row("contentId").ToString(), Me, id)
             contentCard.TitleContent.Text = row("title").ToString()
             contentCard.CreatorNamelbl.Text = row("creatorName").ToString()
             Dim thumbnailUrl As String = row("thumbnailUrl").ToString()

@@ -11,6 +11,9 @@
     End Sub
     Private Async Sub Content_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.sidebar.ActualForm = Me
+        Me.sidebar.UserId = UserId
+        Dim user = Await ReadAsync("Users", $"id = {UserId}")
+        Me.sidebar.AccountName = user("name").ToString()
         Dim contents = Await ReadAsync("Content", $"id = {ContentId}")
 
         ContentPlayer.URL = contents("fileUrl").ToString()

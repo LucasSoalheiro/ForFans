@@ -50,5 +50,11 @@ Public Class SideBar
         Assignaturearea.show()
         ActualForm.Hide()
     End Sub
+
+    Private Sub AccountLbl_Click(sender As Object, e As EventArgs) Handles AccountLbl.Click
+        Dim config As New config(UserId)
+        config.Show()
+        ActualForm.Hide()
+    End Sub
 End Class
 
