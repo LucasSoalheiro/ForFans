@@ -40,9 +40,11 @@ Partial Class SideBar
         SidebarBtn.Location = New Point(3, 3)
         SidebarBtn.Name = "SidebarBtn"
         SidebarBtn.Size = New Size(55, 55)
-        SidebarBtn.StateCommon.Border.Rounding = 10F
+        SidebarBtn.StateCommon.Back.Draw = Krypton.Toolkit.InheritBool.False
+        SidebarBtn.StateCommon.Border.Draw = Krypton.Toolkit.InheritBool.False
         SidebarBtn.TabIndex = 3
         SidebarBtn.Values.DropDownArrowColor = Color.Empty
+        SidebarBtn.Values.Image = My.Resources.Resources.logo
         SidebarBtn.Values.Text = ""
         ' 
         ' KryptonLabel1
@@ -59,9 +61,12 @@ Partial Class SideBar
         ButtonCreatorArea.Location = New Point(3, 143)
         ButtonCreatorArea.Name = "ButtonCreatorArea"
         ButtonCreatorArea.Size = New Size(55, 55)
-        ButtonCreatorArea.StateCommon.Border.Rounding = 10F
+        ButtonCreatorArea.StateCommon.Back.Draw = Krypton.Toolkit.InheritBool.False
+        ButtonCreatorArea.StateCommon.Border.Draw = Krypton.Toolkit.InheritBool.False
+        ButtonCreatorArea.StateDisabled.Back.Draw = Krypton.Toolkit.InheritBool.False
         ButtonCreatorArea.TabIndex = 5
         ButtonCreatorArea.Values.DropDownArrowColor = Color.Empty
+        ButtonCreatorArea.Values.Image = My.Resources.Resources.video_camera_back_add_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz241
         ButtonCreatorArea.Values.Text = ""
         ' 
         ' KryptonButton2
@@ -69,9 +74,11 @@ Partial Class SideBar
         KryptonButton2.Location = New Point(3, 221)
         KryptonButton2.Name = "KryptonButton2"
         KryptonButton2.Size = New Size(55, 55)
-        KryptonButton2.StateCommon.Border.Rounding = 10F
+        KryptonButton2.StateCommon.Back.Draw = Krypton.Toolkit.InheritBool.False
+        KryptonButton2.StateCommon.Border.Draw = Krypton.Toolkit.InheritBool.False
         KryptonButton2.TabIndex = 6
         KryptonButton2.Values.DropDownArrowColor = Color.Empty
+        KryptonButton2.Values.Image = My.Resources.Resources.editor_choice_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24
         KryptonButton2.Values.Text = ""
         ' 
         ' KryptonBorderEdge1
@@ -88,9 +95,12 @@ Partial Class SideBar
         KryptonButton3.Location = New Point(3, 373)
         KryptonButton3.Name = "KryptonButton3"
         KryptonButton3.Size = New Size(55, 55)
-        KryptonButton3.StateCommon.Border.Rounding = 10F
+        KryptonButton3.StateCommon.Back.Draw = Krypton.Toolkit.InheritBool.False
+        KryptonButton3.StateCommon.Border.Draw = Krypton.Toolkit.InheritBool.False
+        KryptonButton3.StateCommon.Border.Width = 8
         KryptonButton3.TabIndex = 9
         KryptonButton3.Values.DropDownArrowColor = Color.Empty
+        KryptonButton3.Values.Image = My.Resources.Resources.settings_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24
         KryptonButton3.Values.Text = ""
         ' 
         ' KryptonButton4
@@ -129,7 +139,7 @@ Partial Class SideBar
         KryptonLabel4.Size = New Size(166, 55)
         KryptonLabel4.StateCommon.ShortText.Font = New Font("Segoe UI", 16.15F, FontStyle.Bold)
         KryptonLabel4.TabIndex = 17
-        KryptonLabel4.Values.Text = "KryptonLabel4"
+        KryptonLabel4.Values.Text = "Assinaturas"
         ' 
         ' LabelCreatorArea
         ' 

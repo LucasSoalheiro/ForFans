@@ -50,5 +50,11 @@ Public Class SideBar
         Assignaturearea.show()
         ActualForm.Hide()
     End Sub
+
+    Private Sub KryptonLabel4_Click(sender As Object, e As EventArgs) Handles KryptonLabel4.Click
+        Dim Assignaturearea As New signatures(UserId)
+        Assignaturearea.Show()
+        ActualForm.Hide()
+    End Sub
 End Class
 
