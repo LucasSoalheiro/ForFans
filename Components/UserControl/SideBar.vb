@@ -62,5 +62,6 @@ Public Class SideBar
         config.Show()
         ActualForm.Hide()
     End Sub
+
 End Class
 

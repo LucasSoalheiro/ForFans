@@ -31,4 +31,8 @@ Public Class Register
     Private Sub KryptonLabel7_Click(sender As Object, e As EventArgs) Handles KryptonLabel7.Click
 
     End Sub
+
+    Private Sub KryptonLabel1_Click(sender As Object, e As EventArgs) Handles KryptonLabel1.Click
+
+    End Sub
 End Class

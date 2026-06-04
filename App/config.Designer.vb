@@ -43,7 +43,7 @@ Partial Class config
         ' PictureProfile
         ' 
         PictureProfile.Image = My.Resources.Resources.person_edit_256dp_E3E3E3_FILL0_wght400_GRAD0_opsz48
-        PictureProfile.Location = New Point(322, 121)
+        PictureProfile.Location = New Point(196, 121)
         PictureProfile.Name = "PictureProfile"
         PictureProfile.Size = New Size(120, 120)
         PictureProfile.SizeMode = PictureBoxSizeMode.Zoom
@@ -55,9 +55,9 @@ Partial Class config
         newName.ButtonSpecs.Add(ButtonSpecAny1)
         newName.CueHint.Color1 = Color.Black
         newName.CueHint.CueHintText = "Insira o novo nome"
-        newName.Location = New Point(322, 296)
+        newName.Location = New Point(196, 296)
         newName.Name = "newName"
-        newName.Size = New Size(414, 36)
+        newName.Size = New Size(643, 36)
         newName.StateCommon.Border.Rounding = 8F
         newName.TabIndex = 9
         ' 
@@ -69,7 +69,7 @@ Partial Class config
         ' 
         ' NameUser
         ' 
-        NameUser.Location = New Point(458, 133)
+        NameUser.Location = New Point(344, 121)
         NameUser.Name = "NameUser"
         NameUser.Size = New Size(90, 25)
         NameUser.TabIndex = 2
@@ -77,7 +77,7 @@ Partial Class config
         ' 
         ' Useremail
         ' 
-        Useremail.Location = New Point(458, 164)
+        Useremail.Location = New Point(344, 162)
         Useremail.Name = "Useremail"
         Useremail.Size = New Size(90, 25)
         Useremail.TabIndex = 3
@@ -88,9 +88,9 @@ Partial Class config
         NewUseremail.ButtonSpecs.Add(ButtonSpecAny2)
         NewUseremail.CueHint.Color1 = Color.Black
         NewUseremail.CueHint.CueHintText = "Insira o novo email"
-        NewUseremail.Location = New Point(322, 370)
+        NewUseremail.Location = New Point(196, 379)
         NewUseremail.Name = "NewUseremail"
-        NewUseremail.Size = New Size(414, 36)
+        NewUseremail.Size = New Size(643, 36)
         NewUseremail.StateCommon.Border.Rounding = 8F
         NewUseremail.TabIndex = 10
         ' 
@@ -105,7 +105,7 @@ Partial Class config
         NewBios.CueHint.Color1 = Color.Black
         NewBios.CueHint.CueHintText = "Conte algo sobre você..."
         NewBios.CueHint.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near
-        NewBios.Location = New Point(322, 469)
+        NewBios.Location = New Point(186, 472)
         NewBios.Name = "NewBios"
         NewBios.Size = New Size(653, 132)
         NewBios.StateCommon.Border.Rounding = 8F
@@ -114,7 +114,7 @@ Partial Class config
         ' 
         ' KryptonLabel1
         ' 
-        KryptonLabel1.Location = New Point(322, 264)
+        KryptonLabel1.Location = New Point(196, 264)
         KryptonLabel1.Name = "KryptonLabel1"
         KryptonLabel1.Size = New Size(90, 26)
         KryptonLabel1.StateCommon.ShortText.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
@@ -123,7 +123,7 @@ Partial Class config
         ' 
         ' KryptonLabel2
         ' 
-        KryptonLabel2.Location = New Point(322, 338)
+        KryptonLabel2.Location = New Point(196, 347)
         KryptonLabel2.Name = "KryptonLabel2"
         KryptonLabel2.Size = New Size(90, 26)
         KryptonLabel2.StateCommon.ShortText.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
@@ -132,7 +132,7 @@ Partial Class config
         ' 
         ' ChangeImage
         ' 
-        ChangeImage.Location = New Point(458, 202)
+        ChangeImage.Location = New Point(344, 202)
         ChangeImage.Name = "ChangeImage"
         ChangeImage.Size = New Size(137, 39)
         ChangeImage.StateCommon.Back.Draw = Krypton.Toolkit.InheritBool.False
@@ -146,7 +146,7 @@ Partial Class config
         ' 
         ' BtnSave
         ' 
-        BtnSave.Location = New Point(693, 626)
+        BtnSave.Location = New Point(557, 624)
         BtnSave.Name = "BtnSave"
         BtnSave.Size = New Size(282, 39)
         BtnSave.StateCommon.Back.Color1 = Color.FromArgb(CByte(4), CByte(44), CByte(83))
@@ -160,7 +160,7 @@ Partial Class config
         ' 
         ' KryptonLabel3
         ' 
-        KryptonLabel3.Location = New Point(322, 437)
+        KryptonLabel3.Location = New Point(196, 440)
         KryptonLabel3.Name = "KryptonLabel3"
         KryptonLabel3.Size = New Size(90, 26)
         KryptonLabel3.StateCommon.ShortText.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
@@ -169,7 +169,7 @@ Partial Class config
         ' 
         ' KryptonLabel5
         ' 
-        KryptonLabel5.Location = New Point(322, 12)
+        KryptonLabel5.Location = New Point(186, 12)
         KryptonLabel5.Name = "KryptonLabel5"
         KryptonLabel5.Size = New Size(239, 49)
         KryptonLabel5.StateCommon.ShortText.Color1 = Color.Black
@@ -179,7 +179,7 @@ Partial Class config
         ' 
         ' KryptonLabel6
         ' 
-        KryptonLabel6.Location = New Point(322, 67)
+        KryptonLabel6.Location = New Point(196, 67)
         KryptonLabel6.Name = "KryptonLabel6"
         KryptonLabel6.Size = New Size(308, 25)
         KryptonLabel6.StateCommon.ShortText.Color1 = Color.Gray
@@ -191,7 +191,7 @@ Partial Class config
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        BackColor = Color.FromArgb(CByte(240), CByte(244), CByte(248))
+        BackColor = Color.FromArgb(CByte(247), CByte(249), CByte(250))
         ClientSize = New Size(1064, 734)
         Controls.Add(KryptonLabel6)
         Controls.Add(KryptonLabel5)

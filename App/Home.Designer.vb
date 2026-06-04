@@ -39,7 +39,7 @@ Partial Class Home
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        BackColor = Color.FromArgb(CByte(240), CByte(244), CByte(248))
+        BackColor = Color.FromArgb(CByte(247), CByte(249), CByte(250))
         ClientSize = New Size(1064, 734)
         Controls.Add(FContainer)
         Name = "Home"

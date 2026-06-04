@@ -43,7 +43,7 @@ Partial Class CreatorArea
         txtTitle.ButtonSpecs.Add(ButtonSpecAny1)
         txtTitle.CueHint.CueHintText = "Adicione aqui o título do seu conteúdo"
         txtTitle.CueHint.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        txtTitle.Location = New Point(266, 152)
+        txtTitle.Location = New Point(192, 152)
         txtTitle.Name = "txtTitle"
         txtTitle.Size = New Size(750, 36)
         txtTitle.StateCommon.Border.Rounding = 8F
@@ -60,7 +60,7 @@ Partial Class CreatorArea
         txtDescription.ButtonSpecs.Add(ButtonSpecAny2)
         txtDescription.CueHint.CueHintText = "Adicione aqui a descrição do seu conteúdo"
         txtDescription.CueHint.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        txtDescription.Location = New Point(266, 262)
+        txtDescription.Location = New Point(192, 262)
         txtDescription.Multiline = True
         txtDescription.Name = "txtDescription"
         txtDescription.Size = New Size(750, 58)
@@ -76,7 +76,7 @@ Partial Class CreatorArea
         ' picPreview
         ' 
         picPreview.BorderStyle = BorderStyle.FixedSingle
-        picPreview.Location = New Point(266, 458)
+        picPreview.Location = New Point(192, 458)
         picPreview.Name = "picPreview"
         picPreview.Size = New Size(372, 252)
         picPreview.TabIndex = 4
@@ -84,7 +84,7 @@ Partial Class CreatorArea
         ' 
         ' SelectFileBtn
         ' 
-        SelectFileBtn.Location = New Point(694, 565)
+        SelectFileBtn.Location = New Point(652, 559)
         SelectFileBtn.Name = "SelectFileBtn"
         SelectFileBtn.Size = New Size(172, 49)
         SelectFileBtn.StateCommon.Back.Color1 = Color.FromArgb(CByte(4), CByte(44), CByte(83))
@@ -99,7 +99,7 @@ Partial Class CreatorArea
         ' 
         ' ThumbnailBtn
         ' 
-        ThumbnailBtn.Location = New Point(694, 458)
+        ThumbnailBtn.Location = New Point(652, 458)
         ThumbnailBtn.Name = "ThumbnailBtn"
         ThumbnailBtn.Size = New Size(172, 50)
         ThumbnailBtn.StateCommon.Back.Color1 = Color.FromArgb(CByte(4), CByte(44), CByte(83))
@@ -114,7 +114,7 @@ Partial Class CreatorArea
         ' 
         ' SaveBtn
         ' 
-        SaveBtn.Location = New Point(694, 668)
+        SaveBtn.Location = New Point(652, 658)
         SaveBtn.Name = "SaveBtn"
         SaveBtn.Size = New Size(172, 42)
         SaveBtn.StateCommon.Back.Color1 = Color.FromArgb(CByte(4), CByte(44), CByte(83))
@@ -129,7 +129,7 @@ Partial Class CreatorArea
         ' 
         ' KryptonLabel2
         ' 
-        KryptonLabel2.Location = New Point(266, 116)
+        KryptonLabel2.Location = New Point(192, 116)
         KryptonLabel2.Name = "KryptonLabel2"
         KryptonLabel2.Size = New Size(192, 30)
         KryptonLabel2.StateCommon.ShortText.Color1 = Color.FromArgb(CByte(4), CByte(41), CByte(84))
@@ -139,7 +139,7 @@ Partial Class CreatorArea
         ' 
         ' KryptonLabel3
         ' 
-        KryptonLabel3.Location = New Point(266, 12)
+        KryptonLabel3.Location = New Point(192, 12)
         KryptonLabel3.Name = "KryptonLabel3"
         KryptonLabel3.Size = New Size(252, 49)
         KryptonLabel3.StateCommon.ShortText.Color1 = Color.FromArgb(CByte(4), CByte(41), CByte(84))
@@ -149,7 +149,7 @@ Partial Class CreatorArea
         ' 
         ' KryptonLabel1
         ' 
-        KryptonLabel1.Location = New Point(266, 226)
+        KryptonLabel1.Location = New Point(192, 226)
         KryptonLabel1.Name = "KryptonLabel1"
         KryptonLabel1.Size = New Size(226, 30)
         KryptonLabel1.StateCommon.ShortText.Color1 = Color.FromArgb(CByte(4), CByte(41), CByte(84))
@@ -159,7 +159,7 @@ Partial Class CreatorArea
         ' 
         ' KryptonLabel5
         ' 
-        KryptonLabel5.Location = New Point(266, 67)
+        KryptonLabel5.Location = New Point(192, 67)
         KryptonLabel5.Name = "KryptonLabel5"
         KryptonLabel5.Size = New Size(419, 26)
         KryptonLabel5.StateCommon.ShortText.Color1 = Color.Black
@@ -169,7 +169,7 @@ Partial Class CreatorArea
         ' 
         ' KryptonLabel4
         ' 
-        KryptonLabel4.Location = New Point(266, 411)
+        KryptonLabel4.Location = New Point(192, 406)
         KryptonLabel4.Name = "KryptonLabel4"
         KryptonLabel4.Size = New Size(226, 30)
         KryptonLabel4.StateCommon.ShortText.Color1 = Color.FromArgb(CByte(4), CByte(41), CByte(84))
@@ -181,7 +181,7 @@ Partial Class CreatorArea
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        BackColor = Color.FromArgb(CByte(240), CByte(244), CByte(248))
+        BackColor = Color.FromArgb(CByte(247), CByte(249), CByte(250))
         ClientSize = New Size(1064, 734)
         Controls.Add(KryptonLabel4)
         Controls.Add(KryptonLabel5)
