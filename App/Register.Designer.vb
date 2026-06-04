@@ -51,7 +51,7 @@ Partial Class Register
         KryptonPanel1.Controls.Add(KryptonLabel5)
         KryptonPanel1.Controls.Add(KryptonPictureBox1)
         KryptonPanel1.Controls.Add(KryptonLabel7)
-        KryptonPanel1.StateCommon.Color1 = Color.FromArgb(CByte(4), CByte(44), CByte(83))
+        KryptonPanel1.StateCommon.Color1 = Color.FromArgb(CByte(29), CByte(161), CByte(242))
         KryptonPanel1.StateCommon.Color2 = Color.FromArgb(CByte(40), CByte(120), CByte(225))
         KryptonPanel1.Controls.SetChildIndex(KryptonLabel7, 0)
         KryptonPanel1.Controls.SetChildIndex(KryptonPictureBox1, 0)
@@ -155,8 +155,8 @@ Partial Class Register
         ' 
         KryptonLabel1.Location = New Point(624, 12)
         KryptonLabel1.Name = "KryptonLabel1"
-        KryptonLabel1.Size = New Size(190, 37)
-        KryptonLabel1.StateCommon.ShortText.Font = New Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        KryptonLabel1.Size = New Size(251, 49)
+        KryptonLabel1.StateCommon.ShortText.Font = New Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         KryptonLabel1.TabIndex = 6
         KryptonLabel1.Values.Text = "Começar agora"
         ' 

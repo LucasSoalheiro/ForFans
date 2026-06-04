@@ -48,7 +48,7 @@ Partial Class Login
         KryptonPanel1.Controls.Add(KryptonLabel5)
         KryptonPanel1.Controls.Add(KryptonLabel4)
         KryptonPanel1.Size = New Size(584, 578)
-        KryptonPanel1.StateCommon.Color1 = Color.FromArgb(CByte(4), CByte(44), CByte(83))
+        KryptonPanel1.StateCommon.Color1 = Color.FromArgb(CByte(29), CByte(161), CByte(242))
         KryptonPanel1.StateCommon.Color2 = Color.FromArgb(CByte(40), CByte(120), CByte(225))
         KryptonPanel1.Controls.SetChildIndex(KryptonLabel4, 0)
         KryptonPanel1.Controls.SetChildIndex(KryptonLabel5, 0)
@@ -113,7 +113,7 @@ Partial Class Login
         LoginBtn.StateCommon.Content.LongText.Color1 = Color.Black
         LoginBtn.StateCommon.Content.LongText.Font = New Font("Microsoft Sans Serif", 8.25F)
         LoginBtn.StateCommon.Content.ShortText.Color1 = Color.White
-        LoginBtn.StateCommon.Content.ShortText.Font = New Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        LoginBtn.StateCommon.Content.ShortText.Font = New Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         LoginBtn.TabIndex = 3
         LoginBtn.Values.DropDownArrowColor = Color.Empty
         LoginBtn.Values.Text = "Entrar na plataforma"

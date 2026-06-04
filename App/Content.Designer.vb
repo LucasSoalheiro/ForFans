@@ -40,7 +40,7 @@ Partial Class Content
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        BackColor = Color.LightSteelBlue
+        BackColor = Color.FromArgb(CByte(247), CByte(249), CByte(250))
         ClientSize = New Size(1064, 734)
         Controls.Add(ContentPlayer)
         Name = "Content"

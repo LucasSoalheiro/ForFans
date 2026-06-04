@@ -63,6 +63,16 @@ Namespace My.Resources
         '''<summary>
         '''  Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property bolt_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bolt_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property description_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("description_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24", resourceCulture)
@@ -86,6 +96,36 @@ Namespace My.Resources
         Friend ReadOnly Property editor_choice_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("editor_choice_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property folder_check_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("folder_check_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property image_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("image_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property image_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz241() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("image_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz241", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

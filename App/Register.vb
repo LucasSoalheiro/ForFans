@@ -95,4 +95,8 @@ Public Class Register
 
         End Try
     End Sub
+
+    Private Sub KryptonLabel1_Click(sender As Object, e As EventArgs) Handles KryptonLabel1.Click
+
+    End Sub
 End Class
