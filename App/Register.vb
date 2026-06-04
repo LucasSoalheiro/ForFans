@@ -27,4 +27,8 @@ Public Class Register
         loginForm.Show()
         Me.Hide()
     End Sub
+
+    Private Sub KryptonLabel7_Click(sender As Object, e As EventArgs) Handles KryptonLabel7.Click
+
+    End Sub
 End Class
