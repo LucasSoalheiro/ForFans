@@ -6,6 +6,7 @@
     Private Sub FormBase_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         sidebar.Width = 60
         AddHandler sidebar.ToggleSideBar, AddressOf ToggleSidebar
+        sidebar.BringToFront()
     End Sub
 
     Protected Sub ToggleSidebar()

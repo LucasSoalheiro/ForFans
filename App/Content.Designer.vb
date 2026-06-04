@@ -30,7 +30,7 @@ Partial Class Content
         ' ContentPlayer
         ' 
         ContentPlayer.Enabled = True
-        ContentPlayer.Location = New Point(277, 12)
+        ContentPlayer.Location = New Point(154, 129)
         ContentPlayer.Name = "ContentPlayer"
         ContentPlayer.OcxState = CType(resources.GetObject("ContentPlayer.OcxState"), AxHost.State)
         ContentPlayer.Size = New Size(775, 482)

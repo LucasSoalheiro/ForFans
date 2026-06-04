@@ -30,7 +30,7 @@ Partial Class Home
         FContainer.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         FContainer.AutoScroll = True
         FContainer.BackColor = Color.LightSteelBlue
-        FContainer.Location = New Point(259, 0)
+        FContainer.Location = New Point(157, 0)
         FContainer.Name = "FContainer"
         FContainer.Size = New Size(805, 677)
         FContainer.TabIndex = 2
