@@ -42,6 +42,8 @@ Partial Class SideBar
         SidebarBtn.Size = New Size(55, 55)
         SidebarBtn.StateCommon.Back.Draw = Krypton.Toolkit.InheritBool.False
         SidebarBtn.StateCommon.Border.Draw = Krypton.Toolkit.InheritBool.False
+        SidebarBtn.StateNormal.Border.Rounding = 10F
+        SidebarBtn.StatePressed.Content.Image.Effect = Krypton.Toolkit.PaletteImageEffect.Light
         SidebarBtn.TabIndex = 3
         SidebarBtn.Values.DropDownArrowColor = Color.Empty
         SidebarBtn.Values.Image = My.Resources.Resources.logo
