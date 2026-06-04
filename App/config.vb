@@ -21,6 +21,12 @@ Public Class config
         Me.sidebar.UserId = _id
         Me.sidebar.ActualForm = Me
 
+        'deixando o circulo do perfil redondo
+        Dim contorno As New System.Drawing.Drawing2D.GraphicsPath()
+        contorno.AddEllipse(0, 0, PictureProfile.Width, PictureProfile.Height)
+        PictureProfile.Region = New Region(contorno)
+
+
         Dim user = Await ReadAsync("Users", $"id = {_id}")
         If user Is Nothing Then Return
         Me.sidebar.AccountName = user("name").ToString()
@@ -145,6 +151,19 @@ Public Class config
             BtnSave.Enabled = True
             BtnSave.Values.Text = "Salvar alterações"
         End Try
+    End Sub
+
+    'borda do circulo azul
+    Private Sub PictureProfile_Paint(sender As Object, e As PaintEventArgs) Handles PictureProfile.Paint
+       ' Ativa a suavização máxima de serrilhado
+    e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias
+    e.Graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic
+    
+    ' 🛠️ O TRUQUE: Trazemos o desenho levemente para dentro (começando em 1,1 e reduzindo -3 na largura/altura)
+    ' Isso impede que a máscara de corte "coma" as bordas da linha azul
+    Using caneta As New Pen(Color.FromArgb(0, 102, 204), 2)
+        e.Graphics.DrawEllipse(caneta, 1, 1, PictureProfile.Width - 3, PictureProfile.Height - 3)
+    End Using
     End Sub
 
 End Class

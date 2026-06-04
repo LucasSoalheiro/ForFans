@@ -24,35 +24,50 @@ Partial Class config
     Private Sub InitializeComponent()
         PictureProfile = New Krypton.Toolkit.KryptonPictureBox()
         newName = New Krypton.Toolkit.KryptonTextBox()
+        ButtonSpecAny1 = New Krypton.Toolkit.ButtonSpecAny()
         NameUser = New Krypton.Toolkit.KryptonLabel()
         Useremail = New Krypton.Toolkit.KryptonLabel()
         NewUseremail = New Krypton.Toolkit.KryptonTextBox()
+        ButtonSpecAny2 = New Krypton.Toolkit.ButtonSpecAny()
         NewBios = New Krypton.Toolkit.KryptonTaskDialogKryptonRichTextBox()
         KryptonLabel1 = New Krypton.Toolkit.KryptonLabel()
         KryptonLabel2 = New Krypton.Toolkit.KryptonLabel()
         ChangeImage = New Krypton.Toolkit.KryptonButton()
         BtnSave = New Krypton.Toolkit.KryptonButton()
+        KryptonLabel3 = New Krypton.Toolkit.KryptonLabel()
         CType(PictureProfile, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' PictureProfile
         ' 
+        PictureProfile.Image = My.Resources.Resources.person_edit_256dp_E3E3E3_FILL0_wght400_GRAD0_opsz48
         PictureProfile.Location = New Point(322, 30)
         PictureProfile.Name = "PictureProfile"
-        PictureProfile.Size = New Size(105, 105)
+        PictureProfile.Size = New Size(120, 120)
+        PictureProfile.SizeMode = PictureBoxSizeMode.Zoom
         PictureProfile.TabIndex = 4
         PictureProfile.TabStop = False
         ' 
         ' newName
         ' 
-        newName.Location = New Point(322, 197)
+        newName.ButtonSpecs.Add(ButtonSpecAny1)
+        newName.CueHint.Color1 = Color.Black
+        newName.CueHint.CueHintText = "Insira o novo nome"
+        newName.Location = New Point(322, 268)
         newName.Name = "newName"
-        newName.Size = New Size(238, 23)
+        newName.Size = New Size(414, 36)
+        newName.StateCommon.Border.Rounding = 8F
         newName.TabIndex = 9
+        ' 
+        ' ButtonSpecAny1
+        ' 
+        ButtonSpecAny1.Edge = Krypton.Toolkit.PaletteRelativeEdgeAlign.Near
+        ButtonSpecAny1.Image = My.Resources.Resources.person_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24
+        ButtonSpecAny1.UniqueName = "a0160eacafcc44b7aa6ba5dc773692fc"
         ' 
         ' NameUser
         ' 
-        NameUser.Location = New Point(470, 30)
+        NameUser.Location = New Point(458, 30)
         NameUser.Name = "NameUser"
         NameUser.Size = New Size(90, 25)
         NameUser.TabIndex = 2
@@ -60,7 +75,7 @@ Partial Class config
         ' 
         ' Useremail
         ' 
-        Useremail.Location = New Point(470, 61)
+        Useremail.Location = New Point(458, 71)
         Useremail.Name = "Useremail"
         Useremail.Size = New Size(90, 25)
         Useremail.TabIndex = 3
@@ -68,58 +83,95 @@ Partial Class config
         ' 
         ' NewUseremail
         ' 
-        NewUseremail.Location = New Point(322, 255)
+        NewUseremail.ButtonSpecs.Add(ButtonSpecAny2)
+        NewUseremail.CueHint.Color1 = Color.Black
+        NewUseremail.CueHint.CueHintText = "Insira o novo email"
+        NewUseremail.Location = New Point(322, 378)
         NewUseremail.Name = "NewUseremail"
-        NewUseremail.Size = New Size(238, 23)
+        NewUseremail.Size = New Size(414, 36)
+        NewUseremail.StateCommon.Border.Rounding = 8F
         NewUseremail.TabIndex = 10
+        ' 
+        ' ButtonSpecAny2
+        ' 
+        ButtonSpecAny2.Edge = Krypton.Toolkit.PaletteRelativeEdgeAlign.Near
+        ButtonSpecAny2.Image = My.Resources.Resources.mail_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24
+        ButtonSpecAny2.UniqueName = "d4e5238e07bc407f9980e7e87eedda0e"
         ' 
         ' NewBios
         ' 
-        NewBios.Location = New Point(322, 352)
+        NewBios.CueHint.Color1 = Color.Black
+        NewBios.CueHint.CueHintText = "Conte algo sobre você..."
+        NewBios.CueHint.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near
+        NewBios.Location = New Point(322, 521)
         NewBios.Name = "NewBios"
-        NewBios.Size = New Size(414, 182)
+        NewBios.Size = New Size(414, 132)
+        NewBios.StateCommon.Border.Rounding = 8F
         NewBios.TabIndex = 11
         NewBios.Text = ""
         ' 
         ' KryptonLabel1
         ' 
-        KryptonLabel1.Location = New Point(324, 171)
+        KryptonLabel1.Location = New Point(322, 237)
         KryptonLabel1.Name = "KryptonLabel1"
-        KryptonLabel1.Size = New Size(90, 25)
+        KryptonLabel1.Size = New Size(90, 26)
+        KryptonLabel1.StateCommon.ShortText.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         KryptonLabel1.TabIndex = 12
-        KryptonLabel1.Values.Text = "Name"
+        KryptonLabel1.Values.Text = "Nome"
         ' 
         ' KryptonLabel2
         ' 
-        KryptonLabel2.Location = New Point(322, 224)
+        KryptonLabel2.Location = New Point(322, 347)
         KryptonLabel2.Name = "KryptonLabel2"
-        KryptonLabel2.Size = New Size(90, 25)
+        KryptonLabel2.Size = New Size(90, 26)
+        KryptonLabel2.StateCommon.ShortText.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         KryptonLabel2.TabIndex = 13
         KryptonLabel2.Values.Text = "Email"
         ' 
         ' ChangeImage
         ' 
-        ChangeImage.Location = New Point(468, 104)
+        ChangeImage.Location = New Point(458, 111)
         ChangeImage.Name = "ChangeImage"
-        ChangeImage.Size = New Size(90, 25)
+        ChangeImage.Size = New Size(137, 39)
+        ChangeImage.StateCommon.Back.Draw = Krypton.Toolkit.InheritBool.False
+        ChangeImage.StateCommon.Border.Rounding = 8F
+        ChangeImage.StateCommon.Content.ShortText.Color1 = Color.DeepSkyBlue
+        ChangeImage.StateCommon.Content.ShortText.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         ChangeImage.TabIndex = 14
         ChangeImage.Values.DropDownArrowColor = Color.Empty
-        ChangeImage.Values.Text = "Change Image"
+        ChangeImage.Values.Image = My.Resources.Resources.upload_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24
+        ChangeImage.Values.Text = "Trocar Foto"
         ' 
         ' BtnSave
         ' 
-        BtnSave.Location = New Point(769, 496)
+        BtnSave.Location = New Point(764, 521)
         BtnSave.Name = "BtnSave"
-        BtnSave.Size = New Size(90, 25)
+        BtnSave.Size = New Size(260, 39)
+        BtnSave.StateCommon.Back.Color1 = Color.FromArgb(CByte(4), CByte(44), CByte(83))
+        BtnSave.StateCommon.Back.Color2 = Color.FromArgb(CByte(40), CByte(120), CByte(225))
+        BtnSave.StateCommon.Border.Rounding = 8F
+        BtnSave.StateCommon.Content.ShortText.Color1 = Color.White
+        BtnSave.StateCommon.Content.ShortText.Font = New Font("Segoe UI", 11.25F)
         BtnSave.TabIndex = 15
         BtnSave.Values.DropDownArrowColor = Color.Empty
-        BtnSave.Values.Text = "Save Changes"
+        BtnSave.Values.Text = "Salvar Alterações"
+        ' 
+        ' KryptonLabel3
+        ' 
+        KryptonLabel3.Location = New Point(322, 490)
+        KryptonLabel3.Name = "KryptonLabel3"
+        KryptonLabel3.Size = New Size(90, 26)
+        KryptonLabel3.StateCommon.ShortText.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        KryptonLabel3.TabIndex = 16
+        KryptonLabel3.Values.Text = "Bio"
         ' 
         ' config
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
+        BackColor = Color.FromArgb(CByte(240), CByte(244), CByte(248))
         ClientSize = New Size(1064, 734)
+        Controls.Add(KryptonLabel3)
         Controls.Add(BtnSave)
         Controls.Add(ChangeImage)
         Controls.Add(KryptonLabel2)
@@ -142,6 +194,7 @@ Partial Class config
         Controls.SetChildIndex(KryptonLabel2, 0)
         Controls.SetChildIndex(ChangeImage, 0)
         Controls.SetChildIndex(BtnSave, 0)
+        Controls.SetChildIndex(KryptonLabel3, 0)
         CType(PictureProfile, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
@@ -157,4 +210,7 @@ Partial Class config
     Friend WithEvents KryptonLabel2 As Krypton.Toolkit.KryptonLabel
     Friend WithEvents ChangeImage As Krypton.Toolkit.KryptonButton
     Friend WithEvents BtnSave As Krypton.Toolkit.KryptonButton
+    Friend WithEvents ButtonSpecAny1 As Krypton.Toolkit.ButtonSpecAny
+    Friend WithEvents ButtonSpecAny2 As Krypton.Toolkit.ButtonSpecAny
+    Friend WithEvents KryptonLabel3 As Krypton.Toolkit.KryptonLabel
 End Class
