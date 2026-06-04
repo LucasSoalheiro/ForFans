@@ -37,10 +37,7 @@ Partial Class config
         KryptonLabel3 = New Krypton.Toolkit.KryptonLabel()
         KryptonLabel5 = New Krypton.Toolkit.KryptonLabel()
         KryptonLabel6 = New Krypton.Toolkit.KryptonLabel()
-        KryptonGroupBox1 = New Krypton.Toolkit.KryptonGroupBox()
         CType(PictureProfile, ComponentModel.ISupportInitialize).BeginInit()
-        CType(KryptonGroupBox1, ComponentModel.ISupportInitialize).BeginInit()
-        CType(KryptonGroupBox1.Panel, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' PictureProfile
@@ -58,7 +55,7 @@ Partial Class config
         newName.ButtonSpecs.Add(ButtonSpecAny1)
         newName.CueHint.Color1 = Color.Black
         newName.CueHint.CueHintText = "Insira o novo nome"
-        newName.Location = New Point(196, 296)
+        newName.Location = New Point(186, 296)
         newName.Name = "newName"
         newName.Size = New Size(643, 36)
         newName.StateCommon.Border.Rounding = 8F
@@ -75,6 +72,8 @@ Partial Class config
         NameUser.Location = New Point(344, 121)
         NameUser.Name = "NameUser"
         NameUser.Size = New Size(90, 25)
+        NameUser.StateCommon.ShortText.Color2 = Color.FromArgb(CByte(240), CByte(244), CByte(248))
+        NameUser.StateCommon.ShortText.Font = New Font("Segoe UI", 9.75F)
         NameUser.TabIndex = 2
         NameUser.Values.Text = "Username"
         ' 
@@ -83,6 +82,8 @@ Partial Class config
         Useremail.Location = New Point(344, 162)
         Useremail.Name = "Useremail"
         Useremail.Size = New Size(90, 25)
+        Useremail.StateCommon.ShortText.Color2 = Color.FromArgb(CByte(240), CByte(244), CByte(248))
+        Useremail.StateCommon.ShortText.Font = New Font("Segoe UI", 9.75F)
         Useremail.TabIndex = 3
         Useremail.Values.Text = "Useremail"
         ' 
@@ -91,7 +92,7 @@ Partial Class config
         NewUseremail.ButtonSpecs.Add(ButtonSpecAny2)
         NewUseremail.CueHint.Color1 = Color.Black
         NewUseremail.CueHint.CueHintText = "Insira o novo email"
-        NewUseremail.Location = New Point(196, 379)
+        NewUseremail.Location = New Point(186, 379)
         NewUseremail.Name = "NewUseremail"
         NewUseremail.Size = New Size(643, 36)
         NewUseremail.StateCommon.Border.Rounding = 8F
@@ -117,7 +118,7 @@ Partial Class config
         ' 
         ' KryptonLabel1
         ' 
-        KryptonLabel1.Location = New Point(196, 264)
+        KryptonLabel1.Location = New Point(186, 264)
         KryptonLabel1.Name = "KryptonLabel1"
         KryptonLabel1.Size = New Size(90, 26)
         KryptonLabel1.StateCommon.ShortText.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
@@ -126,7 +127,7 @@ Partial Class config
         ' 
         ' KryptonLabel2
         ' 
-        KryptonLabel2.Location = New Point(196, 347)
+        KryptonLabel2.Location = New Point(186, 347)
         KryptonLabel2.Name = "KryptonLabel2"
         KryptonLabel2.Size = New Size(90, 26)
         KryptonLabel2.StateCommon.ShortText.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
@@ -163,7 +164,7 @@ Partial Class config
         ' 
         ' KryptonLabel3
         ' 
-        KryptonLabel3.Location = New Point(196, 440)
+        KryptonLabel3.Location = New Point(186, 440)
         KryptonLabel3.Name = "KryptonLabel3"
         KryptonLabel3.Size = New Size(90, 26)
         KryptonLabel3.StateCommon.ShortText.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
@@ -190,20 +191,6 @@ Partial Class config
         KryptonLabel6.TabIndex = 19
         KryptonLabel6.Values.Text = "Gerencie suas informações de perfil e conta"
         ' 
-        ' KryptonGroupBox1
-        ' 
-        KryptonGroupBox1.CaptionVisible = False
-        KryptonGroupBox1.Location = New Point(196, 121)
-        KryptonGroupBox1.Size = New Size(711, 120)
-        KryptonGroupBox1.StateCommon.Back.Color1 = Color.White
-        KryptonGroupBox1.StateCommon.Back.Draw = Krypton.Toolkit.InheritBool.True
-        KryptonGroupBox1.StateCommon.Border.Color1 = Color.FromArgb(CByte(187), CByte(222), CByte(251))
-        KryptonGroupBox1.StateCommon.Border.Draw = Krypton.Toolkit.InheritBool.True
-        KryptonGroupBox1.StateCommon.Border.Rounding = 8F
-        KryptonGroupBox1.StateCommon.Border.Width = 1
-        KryptonGroupBox1.TabIndex = 20
-        KryptonGroupBox1.Values.Heading = ""
-        ' 
         ' config
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -223,11 +210,9 @@ Partial Class config
         Controls.Add(PictureProfile)
         Controls.Add(Useremail)
         Controls.Add(NameUser)
-        Controls.Add(KryptonGroupBox1)
         Name = "config"
         StartPosition = FormStartPosition.CenterScreen
         Text = "config"
-        Controls.SetChildIndex(KryptonGroupBox1, 0)
         Controls.SetChildIndex(NameUser, 0)
         Controls.SetChildIndex(Useremail, 0)
         Controls.SetChildIndex(PictureProfile, 0)
@@ -242,8 +227,6 @@ Partial Class config
         Controls.SetChildIndex(KryptonLabel5, 0)
         Controls.SetChildIndex(KryptonLabel6, 0)
         CType(PictureProfile, ComponentModel.ISupportInitialize).EndInit()
-        CType(KryptonGroupBox1.Panel, ComponentModel.ISupportInitialize).EndInit()
-        CType(KryptonGroupBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -263,5 +246,4 @@ Partial Class config
     Friend WithEvents KryptonLabel3 As Krypton.Toolkit.KryptonLabel
     Friend WithEvents KryptonLabel5 As Krypton.Toolkit.KryptonLabel
     Friend WithEvents KryptonLabel6 As Krypton.Toolkit.KryptonLabel
-    Friend WithEvents KryptonGroupBox1 As Krypton.Toolkit.KryptonGroupBox
 End Class
