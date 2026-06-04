@@ -42,6 +42,7 @@ Partial Class Home
         ClientSize = New Size(1064, 734)
         Controls.Add(FContainer)
         Name = "Home"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "Home"
         Controls.SetChildIndex(FContainer, 0)
         ResumeLayout(False)

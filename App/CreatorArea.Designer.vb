@@ -23,7 +23,9 @@ Partial Class CreatorArea
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         txtTitle = New Krypton.Toolkit.KryptonTextBox()
+        ButtonSpecAny1 = New Krypton.Toolkit.ButtonSpecAny()
         txtDescription = New Krypton.Toolkit.KryptonTextBox()
+        ButtonSpecAny2 = New Krypton.Toolkit.ButtonSpecAny()
         picPreview = New Krypton.Toolkit.KryptonPictureBox()
         SelectFileBtn = New Krypton.Toolkit.KryptonButton()
         ThumbnailBtn = New Krypton.Toolkit.KryptonButton()
@@ -31,8 +33,6 @@ Partial Class CreatorArea
         KryptonLabel2 = New Krypton.Toolkit.KryptonLabel()
         KryptonLabel3 = New Krypton.Toolkit.KryptonLabel()
         KryptonLabel1 = New Krypton.Toolkit.KryptonLabel()
-        ButtonSpecAny1 = New Krypton.Toolkit.ButtonSpecAny()
-        ButtonSpecAny2 = New Krypton.Toolkit.ButtonSpecAny()
         KryptonLabel4 = New Krypton.Toolkit.KryptonLabel()
         CType(picPreview, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -48,6 +48,12 @@ Partial Class CreatorArea
         txtTitle.StateCommon.Border.Rounding = 8F
         txtTitle.TabIndex = 2
         ' 
+        ' ButtonSpecAny1
+        ' 
+        ButtonSpecAny1.Edge = Krypton.Toolkit.PaletteRelativeEdgeAlign.Near
+        ButtonSpecAny1.Image = My.Resources.Resources.edit_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24__1_
+        ButtonSpecAny1.UniqueName = "e939b9202d3244c68ba76054a2b9e773"
+        ' 
         ' txtDescription
         ' 
         txtDescription.ButtonSpecs.Add(ButtonSpecAny2)
@@ -59,6 +65,12 @@ Partial Class CreatorArea
         txtDescription.Size = New Size(750, 70)
         txtDescription.StateCommon.Border.Rounding = 8F
         txtDescription.TabIndex = 3
+        ' 
+        ' ButtonSpecAny2
+        ' 
+        ButtonSpecAny2.Edge = Krypton.Toolkit.PaletteRelativeEdgeAlign.Near
+        ButtonSpecAny2.Image = My.Resources.Resources.description_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24
+        ButtonSpecAny2.UniqueName = "23f5c11dae77489381056b0cd173ac94"
         ' 
         ' picPreview
         ' 
@@ -140,18 +152,6 @@ Partial Class CreatorArea
         KryptonLabel1.TabIndex = 15
         KryptonLabel1.Values.Text = "Descrição do Conteúdo"
         ' 
-        ' ButtonSpecAny1
-        ' 
-        ButtonSpecAny1.Edge = Krypton.Toolkit.PaletteRelativeEdgeAlign.Near
-        ButtonSpecAny1.Image = My.Resources.Resources.edit_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24__1_
-        ButtonSpecAny1.UniqueName = "e939b9202d3244c68ba76054a2b9e773"
-        ' 
-        ' ButtonSpecAny2
-        ' 
-        ButtonSpecAny2.Edge = Krypton.Toolkit.PaletteRelativeEdgeAlign.Near
-        ButtonSpecAny2.Image = My.Resources.Resources.description_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24
-        ButtonSpecAny2.UniqueName = "23f5c11dae77489381056b0cd173ac94"
-        ' 
         ' KryptonLabel4
         ' 
         KryptonLabel4.Location = New Point(266, 428)
@@ -179,6 +179,7 @@ Partial Class CreatorArea
         Controls.Add(txtDescription)
         Controls.Add(txtTitle)
         Name = "CreatorArea"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "'"
         Controls.SetChildIndex(txtTitle, 0)
         Controls.SetChildIndex(txtDescription, 0)

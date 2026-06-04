@@ -44,6 +44,7 @@ Partial Class Content
         ClientSize = New Size(1064, 734)
         Controls.Add(ContentPlayer)
         Name = "Content"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "Content"
         Controls.SetChildIndex(ContentPlayer, 0)
         CType(ContentPlayer, ComponentModel.ISupportInitialize).EndInit()

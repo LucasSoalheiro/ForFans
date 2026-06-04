@@ -155,15 +155,18 @@ Public Class config
 
     'borda do circulo azul
     Private Sub PictureProfile_Paint(sender As Object, e As PaintEventArgs) Handles PictureProfile.Paint
-       ' Ativa a suavização máxima de serrilhado
-    e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias
-    e.Graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic
-    
-    ' 🛠️ O TRUQUE: Trazemos o desenho levemente para dentro (começando em 1,1 e reduzindo -3 na largura/altura)
-    ' Isso impede que a máscara de corte "coma" as bordas da linha azul
-    Using caneta As New Pen(Color.FromArgb(0, 102, 204), 2)
-        e.Graphics.DrawEllipse(caneta, 1, 1, PictureProfile.Width - 3, PictureProfile.Height - 3)
-    End Using
+        ' Ativa a suavização máxima de serrilhado
+        e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias
+        e.Graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic
+
+        ' 🛠️ O TRUQUE: Trazemos o desenho levemente para dentro (começando em 1,1 e reduzindo -3 na largura/altura)
+        ' Isso impede que a máscara de corte "coma" as bordas da linha azul
+        Using caneta As New Pen(Color.FromArgb(0, 102, 204), 2)
+            e.Graphics.DrawEllipse(caneta, 1, 1, PictureProfile.Width - 3, PictureProfile.Height - 3)
+        End Using
     End Sub
 
+    Private Sub NameUser_Click(sender As Object, e As EventArgs) Handles NameUser.Click
+
+    End Sub
 End Class

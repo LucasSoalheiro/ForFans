@@ -56,6 +56,7 @@ Partial Class signatures
         Controls.Add(KryptonButton1)
         Controls.Add(KryptonLabel1)
         Name = "signatures"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "assinatura"
         Controls.SetChildIndex(KryptonLabel1, 0)
         Controls.SetChildIndex(KryptonButton1, 0)
