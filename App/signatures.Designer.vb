@@ -24,6 +24,7 @@ Partial Class signatures
     Private Sub InitializeComponent()
         KryptonLabel1 = New Krypton.Toolkit.KryptonLabel()
         KryptonButton1 = New Krypton.Toolkit.KryptonButton()
+        KryptonLabel2 = New Krypton.Toolkit.KryptonLabel()
         SuspendLayout()
         ' 
         ' KryptonLabel1
@@ -37,7 +38,7 @@ Partial Class signatures
         ' 
         ' KryptonButton1
         ' 
-        KryptonButton1.Location = New Point(357, 113)
+        KryptonButton1.Location = New Point(357, 175)
         KryptonButton1.Name = "KryptonButton1"
         KryptonButton1.Size = New Size(121, 31)
         KryptonButton1.StateCommon.Back.Color1 = Color.Blue
@@ -48,11 +49,22 @@ Partial Class signatures
         KryptonButton1.Values.DropDownArrowColor = Color.Empty
         KryptonButton1.Values.Text = "Ativas"
         ' 
+        ' KryptonLabel2
+        ' 
+        KryptonLabel2.Location = New Point(357, 82)
+        KryptonLabel2.Name = "KryptonLabel2"
+        KryptonLabel2.Size = New Size(360, 31)
+        KryptonLabel2.StateCommon.ShortText.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        KryptonLabel2.TabIndex = 15
+        KryptonLabel2.Values.Text = "Gerencie os criadores que você atualmete apoia"
+        ' 
         ' signatures
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
+        BackColor = Color.FromArgb(CByte(240), CByte(244), CByte(248))
         ClientSize = New Size(1064, 734)
+        Controls.Add(KryptonLabel2)
         Controls.Add(KryptonButton1)
         Controls.Add(KryptonLabel1)
         Name = "signatures"
@@ -60,10 +72,12 @@ Partial Class signatures
         Text = "assinatura"
         Controls.SetChildIndex(KryptonLabel1, 0)
         Controls.SetChildIndex(KryptonButton1, 0)
+        Controls.SetChildIndex(KryptonLabel2, 0)
         ResumeLayout(False)
         PerformLayout()
     End Sub
 
     Friend WithEvents KryptonLabel1 As Krypton.Toolkit.KryptonLabel
     Friend WithEvents KryptonButton1 As Krypton.Toolkit.KryptonButton
+    Friend WithEvents KryptonLabel2 As Krypton.Toolkit.KryptonLabel
 End Class

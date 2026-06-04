@@ -33,6 +33,7 @@ Partial Class CreatorArea
         KryptonLabel2 = New Krypton.Toolkit.KryptonLabel()
         KryptonLabel3 = New Krypton.Toolkit.KryptonLabel()
         KryptonLabel1 = New Krypton.Toolkit.KryptonLabel()
+        KryptonLabel5 = New Krypton.Toolkit.KryptonLabel()
         KryptonLabel4 = New Krypton.Toolkit.KryptonLabel()
         CType(picPreview, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -42,7 +43,7 @@ Partial Class CreatorArea
         txtTitle.ButtonSpecs.Add(ButtonSpecAny1)
         txtTitle.CueHint.CueHintText = "Adicione aqui o título do seu conteúdo"
         txtTitle.CueHint.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        txtTitle.Location = New Point(266, 166)
+        txtTitle.Location = New Point(266, 152)
         txtTitle.Name = "txtTitle"
         txtTitle.Size = New Size(750, 36)
         txtTitle.StateCommon.Border.Rounding = 8F
@@ -59,10 +60,10 @@ Partial Class CreatorArea
         txtDescription.ButtonSpecs.Add(ButtonSpecAny2)
         txtDescription.CueHint.CueHintText = "Adicione aqui a descrição do seu conteúdo"
         txtDescription.CueHint.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        txtDescription.Location = New Point(266, 313)
+        txtDescription.Location = New Point(266, 262)
         txtDescription.Multiline = True
         txtDescription.Name = "txtDescription"
-        txtDescription.Size = New Size(750, 70)
+        txtDescription.Size = New Size(750, 58)
         txtDescription.StateCommon.Border.Rounding = 8F
         txtDescription.TabIndex = 3
         ' 
@@ -74,17 +75,18 @@ Partial Class CreatorArea
         ' 
         ' picPreview
         ' 
-        picPreview.Location = New Point(266, 469)
+        picPreview.BorderStyle = BorderStyle.FixedSingle
+        picPreview.Location = New Point(266, 458)
         picPreview.Name = "picPreview"
-        picPreview.Size = New Size(241, 203)
+        picPreview.Size = New Size(372, 252)
         picPreview.TabIndex = 4
         picPreview.TabStop = False
         ' 
         ' SelectFileBtn
         ' 
-        SelectFileBtn.Location = New Point(542, 540)
+        SelectFileBtn.Location = New Point(694, 565)
         SelectFileBtn.Name = "SelectFileBtn"
-        SelectFileBtn.Size = New Size(145, 49)
+        SelectFileBtn.Size = New Size(172, 49)
         SelectFileBtn.StateCommon.Back.Color1 = Color.FromArgb(CByte(4), CByte(44), CByte(83))
         SelectFileBtn.StateCommon.Back.Color2 = Color.FromArgb(CByte(59), CByte(130), CByte(246))
         SelectFileBtn.StateCommon.Border.Rounding = 8F
@@ -92,13 +94,14 @@ Partial Class CreatorArea
         SelectFileBtn.StateCommon.Content.ShortText.Font = New Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         SelectFileBtn.TabIndex = 5
         SelectFileBtn.Values.DropDownArrowColor = Color.Empty
+        SelectFileBtn.Values.Image = My.Resources.Resources.image_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz241
         SelectFileBtn.Values.Text = "Selecionar o contéudo"
         ' 
         ' ThumbnailBtn
         ' 
-        ThumbnailBtn.Location = New Point(542, 469)
+        ThumbnailBtn.Location = New Point(694, 458)
         ThumbnailBtn.Name = "ThumbnailBtn"
-        ThumbnailBtn.Size = New Size(145, 50)
+        ThumbnailBtn.Size = New Size(172, 50)
         ThumbnailBtn.StateCommon.Back.Color1 = Color.FromArgb(CByte(4), CByte(44), CByte(83))
         ThumbnailBtn.StateCommon.Back.Color2 = Color.FromArgb(CByte(59), CByte(130), CByte(246))
         ThumbnailBtn.StateCommon.Border.Rounding = 8F
@@ -106,13 +109,14 @@ Partial Class CreatorArea
         ThumbnailBtn.StateCommon.Content.ShortText.Font = New Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         ThumbnailBtn.TabIndex = 8
         ThumbnailBtn.Values.DropDownArrowColor = Color.Empty
+        ThumbnailBtn.Values.Image = My.Resources.Resources.image_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24
         ThumbnailBtn.Values.Text = "Selecione a thumbnail"
         ' 
         ' SaveBtn
         ' 
-        SaveBtn.Location = New Point(542, 618)
+        SaveBtn.Location = New Point(694, 668)
         SaveBtn.Name = "SaveBtn"
-        SaveBtn.Size = New Size(145, 42)
+        SaveBtn.Size = New Size(172, 42)
         SaveBtn.StateCommon.Back.Color1 = Color.FromArgb(CByte(4), CByte(44), CByte(83))
         SaveBtn.StateCommon.Back.Color2 = Color.FromArgb(CByte(59), CByte(130), CByte(246))
         SaveBtn.StateCommon.Border.Rounding = 8F
@@ -120,11 +124,12 @@ Partial Class CreatorArea
         SaveBtn.StateCommon.Content.ShortText.Font = New Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         SaveBtn.TabIndex = 11
         SaveBtn.Values.DropDownArrowColor = Color.Empty
-        SaveBtn.Values.Text = "Criar"
+        SaveBtn.Values.Image = My.Resources.Resources.bolt_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24
+        SaveBtn.Values.Text = "Publicar Conteúdo"
         ' 
         ' KryptonLabel2
         ' 
-        KryptonLabel2.Location = New Point(266, 135)
+        KryptonLabel2.Location = New Point(266, 116)
         KryptonLabel2.Name = "KryptonLabel2"
         KryptonLabel2.Size = New Size(192, 30)
         KryptonLabel2.StateCommon.ShortText.Color1 = Color.FromArgb(CByte(4), CByte(41), CByte(84))
@@ -134,17 +139,17 @@ Partial Class CreatorArea
         ' 
         ' KryptonLabel3
         ' 
-        KryptonLabel3.Location = New Point(266, 36)
+        KryptonLabel3.Location = New Point(266, 12)
         KryptonLabel3.Name = "KryptonLabel3"
-        KryptonLabel3.Size = New Size(750, 33)
+        KryptonLabel3.Size = New Size(252, 49)
         KryptonLabel3.StateCommon.ShortText.Color1 = Color.FromArgb(CByte(4), CByte(41), CByte(84))
-        KryptonLabel3.StateCommon.ShortText.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        KryptonLabel3.StateCommon.ShortText.Font = New Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         KryptonLabel3.TabIndex = 14
         KryptonLabel3.Values.Text = "Criar Conteúdo"
         ' 
         ' KryptonLabel1
         ' 
-        KryptonLabel1.Location = New Point(266, 282)
+        KryptonLabel1.Location = New Point(266, 226)
         KryptonLabel1.Name = "KryptonLabel1"
         KryptonLabel1.Size = New Size(226, 30)
         KryptonLabel1.StateCommon.ShortText.Color1 = Color.FromArgb(CByte(4), CByte(41), CByte(84))
@@ -152,23 +157,34 @@ Partial Class CreatorArea
         KryptonLabel1.TabIndex = 15
         KryptonLabel1.Values.Text = "Descrição do Conteúdo"
         ' 
+        ' KryptonLabel5
+        ' 
+        KryptonLabel5.Location = New Point(266, 67)
+        KryptonLabel5.Name = "KryptonLabel5"
+        KryptonLabel5.Size = New Size(419, 26)
+        KryptonLabel5.StateCommon.ShortText.Color1 = Color.Black
+        KryptonLabel5.StateCommon.ShortText.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        KryptonLabel5.TabIndex = 17
+        KryptonLabel5.Values.Text = "Publique fotos,vídeos ou textos exclusivos para seus fãs."
+        ' 
         ' KryptonLabel4
         ' 
-        KryptonLabel4.Location = New Point(266, 428)
+        KryptonLabel4.Location = New Point(266, 411)
         KryptonLabel4.Name = "KryptonLabel4"
-        KryptonLabel4.Size = New Size(188, 30)
+        KryptonLabel4.Size = New Size(226, 30)
         KryptonLabel4.StateCommon.ShortText.Color1 = Color.FromArgb(CByte(4), CByte(41), CByte(84))
         KryptonLabel4.StateCommon.ShortText.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        KryptonLabel4.TabIndex = 16
-        KryptonLabel4.Values.Text = "Arquivo"
+        KryptonLabel4.TabIndex = 18
+        KryptonLabel4.Values.Text = "Prévia do Arquivo"
         ' 
         ' CreatorArea
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        BackColor = Color.LightSteelBlue
+        BackColor = Color.FromArgb(CByte(240), CByte(244), CByte(248))
         ClientSize = New Size(1064, 734)
         Controls.Add(KryptonLabel4)
+        Controls.Add(KryptonLabel5)
         Controls.Add(KryptonLabel1)
         Controls.Add(KryptonLabel3)
         Controls.Add(KryptonLabel2)
@@ -190,6 +206,7 @@ Partial Class CreatorArea
         Controls.SetChildIndex(KryptonLabel2, 0)
         Controls.SetChildIndex(KryptonLabel3, 0)
         Controls.SetChildIndex(KryptonLabel1, 0)
+        Controls.SetChildIndex(KryptonLabel5, 0)
         Controls.SetChildIndex(KryptonLabel4, 0)
         CType(picPreview, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
@@ -207,5 +224,6 @@ Partial Class CreatorArea
     Friend WithEvents KryptonLabel1 As Krypton.Toolkit.KryptonLabel
     Friend WithEvents ButtonSpecAny1 As Krypton.Toolkit.ButtonSpecAny
     Friend WithEvents ButtonSpecAny2 As Krypton.Toolkit.ButtonSpecAny
+    Friend WithEvents KryptonLabel5 As Krypton.Toolkit.KryptonLabel
     Friend WithEvents KryptonLabel4 As Krypton.Toolkit.KryptonLabel
 End Class
