@@ -18,9 +18,6 @@ CREATE TABLE Subscription (
     id           INT PRIMARY KEY AUTO_INCREMENT,
     subscriberId INT NOT NULL,
     creatorId    INT NOT NULL,
-    startDate    DATETIME NOT NULL,
-    endDate      DATETIME NOT NULL,
-    status       ENUM('active', 'expired', 'canceled') NOT NULL DEFAULT 'active',
     createdAt    DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     FOREIGN KEY (subscriberId) REFERENCES Users(id),
     FOREIGN KEY (creatorId)    REFERENCES Users(id)

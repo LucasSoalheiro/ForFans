@@ -6,7 +6,6 @@ Public Class config
     Private _id As String
     Private _fileUrl As String = String.Empty
 
-    ' Pasta avatars sempre ao lado do executável
     Private ReadOnly _avatarsFolder As String =
         Path.Combine(Application.StartupPath, "profilePicture")
 
@@ -15,13 +14,13 @@ Public Class config
         _id = id
     End Sub
 
-    ' ── Carrega dados do usuário ao abrir o form ──────────────────────────
+
     Private Async Sub config_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Me.sidebar.UserId = _id
         Me.sidebar.ActualForm = Me
 
-        'deixando o circulo do perfil redondo
+
         Dim contorno As New System.Drawing.Drawing2D.GraphicsPath()
         contorno.AddEllipse(0, 0, PictureProfile.Width, PictureProfile.Height)
         PictureProfile.Region = New Region(contorno)
@@ -45,22 +44,21 @@ Public Class config
         End If
     End Sub
 
-    ' ── Carrega imagem no PictureBox a partir de caminho local ────────────
+
     Private Sub LoadProfileImage(filePath As String)
         Try
             If Not File.Exists(filePath) Then Return
-            ' Lê em MemoryStream para não travar o arquivo no disco
+
             Dim bytes = File.ReadAllBytes(filePath)
             Using ms As New MemoryStream(bytes)
                 PictureProfile.Image = Image.FromStream(ms)
             End Using
             PictureProfile.SizeMode = PictureBoxSizeMode.Zoom
         Catch ex As Exception
-            ' Silencia erros de imagem
+
         End Try
     End Sub
 
-    ' ── Botão: selecionar nova imagem ─────────────────────────────────────
     Private Sub ChangeImage_Click(sender As Object, e As EventArgs) Handles ChangeImage.Click
         Using ofd As New OpenFileDialog()
             ofd.Filter =
@@ -78,23 +76,21 @@ Public Class config
             End If
 
             _fileUrl = savedPath
-            LoadProfileImage(_fileUrl)   ' Pré-visualiza imediatamente
+            LoadProfileImage(_fileUrl)
         End Using
     End Sub
 
-    ' ── Copia o arquivo para /avatars/{id}_avatar.ext ─────────────────────
+
     Private Function SaveAvatarLocally(sourcePath As String) As String
         Try
-            ' Garante que a pasta existe
             If Not Directory.Exists(_avatarsFolder) Then
                 Directory.CreateDirectory(_avatarsFolder)
             End If
 
-            Dim ext = Path.GetExtension(sourcePath).ToLower()   ' Ex: .jpg
-            Dim destFileName = $"{_id}_avatar{ext}"             ' Ex: 42_avatar.jpg
+            Dim ext = Path.GetExtension(sourcePath).ToLower()
+            Dim destFileName = $"{_id}_avatar{ext}"
             Dim destPath = Path.Combine(_avatarsFolder, destFileName)
 
-            ' Remove avatar anterior do mesmo usuário (qualquer extensão)
             For Each old In Directory.GetFiles(_avatarsFolder, $"{_id}_profilePicture.*")
                 File.Delete(old)
             Next
@@ -108,7 +104,7 @@ Public Class config
         End Try
     End Function
 
-    ' ── Botão: salvar todas as alterações ─────────────────────────────────
+
     Private Async Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
         If String.IsNullOrWhiteSpace(newName.Text) Then
             MessageBox.Show("O nome não pode ficar vazio.", "Atenção",
@@ -132,7 +128,6 @@ Public Class config
                 {"bio", NewBios.Text.Trim()}
             }
 
-            ' Salva o caminho do avatar no banco só se foi alterado
             If Not String.IsNullOrEmpty(_fileUrl) Then
                 updates("profilePicture") = _fileUrl
             End If
@@ -155,12 +150,11 @@ Public Class config
 
     'borda do circulo azul
     Private Sub PictureProfile_Paint(sender As Object, e As PaintEventArgs) Handles PictureProfile.Paint
-        ' Ativa a suavização máxima de serrilhado
+
         e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias
         e.Graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic
 
-        ' 🛠️ O TRUQUE: Trazemos o desenho levemente para dentro (começando em 1,1 e reduzindo -3 na largura/altura)
-        ' Isso impede que a máscara de corte "coma" as bordas da linha azul
+
         Using caneta As New Pen(Color.FromArgb(0, 102, 204), 2)
             e.Graphics.DrawEllipse(caneta, 1, 1, PictureProfile.Width - 3, PictureProfile.Height - 3)
         End Using

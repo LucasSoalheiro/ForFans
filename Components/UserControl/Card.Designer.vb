@@ -25,43 +25,56 @@ Partial Class Card
         TitleContent = New Krypton.Toolkit.KryptonLabel()
         CreatorNamelbl = New Krypton.Toolkit.KryptonLabel()
         ThumbnailImage = New Krypton.Toolkit.KryptonPictureBox()
+        AccountPicture = New Krypton.Toolkit.KryptonPictureBox()
         CType(ThumbnailImage, ComponentModel.ISupportInitialize).BeginInit()
+        CType(AccountPicture, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' TitleContent
         ' 
-        TitleContent.Location = New Point(0, 47)
+        TitleContent.Location = New Point(69, 4)
         TitleContent.Name = "TitleContent"
-        TitleContent.Size = New Size(535, 41)
+        TitleContent.Size = New Size(824, 34)
         TitleContent.TabIndex = 0
         TitleContent.Values.Text = "Tiitle of Content"
         ' 
         ' CreatorNamelbl
         ' 
-        CreatorNamelbl.Location = New Point(-1, 3)
+        CreatorNamelbl.Location = New Point(69, 44)
         CreatorNamelbl.Name = "CreatorNamelbl"
-        CreatorNamelbl.Size = New Size(174, 38)
+        CreatorNamelbl.Size = New Size(185, 20)
         CreatorNamelbl.TabIndex = 1
         CreatorNamelbl.Values.Text = "Creator of Content"
         ' 
         ' ThumbnailImage
         ' 
-        ThumbnailImage.Location = New Point(3, 94)
+        ThumbnailImage.Location = New Point(3, 70)
         ThumbnailImage.Name = "ThumbnailImage"
-        ThumbnailImage.Size = New Size(610, 248)
+        ThumbnailImage.Size = New Size(890, 380)
         ThumbnailImage.TabIndex = 2
         ThumbnailImage.TabStop = False
+        ' 
+        ' AccountPicture
+        ' 
+        AccountPicture.Location = New Point(3, 4)
+        AccountPicture.Name = "AccountPicture"
+        AccountPicture.Size = New Size(60, 60)
+        AccountPicture.SizeMode = PictureBoxSizeMode.Zoom
+        AccountPicture.TabIndex = 3
+        AccountPicture.TabStop = False
         ' 
         ' Card
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
+        Controls.Add(AccountPicture)
         Controls.Add(ThumbnailImage)
         Controls.Add(CreatorNamelbl)
         Controls.Add(TitleContent)
         Name = "Card"
-        Size = New Size(616, 345)
+        Size = New Size(897, 456)
         CType(ThumbnailImage, ComponentModel.ISupportInitialize).EndInit()
+        CType(AccountPicture, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -70,5 +83,6 @@ Partial Class Card
     Friend WithEvents CreatorNamelbl As Krypton.Toolkit.KryptonLabel
     Friend WithEvents KryptonPictureBox1 As Krypton.Toolkit.KryptonPictureBox
     Friend WithEvents ThumbnailImage As Krypton.Toolkit.KryptonPictureBox
+    Friend WithEvents AccountPicture As Krypton.Toolkit.KryptonPictureBox
 
 End Class

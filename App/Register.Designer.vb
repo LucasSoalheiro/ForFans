@@ -37,9 +37,13 @@ Partial Class Register
         KryptonPictureBox1 = New Krypton.Toolkit.KryptonPictureBox()
         KryptonLabel7 = New Krypton.Toolkit.KryptonLabel()
         KryptonLabel5 = New Krypton.Toolkit.KryptonLabel()
+        BackgroundWorker1 = New ComponentModel.BackgroundWorker()
+        PictureBtn = New Krypton.Toolkit.KryptonButton()
+        ProfilePicture = New Krypton.Toolkit.KryptonPictureBox()
         CType(KryptonPanel1, ComponentModel.ISupportInitialize).BeginInit()
         KryptonPanel1.SuspendLayout()
         CType(KryptonPictureBox1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(ProfilePicture, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' KryptonPanel1
@@ -59,7 +63,7 @@ Partial Class Register
         UserEmail.CueHint.Color1 = SystemColors.ButtonShadow
         UserEmail.CueHint.CueHintText = "seu@email.com"
         UserEmail.CueHint.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        UserEmail.Location = New Point(624, 214)
+        UserEmail.Location = New Point(624, 291)
         UserEmail.Margin = New Padding(3, 2, 3, 2)
         UserEmail.Name = "UserEmail"
         UserEmail.Size = New Size(385, 40)
@@ -82,7 +86,7 @@ Partial Class Register
         UserPassword.CueHint.Color1 = SystemColors.ButtonShadow
         UserPassword.CueHint.CueHintText = "●●●●●●●●"
         UserPassword.CueHint.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        UserPassword.Location = New Point(624, 315)
+        UserPassword.Location = New Point(624, 374)
         UserPassword.Margin = New Padding(3, 2, 3, 2)
         UserPassword.Name = "UserPassword"
         UserPassword.PasswordChar = "●"c
@@ -102,7 +106,7 @@ Partial Class Register
         ' RegiterBtn
         ' 
         RegiterBtn.ButtonStyle = Krypton.Toolkit.ButtonStyle.Custom2
-        RegiterBtn.Location = New Point(624, 394)
+        RegiterBtn.Location = New Point(624, 439)
         RegiterBtn.Margin = New Padding(3, 2, 3, 2)
         RegiterBtn.Name = "RegiterBtn"
         RegiterBtn.Size = New Size(385, 45)
@@ -122,7 +126,7 @@ Partial Class Register
         UserName.CueHint.Color1 = SystemColors.ButtonShadow
         UserName.CueHint.CueHintText = "Seu Nome"
         UserName.CueHint.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        UserName.Location = New Point(624, 111)
+        UserName.Location = New Point(624, 208)
         UserName.Margin = New Padding(3, 2, 3, 2)
         UserName.Name = "UserName"
         UserName.Size = New Size(385, 40)
@@ -141,7 +145,7 @@ Partial Class Register
         ' LoginLink
         ' 
         LoginLink.LinkBehavior = Krypton.Toolkit.KryptonLinkBehavior.NeverUnderline
-        LoginLink.Location = New Point(740, 444)
+        LoginLink.Location = New Point(744, 489)
         LoginLink.Name = "LoginLink"
         LoginLink.Size = New Size(149, 25)
         LoginLink.TabIndex = 5
@@ -158,7 +162,7 @@ Partial Class Register
         ' 
         ' KryptonLabel2
         ' 
-        KryptonLabel2.Location = New Point(624, 73)
+        KryptonLabel2.Location = New Point(624, 170)
         KryptonLabel2.Name = "KryptonLabel2"
         KryptonLabel2.Size = New Size(172, 33)
         KryptonLabel2.StateCommon.ShortText.Color1 = Color.FromArgb(CByte(4), CByte(41), CByte(84))
@@ -168,7 +172,7 @@ Partial Class Register
         ' 
         ' KryptonLabel3
         ' 
-        KryptonLabel3.Location = New Point(624, 176)
+        KryptonLabel3.Location = New Point(624, 253)
         KryptonLabel3.Name = "KryptonLabel3"
         KryptonLabel3.Size = New Size(90, 33)
         KryptonLabel3.StateCommon.ShortText.Color1 = Color.FromArgb(CByte(4), CByte(41), CByte(84))
@@ -178,7 +182,7 @@ Partial Class Register
         ' 
         ' KryptonLabel4
         ' 
-        KryptonLabel4.Location = New Point(624, 277)
+        KryptonLabel4.Location = New Point(624, 336)
         KryptonLabel4.Name = "KryptonLabel4"
         KryptonLabel4.Size = New Size(90, 33)
         KryptonLabel4.StateCommon.ShortText.Color1 = Color.FromArgb(CByte(4), CByte(41), CByte(84))
@@ -216,12 +220,32 @@ Partial Class Register
         KryptonLabel5.TabIndex = 13
         KryptonLabel5.Values.Text = "Junte-se à nossa comunidade."
         ' 
+        ' PictureBtn
+        ' 
+        PictureBtn.Location = New Point(776, 90)
+        PictureBtn.Name = "PictureBtn"
+        PictureBtn.Size = New Size(141, 25)
+        PictureBtn.TabIndex = 10
+        PictureBtn.Values.DropDownArrowColor = Color.Empty
+        PictureBtn.Values.Text = "Add your profile picture"
+        ' 
+        ' ProfilePicture
+        ' 
+        ProfilePicture.Location = New Point(641, 55)
+        ProfilePicture.Name = "ProfilePicture"
+        ProfilePicture.Size = New Size(100, 100)
+        ProfilePicture.SizeMode = PictureBoxSizeMode.Zoom
+        ProfilePicture.TabIndex = 12
+        ProfilePicture.TabStop = False
+        ' 
         ' Register
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
         ClientSize = New Size(1033, 539)
+        Controls.Add(ProfilePicture)
+        Controls.Add(PictureBtn)
         Controls.Add(KryptonLabel4)
         Controls.Add(KryptonLabel3)
         Controls.Add(KryptonLabel2)
@@ -245,10 +269,13 @@ Partial Class Register
         Controls.SetChildIndex(KryptonLabel2, 0)
         Controls.SetChildIndex(KryptonLabel3, 0)
         Controls.SetChildIndex(KryptonLabel4, 0)
+        Controls.SetChildIndex(PictureBtn, 0)
+        Controls.SetChildIndex(ProfilePicture, 0)
         CType(KryptonPanel1, ComponentModel.ISupportInitialize).EndInit()
         KryptonPanel1.ResumeLayout(False)
         KryptonPanel1.PerformLayout()
         CType(KryptonPictureBox1, ComponentModel.ISupportInitialize).EndInit()
+        CType(ProfilePicture, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -267,4 +294,7 @@ Partial Class Register
     Friend WithEvents ButtonSpecAny2 As Krypton.Toolkit.ButtonSpecAny
     Friend WithEvents ButtonSpecAny3 As Krypton.Toolkit.ButtonSpecAny
     Friend WithEvents KryptonLabel5 As Krypton.Toolkit.KryptonLabel
+    Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents PictureBtn As Krypton.Toolkit.KryptonButton
+    Friend WithEvents ProfilePicture As Krypton.Toolkit.KryptonPictureBox
 End Class

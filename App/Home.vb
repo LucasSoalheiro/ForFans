@@ -27,11 +27,22 @@ Public Class Home
 
     Private Async Function LoadContent() As Task
         FContainer.SuspendLayout()
-        Dim Contents = Await QueryAsync("SELECT c.id AS contentId, u.id AS creatorId, u.name AS creatorName, c.title, c.thumbnailUrl, c.description FROM Content c JOIN Users u ON c.creatorId = u.id;")
+        Dim Contents = Await QueryAsync("SELECT c.id AS contentId, u.id AS creatorId, u.name AS creatorName,u.profilePicture AS accountImage, c.title, c.thumbnailUrl, c.description FROM Content c JOIN Users u ON c.creatorId = u.id;")
         For Each row As DataRow In Contents.Rows
-            Dim contentCard As New Card(row("contentId").ToString(), Me, id)
+            Dim contentCard As New Card(row("contentId").ToString(), Me, id, row("creatorId").ToString())
             contentCard.TitleContent.Text = row("title").ToString()
             contentCard.CreatorNamelbl.Text = row("creatorName").ToString()
+            Dim accountImageUrl As String = row("accountImage").ToString()
+
+            Dim accountImagePath = Path.Combine(
+                Application.StartupPath,
+                accountImageUrl.Replace("/", "\")
+            )
+
+            Using img As Image = Image.FromFile(accountImagePath)
+                contentCard.AccountPicture.Image = New Bitmap(img)
+            End Using
+
             Dim thumbnailUrl As String = row("thumbnailUrl").ToString()
 
             Dim fullPath = Path.Combine(
