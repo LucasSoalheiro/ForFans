@@ -254,4 +254,8 @@ Public Class CreatorArea
         MyBase.OnFormClosed(e)
 
     End Sub
+
+    Private Sub KryptonLabel2_Click(sender As Object, e As EventArgs) Handles KryptonLabel2.Click
+
+    End Sub
 End Class

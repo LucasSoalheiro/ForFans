@@ -63,6 +63,26 @@ Namespace My.Resources
         '''<summary>
         '''  Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property description_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("description_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property edit_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24__1_() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("edit_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24 (1)", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property editor_choice_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("editor_choice_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24", resourceCulture)
