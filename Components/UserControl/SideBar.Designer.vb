@@ -54,6 +54,7 @@ Partial Class SideBar
         KryptonLabel1.Location = New Point(64, 3)
         KryptonLabel1.Name = "KryptonLabel1"
         KryptonLabel1.Size = New Size(149, 55)
+        KryptonLabel1.StateCommon.ShortText.Color1 = Color.White
         KryptonLabel1.StateCommon.ShortText.Font = New Font("Segoe UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         KryptonLabel1.TabIndex = 4
         KryptonLabel1.Values.Text = "ForFans"
@@ -121,6 +122,7 @@ Partial Class SideBar
         AccountLbl.Location = New Point(64, 373)
         AccountLbl.Name = "AccountLbl"
         AccountLbl.Size = New Size(100, 55)
+        AccountLbl.StateCommon.ShortText.Color1 = Color.White
         AccountLbl.StateCommon.ShortText.Font = New Font("Segoe UI", 16.15F, FontStyle.Bold)
         AccountLbl.TabIndex = 15
         AccountLbl.Values.Text = ""
@@ -130,6 +132,7 @@ Partial Class SideBar
         KryptonLabel3.Location = New Point(64, 299)
         KryptonLabel3.Name = "KryptonLabel3"
         KryptonLabel3.Size = New Size(166, 55)
+        KryptonLabel3.StateCommon.ShortText.Color1 = Color.White
         KryptonLabel3.StateCommon.ShortText.Font = New Font("Segoe UI", 16.15F, FontStyle.Bold)
         KryptonLabel3.TabIndex = 16
         KryptonLabel3.Values.Text = "KryptonLabel3"
@@ -139,6 +142,7 @@ Partial Class SideBar
         KryptonLabel4.Location = New Point(64, 221)
         KryptonLabel4.Name = "KryptonLabel4"
         KryptonLabel4.Size = New Size(166, 55)
+        KryptonLabel4.StateCommon.ShortText.Color1 = Color.White
         KryptonLabel4.StateCommon.ShortText.Font = New Font("Segoe UI", 16.15F, FontStyle.Bold)
         KryptonLabel4.TabIndex = 17
         KryptonLabel4.Values.Text = "Assinaturas"
@@ -148,6 +152,7 @@ Partial Class SideBar
         LabelCreatorArea.Location = New Point(64, 143)
         LabelCreatorArea.Name = "LabelCreatorArea"
         LabelCreatorArea.Size = New Size(166, 55)
+        LabelCreatorArea.StateCommon.ShortText.Color1 = Color.White
         LabelCreatorArea.StateCommon.ShortText.Font = New Font("Segoe UI", 16.15F, FontStyle.Bold)
         LabelCreatorArea.TabIndex = 18
         LabelCreatorArea.Values.Text = "Create "
@@ -156,7 +161,7 @@ Partial Class SideBar
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        BackColor = SystemColors.ActiveCaption
+        BackColor = Color.FromArgb(CByte(29), CByte(161), CByte(242))
         Controls.Add(LabelCreatorArea)
         Controls.Add(KryptonLabel4)
         Controls.Add(KryptonLabel3)

@@ -37,7 +37,10 @@ Partial Class config
         KryptonLabel3 = New Krypton.Toolkit.KryptonLabel()
         KryptonLabel5 = New Krypton.Toolkit.KryptonLabel()
         KryptonLabel6 = New Krypton.Toolkit.KryptonLabel()
+        KryptonGroupBox1 = New Krypton.Toolkit.KryptonGroupBox()
         CType(PictureProfile, ComponentModel.ISupportInitialize).BeginInit()
+        CType(KryptonGroupBox1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(KryptonGroupBox1.Panel, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' PictureProfile
@@ -146,9 +149,9 @@ Partial Class config
         ' 
         ' BtnSave
         ' 
-        BtnSave.Location = New Point(557, 624)
+        BtnSave.Location = New Point(186, 634)
         BtnSave.Name = "BtnSave"
-        BtnSave.Size = New Size(282, 39)
+        BtnSave.Size = New Size(332, 39)
         BtnSave.StateCommon.Back.Color1 = Color.FromArgb(CByte(4), CByte(44), CByte(83))
         BtnSave.StateCommon.Back.Color2 = Color.FromArgb(CByte(40), CByte(120), CByte(225))
         BtnSave.StateCommon.Border.Rounding = 8F
@@ -187,6 +190,20 @@ Partial Class config
         KryptonLabel6.TabIndex = 19
         KryptonLabel6.Values.Text = "Gerencie suas informações de perfil e conta"
         ' 
+        ' KryptonGroupBox1
+        ' 
+        KryptonGroupBox1.CaptionVisible = False
+        KryptonGroupBox1.Location = New Point(196, 121)
+        KryptonGroupBox1.Size = New Size(711, 120)
+        KryptonGroupBox1.StateCommon.Back.Color1 = Color.White
+        KryptonGroupBox1.StateCommon.Back.Draw = Krypton.Toolkit.InheritBool.True
+        KryptonGroupBox1.StateCommon.Border.Color1 = Color.FromArgb(CByte(187), CByte(222), CByte(251))
+        KryptonGroupBox1.StateCommon.Border.Draw = Krypton.Toolkit.InheritBool.True
+        KryptonGroupBox1.StateCommon.Border.Rounding = 8F
+        KryptonGroupBox1.StateCommon.Border.Width = 1
+        KryptonGroupBox1.TabIndex = 20
+        KryptonGroupBox1.Values.Heading = ""
+        ' 
         ' config
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -206,9 +223,11 @@ Partial Class config
         Controls.Add(PictureProfile)
         Controls.Add(Useremail)
         Controls.Add(NameUser)
+        Controls.Add(KryptonGroupBox1)
         Name = "config"
         StartPosition = FormStartPosition.CenterScreen
         Text = "config"
+        Controls.SetChildIndex(KryptonGroupBox1, 0)
         Controls.SetChildIndex(NameUser, 0)
         Controls.SetChildIndex(Useremail, 0)
         Controls.SetChildIndex(PictureProfile, 0)
@@ -223,6 +242,8 @@ Partial Class config
         Controls.SetChildIndex(KryptonLabel5, 0)
         Controls.SetChildIndex(KryptonLabel6, 0)
         CType(PictureProfile, ComponentModel.ISupportInitialize).EndInit()
+        CType(KryptonGroupBox1.Panel, ComponentModel.ISupportInitialize).EndInit()
+        CType(KryptonGroupBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -242,4 +263,5 @@ Partial Class config
     Friend WithEvents KryptonLabel3 As Krypton.Toolkit.KryptonLabel
     Friend WithEvents KryptonLabel5 As Krypton.Toolkit.KryptonLabel
     Friend WithEvents KryptonLabel6 As Krypton.Toolkit.KryptonLabel
+    Friend WithEvents KryptonGroupBox1 As Krypton.Toolkit.KryptonGroupBox
 End Class

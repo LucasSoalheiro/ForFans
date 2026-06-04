@@ -19,6 +19,7 @@ Public Class SideBar
     End Sub
 
     Private Sub SideBar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.BackColor = Color.FromArgb(29, 161, 242)
     End Sub
 
     Private Sub LabelCreatorArea_Click(sender As Object, e As EventArgs) Handles LabelCreatorArea.Click
