@@ -51,6 +51,7 @@ Partial Class Card
         ThumbnailImage.Location = New Point(3, 70)
         ThumbnailImage.Name = "ThumbnailImage"
         ThumbnailImage.Size = New Size(890, 380)
+        ThumbnailImage.SizeMode = PictureBoxSizeMode.Zoom
         ThumbnailImage.TabIndex = 2
         ThumbnailImage.TabStop = False
         ' 

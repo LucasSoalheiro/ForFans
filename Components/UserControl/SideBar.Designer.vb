@@ -33,6 +33,8 @@ Partial Class SideBar
         KryptonLabel3 = New Krypton.Toolkit.KryptonLabel()
         KryptonLabel4 = New Krypton.Toolkit.KryptonLabel()
         LabelCreatorArea = New Krypton.Toolkit.KryptonLabel()
+        KryptonButton1 = New Krypton.Toolkit.KryptonButton()
+        KryptonLabel2 = New Krypton.Toolkit.KryptonLabel()
         SuspendLayout()
         ' 
         ' SidebarBtn
@@ -155,13 +157,35 @@ Partial Class SideBar
         LabelCreatorArea.StateCommon.ShortText.Color1 = Color.White
         LabelCreatorArea.StateCommon.ShortText.Font = New Font("Segoe UI", 16.15F, FontStyle.Bold)
         LabelCreatorArea.TabIndex = 18
-        LabelCreatorArea.Values.Text = "Create "
+        LabelCreatorArea.Values.Text = "Criar"
+        ' 
+        ' KryptonButton1
+        ' 
+        KryptonButton1.Location = New Point(3, 444)
+        KryptonButton1.Name = "KryptonButton1"
+        KryptonButton1.Size = New Size(55, 55)
+        KryptonButton1.StateCommon.Border.Rounding = 10F
+        KryptonButton1.TabIndex = 20
+        KryptonButton1.Values.DropDownArrowColor = Color.Empty
+        KryptonButton1.Values.Text = ""
+        ' 
+        ' KryptonLabel2
+        ' 
+        KryptonLabel2.Location = New Point(64, 444)
+        KryptonLabel2.Name = "KryptonLabel2"
+        KryptonLabel2.Size = New Size(166, 55)
+        KryptonLabel2.StateCommon.ShortText.Color1 = Color.White
+        KryptonLabel2.StateCommon.ShortText.Font = New Font("Segoe UI", 16.15F, FontStyle.Bold)
+        KryptonLabel2.TabIndex = 21
+        KryptonLabel2.Values.Text = "Sair"
         ' 
         ' SideBar
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(29), CByte(161), CByte(242))
+        Controls.Add(KryptonLabel2)
+        Controls.Add(KryptonButton1)
         Controls.Add(LabelCreatorArea)
         Controls.Add(KryptonLabel4)
         Controls.Add(KryptonLabel3)
@@ -189,5 +213,7 @@ Partial Class SideBar
     Friend WithEvents KryptonLabel3 As Krypton.Toolkit.KryptonLabel
     Friend WithEvents KryptonLabel4 As Krypton.Toolkit.KryptonLabel
     Friend WithEvents LabelCreatorArea As Krypton.Toolkit.KryptonLabel
+    Friend WithEvents KryptonButton1 As Krypton.Toolkit.KryptonButton
+    Friend WithEvents KryptonLabel2 As Krypton.Toolkit.KryptonLabel
 
 End Class

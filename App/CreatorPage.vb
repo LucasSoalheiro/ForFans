@@ -1,9 +1,10 @@
 ﻿Imports System.IO
+Imports System.Runtime.InteropServices
 Public Class CreatorPage
     Inherits FormBase
     Private CreatorId As String
     Public UserId As String
-
+    Private Subscribed As Boolean
 
     Public Sub New(creatorId As String, userId As String)
         InitializeComponent()
@@ -11,12 +12,17 @@ Public Class CreatorPage
         Me.UserId = userId
 
     End Sub
-
-    Private Async Sub CreatorPage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim alreadySubscribed As DataTable = Await QueryAsync($"SELECT * FROM Subscription WHERE subscriberId = '{UserId}' AND creatorId = '{CreatorId}' AND status = 'active'")
+    Private Async Function LoadCreatorInfo() As Task
+        Me.sidebar.UserId = UserId
+        Me.sidebar.ActualForm = Me
+        Dim alreadySubscribed As DataTable = Await QueryAsync($"SELECT * FROM Subscription WHERE subscriberId = '{UserId}' AND creatorId = '{CreatorId}'")
         If alreadySubscribed.Rows.Count > 0 Then
-            SubscribeBtn.Text = "Subscribed"
-            SubscribeBtn.Enabled = False
+            Subscribed = True
+            SubscribeBtn.Text = "Unsubscribe"
+
+        Else
+            Subscribed = False
+            SubscribeBtn.Text = "Subscribe"
         End If
         Dim Creator = Await QueryAsync($"SELECT
     u.id,
@@ -27,14 +33,13 @@ Public Class CreatorPage
 FROM Users u
 LEFT JOIN Subscription s
     ON u.id = s.creatorId
-    AND s.status = 'active'
 WHERE u.id = {CreatorId}
 GROUP BY
     u.id,
     u.name,
     u.profilePicture,
     u.bio;")
-        Dim Contents = Await ReadAsync("Content", $"creatorId = {CreatorId}")
+
         Me.CreatorName.Text = Creator.Rows(0)("name").ToString()
         Me.SubscribersNumber.Text = $"{Creator.Rows(0)("subscribers")} subscribers"
         Me.CreatorBio.Text = Creator.Rows(0)("bio").ToString()
@@ -47,9 +52,46 @@ GROUP BY
         Using img As Image = Image.FromFile(accountImagePath)
             Me.CreatorPicture.Image = New Bitmap(img)
         End Using
+    End Function
+    Private Async Sub CreatorPage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Await LoadCreatorInfo()
+        Await LoadContent()
     End Sub
 
+
     Private Async Sub SubscribeBtn_Click(sender As Object, e As EventArgs) Handles SubscribeBtn.Click
-        'Await CreateAsync("")
+        If Subscribed Then
+            Await DeleteRecordAsync("Subscription", $"subscriberId = '{UserId}' AND creatorId = '{CreatorId}'")
+            Subscribed = False
+        Else
+
+            Await CreateAsync("Subscription", New Dictionary(Of String, Object) From {
+            {"subscriberId", UserId},
+            {"creatorId", CreatorId}
+        })
+            Subscribed = True
+        End If
+
+        Await LoadCreatorInfo()
     End Sub
+
+    Private Async Function LoadContent() As Task
+        FPCreatorsContent.SuspendLayout()
+        Dim Contents = Await ReadAllAsync("Content", $"creatorId = {CreatorId}")
+        For Each row As DataRow In Contents.Rows
+            Dim contentCard As New SmallCard(row("title").ToString(), Me)
+            contentCard.ContentTitle.Text = row("title").ToString()
+            Dim thumbnailUrl As String = row("thumbnailUrl").ToString()
+            Dim thumbnailPath = Path.Combine(
+                Application.StartupPath,
+                thumbnailUrl.Replace("/", "\")
+            )
+
+            Using img As Image = Image.FromFile(thumbnailPath)
+                contentCard.Thumbnail.Image = New Bitmap(img)
+            End Using
+            FPCreatorsContent.Controls.Add(contentCard)
+        Next
+        FPCreatorsContent.ResumeLayout()
+    End Function
 End Class

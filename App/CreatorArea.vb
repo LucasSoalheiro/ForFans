@@ -139,15 +139,8 @@ Public Class CreatorArea
 
         Try
 
-            MessageBox.Show(
-                $"Arquivo: {_fileUrl}{vbCrLf}" &
-                $"Thumbnail: {_thumbnailUrl}{vbCrLf}" &
-                $"Tipo: {_contentType}",
-                "Dados do Conteúdo"
-            )
-
             Await CreateAsync("Content", New Dictionary(Of String, Object) From {
-                {"creatorId", "1"},
+                {"creatorId", UserId},
                 {"title", txtTitle.Text.Trim()},
                 {"description", txtDescription.Text.Trim()},
                 {"fileUrl", _fileUrl},

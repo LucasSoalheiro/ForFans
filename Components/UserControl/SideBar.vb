@@ -48,7 +48,7 @@ Public Class SideBar
 
     Private Sub KryptonButton2_Click(sender As Object, e As EventArgs) Handles KryptonButton2.Click
         Dim Assignaturearea As New signatures(UserId)
-        Assignaturearea.show()
+        Assignaturearea.Show()
         ActualForm.Hide()
     End Sub
 
@@ -64,5 +64,16 @@ Public Class SideBar
         ActualForm.Hide()
     End Sub
 
+    Private Sub KryptonButton1_Click(sender As Object, e As EventArgs) Handles KryptonButton1.Click
+        Dim login As New Login()
+        login.Show()
+        ActualForm.Hide()
+    End Sub
+
+    Private Sub KryptonLabel2_Click(sender As Object, e As EventArgs) Handles KryptonLabel2.Click
+        Dim login As New Login()
+        login.Show()
+        ActualForm.Hide()
+    End Sub
 End Class
 
