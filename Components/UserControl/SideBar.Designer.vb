@@ -30,7 +30,7 @@ Partial Class SideBar
         KryptonButton3 = New Krypton.Toolkit.KryptonButton()
         KryptonButton4 = New Krypton.Toolkit.KryptonButton()
         AccountLbl = New Krypton.Toolkit.KryptonLabel()
-        KryptonLabel3 = New Krypton.Toolkit.KryptonLabel()
+        ManageContents = New Krypton.Toolkit.KryptonLabel()
         KryptonLabel4 = New Krypton.Toolkit.KryptonLabel()
         LabelCreatorArea = New Krypton.Toolkit.KryptonLabel()
         KryptonButton1 = New Krypton.Toolkit.KryptonButton()
@@ -129,15 +129,15 @@ Partial Class SideBar
         AccountLbl.TabIndex = 15
         AccountLbl.Values.Text = ""
         ' 
-        ' KryptonLabel3
+        ' ManageContents
         ' 
-        KryptonLabel3.Location = New Point(64, 299)
-        KryptonLabel3.Name = "KryptonLabel3"
-        KryptonLabel3.Size = New Size(166, 55)
-        KryptonLabel3.StateCommon.ShortText.Color1 = Color.White
-        KryptonLabel3.StateCommon.ShortText.Font = New Font("Segoe UI", 16.15F, FontStyle.Bold)
-        KryptonLabel3.TabIndex = 16
-        KryptonLabel3.Values.Text = "KryptonLabel3"
+        ManageContents.Location = New Point(64, 299)
+        ManageContents.Name = "ManageContents"
+        ManageContents.Size = New Size(166, 55)
+        ManageContents.StateCommon.ShortText.Color1 = Color.White
+        ManageContents.StateCommon.ShortText.Font = New Font("Segoe UI", 16.15F, FontStyle.Bold)
+        ManageContents.TabIndex = 16
+        ManageContents.Values.Text = "Gerenciar"
         ' 
         ' KryptonLabel4
         ' 
@@ -188,7 +188,7 @@ Partial Class SideBar
         Controls.Add(KryptonButton1)
         Controls.Add(LabelCreatorArea)
         Controls.Add(KryptonLabel4)
-        Controls.Add(KryptonLabel3)
+        Controls.Add(ManageContents)
         Controls.Add(AccountLbl)
         Controls.Add(KryptonButton4)
         Controls.Add(KryptonButton3)
@@ -210,7 +210,7 @@ Partial Class SideBar
     Friend WithEvents KryptonButton3 As Krypton.Toolkit.KryptonButton
     Friend WithEvents KryptonButton4 As Krypton.Toolkit.KryptonButton
     Friend WithEvents AccountLbl As Krypton.Toolkit.KryptonLabel
-    Friend WithEvents KryptonLabel3 As Krypton.Toolkit.KryptonLabel
+    Friend WithEvents ManageContents As Krypton.Toolkit.KryptonLabel
     Friend WithEvents KryptonLabel4 As Krypton.Toolkit.KryptonLabel
     Friend WithEvents LabelCreatorArea As Krypton.Toolkit.KryptonLabel
     Friend WithEvents KryptonButton1 As Krypton.Toolkit.KryptonButton

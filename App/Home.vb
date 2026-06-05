@@ -27,7 +27,7 @@ Public Class Home
 
     Private Async Function LoadContent() As Task
         FContainer.SuspendLayout()
-        Dim Contents = Await QueryAsync("SELECT c.id AS contentId, u.id AS creatorId, u.name AS creatorName,u.profilePicture AS accountImage, c.title, c.thumbnailUrl, c.description FROM Content c JOIN Users u ON c.creatorId = u.id;")
+        Dim Contents = Await QueryAsync($"SELECT c.id AS contentId, u.id AS creatorId, u.name AS creatorName,u.profilePicture AS accountImage, c.title, c.thumbnailUrl, c.description FROM Content c JOIN Users u ON c.creatorId = u.id AND creatorId <> {id} AND c.active = True;")
         For Each row As DataRow In Contents.Rows
             Dim contentCard As New Card(row("contentId").ToString(), Me, id, row("creatorId").ToString())
             contentCard.TitleContent.Text = row("title").ToString()

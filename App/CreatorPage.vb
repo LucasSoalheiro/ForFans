@@ -79,7 +79,7 @@ GROUP BY
         FPCreatorsContent.SuspendLayout()
         Dim Contents = Await ReadAllAsync("Content", $"creatorId = {CreatorId}")
         For Each row As DataRow In Contents.Rows
-            Dim contentCard As New SmallCard(row("title").ToString(), Me)
+            Dim contentCard As New SmallCard(row("title").ToString(), Me, row("id").ToString(), UserId)
             contentCard.ContentTitle.Text = row("title").ToString()
             Dim thumbnailUrl As String = row("thumbnailUrl").ToString()
             Dim thumbnailPath = Path.Combine(

@@ -23,8 +23,8 @@ Partial Class signatures
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         KryptonLabel1 = New Krypton.Toolkit.KryptonLabel()
-        KryptonButton1 = New Krypton.Toolkit.KryptonButton()
         KryptonLabel2 = New Krypton.Toolkit.KryptonLabel()
+        SignaturesLayout = New FlowLayoutPanel()
         SuspendLayout()
         ' 
         ' KryptonLabel1
@@ -36,19 +36,6 @@ Partial Class signatures
         KryptonLabel1.TabIndex = 13
         KryptonLabel1.Values.Text = "Minhas Assinaturas"
         ' 
-        ' KryptonButton1
-        ' 
-        KryptonButton1.Location = New Point(357, 175)
-        KryptonButton1.Name = "KryptonButton1"
-        KryptonButton1.Size = New Size(121, 31)
-        KryptonButton1.StateCommon.Back.Color1 = Color.Blue
-        KryptonButton1.StateCommon.Border.Rounding = 7F
-        KryptonButton1.StateCommon.Content.ShortText.Color1 = Color.White
-        KryptonButton1.StateCommon.Content.ShortText.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        KryptonButton1.TabIndex = 14
-        KryptonButton1.Values.DropDownArrowColor = Color.Empty
-        KryptonButton1.Values.Text = "Ativas"
-        ' 
         ' KryptonLabel2
         ' 
         KryptonLabel2.Location = New Point(357, 82)
@@ -58,26 +45,33 @@ Partial Class signatures
         KryptonLabel2.TabIndex = 15
         KryptonLabel2.Values.Text = "Gerencie os criadores que você atualmete apoia"
         ' 
+        ' SignaturesLayout
+        ' 
+        SignaturesLayout.Location = New Point(235, 170)
+        SignaturesLayout.Name = "SignaturesLayout"
+        SignaturesLayout.Size = New Size(678, 564)
+        SignaturesLayout.TabIndex = 16
+        ' 
         ' signatures
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(247), CByte(249), CByte(250))
         ClientSize = New Size(1064, 734)
+        Controls.Add(SignaturesLayout)
         Controls.Add(KryptonLabel2)
-        Controls.Add(KryptonButton1)
         Controls.Add(KryptonLabel1)
         Name = "signatures"
         StartPosition = FormStartPosition.CenterScreen
         Text = "assinatura"
         Controls.SetChildIndex(KryptonLabel1, 0)
-        Controls.SetChildIndex(KryptonButton1, 0)
         Controls.SetChildIndex(KryptonLabel2, 0)
+        Controls.SetChildIndex(SignaturesLayout, 0)
         ResumeLayout(False)
         PerformLayout()
     End Sub
 
     Friend WithEvents KryptonLabel1 As Krypton.Toolkit.KryptonLabel
-    Friend WithEvents KryptonButton1 As Krypton.Toolkit.KryptonButton
     Friend WithEvents KryptonLabel2 As Krypton.Toolkit.KryptonLabel
+    Friend WithEvents SignaturesLayout As FlowLayoutPanel
 End Class

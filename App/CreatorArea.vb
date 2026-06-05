@@ -27,8 +27,8 @@ Public Class CreatorArea
         Using ofd As New OpenFileDialog()
 
             ofd.Filter =
-                "Imagens (*.jpg;*.jpeg;*.png;*.gif)|*.jpg;*.jpeg;*.png;*.gif|" &
                 "Vídeos (*.mp4;*.avi;*.mov;*.mkv)|*.mp4;*.avi;*.mov;*.mkv|" &
+                "Imagens (*.jpg;*.jpeg;*.png;*.gif)|*.jpg;*.jpeg;*.png;*.gif|" &
                 "Todos os arquivos|*.*"
 
             ofd.Title = "Selecione uma imagem ou vídeo"

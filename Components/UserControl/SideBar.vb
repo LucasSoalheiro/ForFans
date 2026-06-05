@@ -75,5 +75,13 @@ Public Class SideBar
         login.Show()
         ActualForm.Hide()
     End Sub
+
+    Private Sub KryptonButton4_Click(sender As Object, e As EventArgs) Handles KryptonButton4.Click
+
+    End Sub
+
+    Private Sub ManageContents_Click(sender As Object, e As EventArgs) Handles ManageContents.Click
+
+    End Sub
 End Class
 
