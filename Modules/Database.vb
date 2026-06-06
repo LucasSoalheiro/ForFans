@@ -18,16 +18,23 @@ Public Module Database
             connStr = String.Empty
         End Try
     End Sub
+
     Public Async Function GetConnectionAsync() As Task(Of MySqlConnection)
         Dim conn As New MySqlConnection(connStr)
         Await conn.OpenAsync()
         Return conn
     End Function
 
-    Public Async Function QueryAsync(sql As String) As Task(Of DataTable)
+    ''' <summary>
+    ''' Executa uma query SQL com parâmetros e retorna um DataTable.
+    ''' </summary>
+    Public Async Function QueryAsync(sql As String, Optional params As IEnumerable(Of MySqlParameter) = Nothing) As Task(Of DataTable)
         Dim dt As New DataTable()
         Using conn As MySqlConnection = Await GetConnectionAsync()
             Using cmd As New MySqlCommand(sql, conn)
+                If params IsNot Nothing Then
+                    cmd.Parameters.AddRange(params.ToArray())
+                End If
                 Using da As New MySqlDataAdapter(cmd)
                     Await Task.Run(Sub() da.Fill(dt))
                 End Using
@@ -36,28 +43,27 @@ Public Module Database
         Return dt
     End Function
 
-
-    Public Async Function ReadAllAsync(table As String, Optional where As String = "") As Task(Of DataTable)
-        Dim dt As New DataTable()
-        Using conn As MySqlConnection = Await GetConnectionAsync()
-            Dim sql As String = $"SELECT * FROM {table}"
-            If Not String.IsNullOrEmpty(where) Then sql &= $" WHERE {where}"
-
-            Using cmd As New MySqlCommand(sql, conn)
-                Using da As New MySqlDataAdapter(cmd)
-                    Await Task.Run(Sub() da.Fill(dt))
-                End Using
-            End Using
-        End Using
-        Return dt
+    ''' <summary>
+    ''' Lê todos os registros de uma tabela com uma cláusula WHERE opcional e parâmetros.
+    ''' </summary>
+    Public Async Function ReadAllAsync(table As String, Optional where As String = "", Optional params As IEnumerable(Of MySqlParameter) = Nothing) As Task(Of DataTable)
+        Dim sql As String = $"SELECT * FROM {table}"
+        If Not String.IsNullOrEmpty(where) Then sql &= $" WHERE {where}"
+        Return Await QueryAsync(sql, params)
     End Function
 
-    Public Async Function ReadAsync(table As String, where As String) As Task(Of DataRow)
-        Dim dt As DataTable = Await ReadAllAsync(table, where)
+    ''' <summary>
+    ''' Lê o primeiro registro que coincide com a cláusula WHERE e parâmetros.
+    ''' </summary>
+    Public Async Function ReadAsync(table As String, where As String, Optional params As IEnumerable(Of MySqlParameter) = Nothing) As Task(Of DataRow)
+        Dim dt As DataTable = Await ReadAllAsync(table, where, params)
         If dt.Rows.Count > 0 Then Return dt.Rows(0)
         Return Nothing
     End Function
 
+    ''' <summary>
+    ''' Insere um registro no banco usando um dicionário de dados.
+    ''' </summary>
     Public Async Function CreateAsync(table As String, data As Dictionary(Of String, Object)) As Task(Of Long)
         Using conn As MySqlConnection = Await GetConnectionAsync()
             Dim columns As String = String.Join(", ", data.Keys)
@@ -74,28 +80,42 @@ Public Module Database
         End Using
     End Function
 
-    Public Async Function UpdateAsync(table As String, data As Dictionary(Of String, Object), where As String) As Task(Of Integer)
+    ''' <summary>
+    ''' Atualiza registros baseados em uma cláusula WHERE e parâmetros de filtro.
+    ''' </summary>
+    Public Async Function UpdateAsync(table As String, data As Dictionary(Of String, Object), where As String, Optional whereParams As IEnumerable(Of MySqlParameter) = Nothing) As Task(Of Integer)
         Using conn As MySqlConnection = Await GetConnectionAsync()
             Dim setClauses As New List(Of String)()
             For Each key In data.Keys
-                setClauses.Add($"{key} = @{key}")
+                setClauses.Add($"{key} = @val_{key}")
             Next
             Dim setStr As String = String.Join(", ", setClauses)
             Dim sql As String = $"UPDATE {table} SET {setStr} WHERE {where}"
 
             Using cmd As New MySqlCommand(sql, conn)
+                ' Parâmetros de valores
                 For Each pair In data
-                    cmd.Parameters.AddWithValue("@" & pair.Key, pair.Value)
+                    cmd.Parameters.AddWithValue("@val_" & pair.Key, pair.Value)
                 Next
+                ' Parâmetros da cláusula WHERE
+                If whereParams IsNot Nothing Then
+                    cmd.Parameters.AddRange(whereParams.ToArray())
+                End If
                 Return Await cmd.ExecuteNonQueryAsync()
             End Using
         End Using
     End Function
 
-    Public Async Function DeleteRecordAsync(table As String, where As String) As Task(Of Integer)
+    ''' <summary>
+    ''' Deleta registros baseados em uma cláusula WHERE e parâmetros.
+    ''' </summary>
+    Public Async Function DeleteRecordAsync(table As String, where As String, Optional params As IEnumerable(Of MySqlParameter) = Nothing) As Task(Of Integer)
         Using conn As MySqlConnection = Await GetConnectionAsync()
             Dim sql As String = $"DELETE FROM {table} WHERE {where}"
             Using cmd As New MySqlCommand(sql, conn)
+                If params IsNot Nothing Then
+                    cmd.Parameters.AddRange(params.ToArray())
+                End If
                 Return Await cmd.ExecuteNonQueryAsync()
             End Using
         End Using

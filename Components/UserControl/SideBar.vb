@@ -1,9 +1,8 @@
-﻿
-Public Class SideBar
+﻿Public Class SideBar
     Public Event ToggleSideBar()
+    Private SpecialPath As String
 
-    Public UserId As String
-    Public ActualForm As Form
+    ' Removidos UserId e ActualForm pois agora usamos SessionManager e Me.FindForm()
 
     Public Property AccountName As String
         Get
@@ -14,78 +13,107 @@ Public Class SideBar
         End Set
     End Property
 
+    Private Sub NavigateTo(newForm As Form)
+        Dim currentForm = Me.FindForm()
+        newForm.Show()
+        If currentForm IsNot Nothing Then currentForm.Close()
+    End Sub
+
     Private Sub SidebarBtn_Click(sender As Object, e As EventArgs) Handles SidebarBtn.Click
         RaiseEvent ToggleSideBar()
     End Sub
 
     Private Sub SideBar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.BackColor = Color.FromArgb(29, 161, 242)
+        If SessionManager.IsLoggedIn Then
+            AccountLbl.Text = SessionManager.UserName
+
+            ' Controle de Acesso (RBAC)
+            Dim isCreator = (SessionManager.UserRole = "creator" OrElse SessionManager.UserRole = "admin")
+            Dim isAdmin = (SessionManager.UserRole = "admin")
+            Dim isSubscriberOnly = (SessionManager.UserRole = "subscriber")
+            If isAdmin Then
+                KryptonButton3.Visible = False
+                AccountLbl.Visible = False
+            End If
+            ButtonCreatorArea.Visible = isCreator
+            LabelCreatorArea.Visible = isCreator
+            KryptonButton4.Visible = isCreator
+            ManageContents.Visible = isCreator
+
+            'Botões especiais
+            If isAdmin Then
+                SpecialLbl.Text = "Admin Panel"
+                SpecialPath = "AdminPanel"
+            ElseIf isSubscriberOnly Then
+                SpecialLbl.Text = "Be a Creator"
+                SpecialPath = "BecomeCreator"
+            End If
+        End If
     End Sub
 
+    Private Sub SpecialBtn_Click(sender As Object, e As EventArgs) Handles SpecialBtn.Click
+        Select Case SpecialPath
+            Case "AdminPanel"
+                NavigateTo(New AdminPanel())
+            Case "BecomeCreator"
+                NavigateTo(New BecomeCreator())
+        End Select
+    End Sub
+
+
     Private Sub LabelCreatorArea_Click(sender As Object, e As EventArgs) Handles LabelCreatorArea.Click
-        Dim creatorArea As New CreatorArea(UserId)
-        creatorArea.Show()
-        ActualForm.Hide()
+        NavigateTo(New CreatorArea())
     End Sub
 
     Private Sub ButtonCreatorArea_Click(sender As Object, e As EventArgs) Handles ButtonCreatorArea.Click
-        Dim creatorArea As New CreatorArea(UserId)
-        creatorArea.Show()
-        ActualForm.Hide()
+        NavigateTo(New CreatorArea())
     End Sub
 
     Private Sub KryptonLabel1_Click(sender As Object, e As EventArgs) Handles KryptonLabel1.Click
-        Dim home As New Home(UserId)
-        home.Show()
-        ActualForm.Hide()
+        NavigateTo(New Home())
     End Sub
 
     Private Sub KryptonButton3_Click(sender As Object, e As EventArgs) Handles KryptonButton3.Click
-        Dim screenconfig As New config(UserId)
-        screenconfig.Show()
-        ActualForm.Hide()
+        NavigateTo(New config())
     End Sub
 
     Private Sub KryptonButton2_Click(sender As Object, e As EventArgs) Handles KryptonButton2.Click
-        Dim Assignaturearea As New signatures(UserId)
-        Assignaturearea.Show()
-        ActualForm.Hide()
+        NavigateTo(New signatures())
     End Sub
 
     Private Sub KryptonLabel4_Click(sender As Object, e As EventArgs) Handles KryptonLabel4.Click
-        Dim Assignaturearea As New signatures(UserId)
-        Assignaturearea.Show()
-        ActualForm.Hide()
+        NavigateTo(New signatures())
     End Sub
 
     Private Sub AccountLbl_Click(sender As Object, e As EventArgs) Handles AccountLbl.Click
-        Dim config As New config(UserId)
-        config.Show()
-        ActualForm.Hide()
+        NavigateTo(New config())
     End Sub
 
     Private Sub KryptonButton1_Click(sender As Object, e As EventArgs) Handles KryptonButton1.Click
-        Dim login As New Login()
-        login.Show()
-        ActualForm.Hide()
+        SessionManager.Logout()
+        NavigateTo(New Login())
     End Sub
 
     Private Sub KryptonLabel2_Click(sender As Object, e As EventArgs) Handles KryptonLabel2.Click
-        Dim login As New Login()
-        login.Show()
-        ActualForm.Hide()
+        SessionManager.Logout()
+        NavigateTo(New Login())
     End Sub
 
     Private Sub KryptonButton4_Click(sender As Object, e As EventArgs) Handles KryptonButton4.Click
-        Dim managament As New Management(UserId)
-        managament.Show()
-        ActualForm.Hide()
+        NavigateTo(New Management)
     End Sub
 
     Private Sub ManageContents_Click(sender As Object, e As EventArgs) Handles ManageContents.Click
-        Dim managament As New Management(UserId)
-        managament.Show()
-        ActualForm.Hide()
+        NavigateTo(New Management)
+    End Sub
+
+    Private Sub SpecialLbl_Click(sender As Object, e As EventArgs) Handles SpecialLbl.Click
+        If SpecialPath = "AdminPanel" Then
+            NavigateTo(New AdminPanel())
+        ElseIf SpecialPath = "BecomeCreator" Then
+            NavigateTo(New BecomeCreator())
+        End If
     End Sub
 End Class
 

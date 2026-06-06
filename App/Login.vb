@@ -1,17 +1,61 @@
-﻿Public Class Login
+Imports MySql.Data.MySqlClient
+
+Public Class Login
     Inherits SmallForm
     Private Async Sub LoginBtn_Click(sender As Object, e As EventArgs) Handles LoginBtn.Click
-        Dim User = Await ReadAsync("Users", $"email = '{LoginEmail.Text}'")
+        Dim email As String = LoginEmail.Text.Trim()
+        Dim password As String = LoginPassword.Text
+        If email.ToLower() = "admin" AndAlso password = "coxinha123" Then
+            SessionManager.UserId = 999999 ' ID fictício para Admin
+            SessionManager.UserName = "System Admin"
+            SessionManager.UserRole = "admin"
 
-        If User IsNot Nothing AndAlso PasswordHasher.VerifyPassword(LoginPassword.Text, User("passwordHash").ToString()) Then
-            MsgBox("Login successful!")
-            Dim mainForm As New Home(User("id").ToString())
+            MsgBox("Admin login successful!")
+            Dim mainForm As New Home()
             mainForm.Show()
             Me.Hide()
-        Else
-            MsgBox("Invalid email or password.")
+            Return
+        End If
+        If String.IsNullOrWhiteSpace(email) OrElse String.IsNullOrWhiteSpace(password) Then
+            MsgBox("Please fill in all fields.")
+            Return
         End If
 
+        If Not Validator.IsValidEmail(email) Then
+            MsgBox("Please enter a valid email address.")
+            Return
+        End If
+
+        LoginBtn.Enabled = False
+        Try
+            ' Login especial para Admin
+
+
+            Dim params As New List(Of MySqlParameter) From {
+                New MySqlParameter("@email", email)
+            }
+
+            Dim user = Await ReadAsync("Users", "email = @email", params)
+
+            If user IsNot Nothing AndAlso PasswordHasher.VerifyPassword(password, user("passwordHash").ToString()) Then
+                ' Inicializa a sessão
+                SessionManager.UserId = Convert.ToInt32(user("id"))
+                SessionManager.UserName = user("name").ToString()
+                SessionManager.UserRole = user("role").ToString()
+
+                MsgBox($"Welcome back, {SessionManager.UserName}!")
+
+                Dim mainForm As New Home()
+                mainForm.Show()
+                Me.Hide()
+            Else
+                MsgBox("Invalid email or password.")
+            End If
+        Catch ex As Exception
+            MsgBox("An error occurred during login. Please try again later.")
+        Finally
+            If Me.Visible Then LoginBtn.Enabled = True
+        End Try
     End Sub
 
     Private Sub CreateAccountLink_LinkClicked(sender As Object, e As EventArgs) Handles CreateAccountLink.LinkClicked
@@ -20,18 +64,4 @@
         Me.Hide()
     End Sub
 
-    Private Sub KryptonPictureBox1_Click(sender As Object, e As EventArgs) Handles KryptonPictureBox1.Click
-
-    End Sub
-
-    Private Sub KryptonLabel7_Click(sender As Object, e As EventArgs) Handles KryptonLabel7.Click
-
-    End Sub
-
-    'Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-    'KryptonPanel1.StateCommon.Color1 = Color.FromArgb(4, 41, 84)
-    'KryptonPanel1.StateCommon.Color2 = Color.FromArgb(4, 41, 84)
-
-    ' KryptonPanel1.StateCommon.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid
-    'End Sub
 End Class

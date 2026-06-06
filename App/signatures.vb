@@ -1,48 +1,42 @@
-﻿Imports System.IO
+Imports System.IO
+Imports MySql.Data.MySqlClient
+
 Public Class signatures
     Inherits FormBase
 
-    Private id As String
-
-    Public Sub New(id As String)
+    Public Sub New()
         InitializeComponent()
-        Me.id = id
     End Sub
-    Private Async Sub config_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.sidebar.UserId = id
-        Me.sidebar.ActualForm = Me
 
-        Dim Subscriptions = Await QueryAsync($"SELECT
-    s.id AS subscriptionId,
-    s.createdAt,
-    u.id AS creatorId,
-    u.name AS creatorName,
-  u.profilePicture as creatorProfilePic
-FROM Subscription s
-INNER JOIN Users u
-    ON s.creatorId = u.id
-WHERE s.subscriberId = {id}")
+    Private Async Sub signatures_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.sidebar.AccountName = SessionManager.UserName
+        'Me.sidebar.ActualForm = Me
+
+        Dim params As New List(Of MySqlParameter) From {
+            New MySqlParameter("@subscriberId", SessionManager.UserId)
+        }
+
+        Dim sql = "SELECT s.id AS subscriptionId, s.createdAt, u.id AS creatorId, u.name AS creatorName, u.profilePicture as creatorProfilePic " &
+                  "FROM Subscription s INNER JOIN Users u ON s.creatorId = u.id " &
+                  "WHERE s.subscriberId = @subscriberId"
+
+        Dim subscriptions = Await QueryAsync(sql, params)
 
         SignaturesLayout.SuspendLayout()
-        For Each Subscription As DataRow In Subscriptions.Rows
-            Dim creatorCard = New SmallAccountCard(Subscription("creatorId").ToString(), Subscription("creatorName").ToString(), id, Me)
-            creatorCard.AccountName.Text = Subscription("creatorName").ToString()
-            Dim accountImageUrl As String = Subscription("creatorProfilePic").ToString()
+        For Each subRow As DataRow In subscriptions.Rows
+            Dim creatorId = subRow("creatorId").ToString()
+            Dim creatorName = subRow("creatorName").ToString()
 
-            Dim accountImagePath = Path.Combine(
-                Application.StartupPath,
-                accountImageUrl.Replace("/", "\")
-            )
+            Dim creatorCard = New SmallAccountCard(creatorId, creatorName, SessionManager.UserId.ToString(), Me)
+            creatorCard.AccountName.Text = creatorName
 
-            Using img As Image = Image.FromFile(accountImagePath)
-                creatorCard.AccountPicProfile.Image = New Bitmap(img)
-            End Using
+            Dim accountImageUrl As String = subRow("creatorProfilePic").ToString()
+            If Not String.IsNullOrEmpty(accountImageUrl) Then
+                ImageHelper.SetImage(creatorCard.AccountPicProfile, Path.Combine(Application.StartupPath, accountImageUrl))
+            End If
 
             SignaturesLayout.Controls.Add(creatorCard)
         Next
         SignaturesLayout.ResumeLayout()
     End Sub
-
-
-
 End Class

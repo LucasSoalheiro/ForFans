@@ -1,41 +1,38 @@
-﻿Public Class SmallAccountCard
+Imports MySql.Data.MySqlClient
+
+Public Class SmallAccountCard
 
     Public CreatorId As String
     Public CreatorName As String
-    Public UserId As String
     Public ActualForm As Form
 
-
-    Public Sub New(creatorId As String, creatorName As String, userId As String, actualForm As Form)
-
-        ' Esta chamada é requerida pelo designer.
+    Public Sub New(creatorId As String, creatorName As String, userId_ignored As String, actualForm As Form)
         InitializeComponent()
         Me.CreatorId = creatorId
         Me.CreatorName = creatorName
-        Me.UserId = userId
         Me.ActualForm = actualForm
-        ' Adicione qualquer inicialização após a chamada InitializeComponent().
-
     End Sub
 
-    Private Sub SmallAccountCard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+    Private Sub NavigateTo(newForm As Form)
+        newForm.Show()
+        If ActualForm IsNot Nothing Then ActualForm.Close()
     End Sub
 
     Private Async Sub DeactiveSubBtn_Click(sender As Object, e As EventArgs) Handles DeactiveSubBtn.Click
-        Await DeleteRecordAsync("Subscription", $"subscriberId = {UserId} AND creatorId = {CreatorId}")
-        DeactiveSubBtn.Text = "Inscrever-se"
+        Dim params As New List(Of MySqlParameter) From {
+            New MySqlParameter("@userId", SessionManager.UserId),
+            New MySqlParameter("@creatorId", CreatorId)
+        }
+        Await DeleteRecordAsync("Subscription", "subscriberId = @userId AND creatorId = @creatorId", params)
+        DeactiveSubBtn.Text = "Unsubscribed"
+        DeactiveSubBtn.Enabled = False
     End Sub
 
     Private Sub AccountName_Click(sender As Object, e As EventArgs) Handles AccountName.Click
-        Dim creatorPage As New CreatorPage(CreatorId, UserId)
-        ActualForm.Hide()
-        creatorPage.Show()
+        NavigateTo(New CreatorPage(CreatorId))
     End Sub
 
     Private Sub AccountPicProfile_Click(sender As Object, e As EventArgs) Handles AccountPicProfile.Click
-        Dim creatorPage As New CreatorPage(CreatorId, UserId)
-        ActualForm.Hide()
-        creatorPage.Show()
+        NavigateTo(New CreatorPage(CreatorId))
     End Sub
 End Class

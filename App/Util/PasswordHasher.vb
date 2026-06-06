@@ -6,7 +6,7 @@ Public Class PasswordHasher
         Dim saltBytes(15) As Byte
         RandomNumberGenerator.Fill(saltBytes)
 
-        Dim hashBytes As Byte() = Rfc2898DeriveBytes.Pbkdf2(password, saltBytes, 10000, HashAlgorithmName.SHA256, 32)
+        Dim hashBytes As Byte() = Rfc2898DeriveBytes.Pbkdf2(password, saltBytes, 100000, HashAlgorithmName.SHA256, 32)
 
         Dim combinedBytes(47) As Byte
         Buffer.BlockCopy(saltBytes, 0, combinedBytes, 0, 16)
@@ -21,7 +21,7 @@ Public Class PasswordHasher
         Dim saltBytes(15) As Byte
         Buffer.BlockCopy(combinedBytes, 0, saltBytes, 0, 16)
 
-        Dim hashBytes As Byte() = Rfc2898DeriveBytes.Pbkdf2(password, saltBytes, 10000, HashAlgorithmName.SHA256, 32)
+        Dim hashBytes As Byte() = Rfc2898DeriveBytes.Pbkdf2(password, saltBytes, 100000, HashAlgorithmName.SHA256, 32)
 
         For i As Integer = 0 To 31
             If combinedBytes(i + 16) <> hashBytes(i) Then Return False

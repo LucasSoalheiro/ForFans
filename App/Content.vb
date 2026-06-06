@@ -1,21 +1,25 @@
-﻿Public Class Content
+Imports MySql.Data.MySqlClient
+
+Public Class Content
     Inherits FormBase
     Private ContentId As String
-    Private UserId As String
 
-    Public Sub New(contentId As String, userId As String)
+    Public Sub New(contentId As String)
         InitializeComponent()
         Me.ContentId = contentId
-        Me.UserId = userId
-
     End Sub
-    Private Async Sub Content_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.sidebar.ActualForm = Me
-        Me.sidebar.UserId = UserId
-        Dim user = Await ReadAsync("Users", $"id = {UserId}")
-        Me.sidebar.AccountName = user("name").ToString()
-        Dim contents = Await ReadAsync("Content", $"id = {ContentId}")
 
-        ContentPlayer.URL = contents("fileUrl").ToString()
+    Private Async Sub Content_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.sidebar.AccountName = SessionManager.UserName
+        'Me.sidebar.ActualForm = Me
+
+        Dim params As New List(Of MySqlParameter) From {
+            New MySqlParameter("@id", ContentId)
+        }
+
+        Dim contents = Await ReadAsync("Content", "id = @id", params)
+        If contents IsNot Nothing Then
+            ContentPlayer.URL = contents("fileUrl").ToString()
+        End If
     End Sub
 End Class

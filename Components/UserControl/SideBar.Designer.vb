@@ -35,6 +35,8 @@ Partial Class SideBar
         LabelCreatorArea = New Krypton.Toolkit.KryptonLabel()
         KryptonButton1 = New Krypton.Toolkit.KryptonButton()
         KryptonLabel2 = New Krypton.Toolkit.KryptonLabel()
+        SpecialBtn = New Krypton.Toolkit.KryptonButton()
+        SpecialLbl = New Krypton.Toolkit.KryptonLabel()
         SuspendLayout()
         ' 
         ' SidebarBtn
@@ -57,7 +59,7 @@ Partial Class SideBar
         KryptonLabel1.Name = "KryptonLabel1"
         KryptonLabel1.Size = New Size(149, 55)
         KryptonLabel1.StateCommon.ShortText.Color1 = Color.White
-        KryptonLabel1.StateCommon.ShortText.Font = New Font("Segoe UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        KryptonLabel1.StateCommon.ShortText.Font = New Font("Segoe UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0)
         KryptonLabel1.TabIndex = 4
         KryptonLabel1.Values.Text = "ForFans"
         ' 
@@ -98,7 +100,7 @@ Partial Class SideBar
         ' KryptonButton3
         ' 
         KryptonButton3.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
-        KryptonButton3.Location = New Point(3, 373)
+        KryptonButton3.Location = New Point(3, 435)
         KryptonButton3.Name = "KryptonButton3"
         KryptonButton3.Size = New Size(55, 55)
         KryptonButton3.StateCommon.Back.Draw = Krypton.Toolkit.InheritBool.False
@@ -124,7 +126,7 @@ Partial Class SideBar
         ' AccountLbl
         ' 
         AccountLbl.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
-        AccountLbl.Location = New Point(64, 373)
+        AccountLbl.Location = New Point(64, 435)
         AccountLbl.Name = "AccountLbl"
         AccountLbl.Size = New Size(100, 55)
         AccountLbl.StateCommon.ShortText.Color1 = Color.White
@@ -164,7 +166,7 @@ Partial Class SideBar
         ' 
         ' KryptonButton1
         ' 
-        KryptonButton1.Location = New Point(3, 444)
+        KryptonButton1.Location = New Point(0, 496)
         KryptonButton1.Name = "KryptonButton1"
         KryptonButton1.Size = New Size(55, 55)
         KryptonButton1.StateCommon.Back.Draw = Krypton.Toolkit.InheritBool.False
@@ -176,7 +178,7 @@ Partial Class SideBar
         ' 
         ' KryptonLabel2
         ' 
-        KryptonLabel2.Location = New Point(64, 444)
+        KryptonLabel2.Location = New Point(64, 496)
         KryptonLabel2.Name = "KryptonLabel2"
         KryptonLabel2.Size = New Size(166, 55)
         KryptonLabel2.StateCommon.ShortText.Color1 = Color.White
@@ -184,11 +186,35 @@ Partial Class SideBar
         KryptonLabel2.TabIndex = 21
         KryptonLabel2.Values.Text = "Sair"
         ' 
+        ' SpecialBtn
+        ' 
+        SpecialBtn.Location = New Point(3, 360)
+        SpecialBtn.Name = "SpecialBtn"
+        SpecialBtn.Size = New Size(55, 55)
+        SpecialBtn.StateCommon.Back.Draw = Krypton.Toolkit.InheritBool.False
+        SpecialBtn.StateCommon.Border.Draw = Krypton.Toolkit.InheritBool.False
+        SpecialBtn.TabIndex = 23
+        SpecialBtn.Values.DropDownArrowColor = Color.Empty
+        SpecialBtn.Values.Image = My.Resources.Resources.manage_accounts_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24
+        SpecialBtn.Values.Text = ""
+        ' 
+        ' SpecialLbl
+        ' 
+        SpecialLbl.Location = New Point(64, 360)
+        SpecialLbl.Name = "SpecialLbl"
+        SpecialLbl.Size = New Size(166, 55)
+        SpecialLbl.StateCommon.ShortText.Color1 = Color.White
+        SpecialLbl.StateCommon.ShortText.Font = New Font("Segoe UI", 16.15F, FontStyle.Bold)
+        SpecialLbl.TabIndex = 24
+        SpecialLbl.Values.Text = "Nothing"
+        ' 
         ' SideBar
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        BackColor = Color.FromArgb(CByte(29), CByte(161), CByte(242))
+        BackColor = Color.FromArgb(29, 161, 242)
+        Controls.Add(SpecialLbl)
+        Controls.Add(SpecialBtn)
         Controls.Add(KryptonLabel2)
         Controls.Add(KryptonButton1)
         Controls.Add(LabelCreatorArea)
@@ -220,5 +246,7 @@ Partial Class SideBar
     Friend WithEvents LabelCreatorArea As Krypton.Toolkit.KryptonLabel
     Friend WithEvents KryptonButton1 As Krypton.Toolkit.KryptonButton
     Friend WithEvents KryptonLabel2 As Krypton.Toolkit.KryptonLabel
+    Friend WithEvents SpecialBtn As Krypton.Toolkit.KryptonButton
+    Friend WithEvents SpecialLbl As Krypton.Toolkit.KryptonLabel
 
 End Class

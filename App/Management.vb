@@ -1,34 +1,31 @@
-﻿Imports System.IO
+Imports System.IO
+Imports MySql.Data.MySqlClient
+
 Public Class Management
     Inherits FormBase
-    Private UserId As String
 
-
-    Public Sub New(UserId As String)
-
-        ' Esta chamada é requerida pelo designer.
+    Public Sub New()
         InitializeComponent()
-        Me.UserId = UserId
-        ' Adicione qualquer inicialização após a chamada InitializeComponent().
-
     End Sub
+
     Private Async Sub Management_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.sidebar.UserId = UserId
-        Me.sidebar.ActualForm = Me
-        Dim UserContent = Await ReadAllAsync("Content", $"creatorId={UserId}")
+        Me.sidebar.AccountName = SessionManager.UserName
+        'Me.sidebar.ActualForm = Me
+
+        Dim params As New List(Of MySqlParameter) From {
+            New MySqlParameter("@creatorId", SessionManager.UserId)
+        }
+
+        Dim userContent = Await ReadAllAsync("Content", "creatorId = @creatorId", params)
+
         FLContents.SuspendLayout()
-        For Each row As DataRow In UserContent.Rows
+        For Each row As DataRow In userContent.Rows
             Dim contentCard As New ContentCard(row("id").ToString(), row("title").ToString(), row("description").ToString(), row("active"))
-            Dim accountImageUrl As String = row("thumbnailUrl").ToString()
 
-            Dim accountImagePath = Path.Combine(
-                Application.StartupPath,
-                accountImageUrl.Replace("/", "\")
-            )
-
-            Using img As Image = Image.FromFile(accountImagePath)
-                contentCard.ThumbnailPic.Image = New Bitmap(img)
-            End Using
+            Dim thumbnailUrl As String = row("thumbnailUrl").ToString()
+            If Not String.IsNullOrEmpty(thumbnailUrl) Then
+                ImageHelper.SetImage(contentCard.ThumbnailPic, Path.Combine(Application.StartupPath, thumbnailUrl))
+            End If
 
             FLContents.Controls.Add(contentCard)
         Next
