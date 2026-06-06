@@ -18,20 +18,14 @@ Public Class Management
         Dim UserContent = Await ReadAllAsync("Content", $"creatorId={UserId}")
         FLContents.SuspendLayout()
         For Each row As DataRow In UserContent.Rows
-            Dim contentCard As New ContentCard(row("id").ToString(), row("title").ToString(), row("description").ToString())
+            Dim contentCard As New ContentCard(row("id").ToString(), row("title").ToString(), row("description").ToString(), row("active"))
             Dim accountImageUrl As String = row("thumbnailUrl").ToString()
 
             Dim accountImagePath = Path.Combine(
                 Application.StartupPath,
                 accountImageUrl.Replace("/", "\")
             )
-            If row("active") = False Then
-                contentCard.DeleteBtn.Text = "Deactivate"
-                contentCard.DeleteBtn.Enabled = False
-            Else
-                contentCard.DeleteBtn.Text = "Activate"
-                contentCard.DeleteBtn.Enabled = True
-            End If
+
             Using img As Image = Image.FromFile(accountImagePath)
                 contentCard.ThumbnailPic.Image = New Bitmap(img)
             End Using
