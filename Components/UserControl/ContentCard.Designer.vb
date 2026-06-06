@@ -35,6 +35,7 @@ Partial Class ContentCard
         ThumbnailPic.Location = New Point(3, 84)
         ThumbnailPic.Name = "ThumbnailPic"
         ThumbnailPic.Size = New Size(451, 185)
+        ThumbnailPic.SizeMode = PictureBoxSizeMode.Zoom
         ThumbnailPic.TabIndex = 0
         ThumbnailPic.TabStop = False
         ' 
@@ -74,7 +75,7 @@ Partial Class ContentCard
         ' 
         ' ContentCard
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         Controls.Add(DeleteBtn)
         Controls.Add(EditBtn)

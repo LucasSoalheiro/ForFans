@@ -77,11 +77,15 @@ Public Class SideBar
     End Sub
 
     Private Sub KryptonButton4_Click(sender As Object, e As EventArgs) Handles KryptonButton4.Click
-
+        Dim managament As New Management(UserId)
+        managament.Show()
+        ActualForm.Hide()
     End Sub
 
     Private Sub ManageContents_Click(sender As Object, e As EventArgs) Handles ManageContents.Click
-
+        Dim managament As New Management(UserId)
+        managament.Show()
+        ActualForm.Hide()
     End Sub
 End Class
 
