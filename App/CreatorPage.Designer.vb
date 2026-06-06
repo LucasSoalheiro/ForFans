@@ -75,6 +75,7 @@ Partial Class CreatorPage
         SubscribeBtn.Location = New Point(528, 99)
         SubscribeBtn.Name = "SubscribeBtn"
         SubscribeBtn.Size = New Size(90, 25)
+        SubscribeBtn.StateCommon.Border.Rounding = 8F
         SubscribeBtn.TabIndex = 6
         SubscribeBtn.Values.DropDownArrowColor = Color.Empty
         SubscribeBtn.Values.Text = "Subscribe"

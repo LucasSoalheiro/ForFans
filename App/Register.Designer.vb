@@ -153,7 +153,7 @@ Partial Class Register
         ' 
         ' KryptonLabel1
         ' 
-        KryptonLabel1.Location = New Point(624, 12)
+        KryptonLabel1.Location = New Point(624, 0)
         KryptonLabel1.Name = "KryptonLabel1"
         KryptonLabel1.Size = New Size(251, 49)
         KryptonLabel1.StateCommon.ShortText.Font = New Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
@@ -222,16 +222,20 @@ Partial Class Register
         ' 
         ' PictureBtn
         ' 
-        PictureBtn.Location = New Point(776, 90)
+        PictureBtn.Location = New Point(763, 90)
         PictureBtn.Name = "PictureBtn"
-        PictureBtn.Size = New Size(141, 25)
+        PictureBtn.Size = New Size(197, 25)
+        PictureBtn.StateCommon.Back.Color1 = Color.FromArgb(CByte(4), CByte(44), CByte(83))
+        PictureBtn.StateCommon.Back.Color2 = Color.FromArgb(CByte(59), CByte(130), CByte(246))
+        PictureBtn.StateCommon.Border.Rounding = 8F
+        PictureBtn.StateCommon.Content.ShortText.Color1 = Color.White
         PictureBtn.TabIndex = 10
         PictureBtn.Values.DropDownArrowColor = Color.Empty
-        PictureBtn.Values.Text = "Add your profile picture"
+        PictureBtn.Values.Text = "Adicione uma foto ao seu perfil"
         ' 
         ' ProfilePicture
         ' 
-        ProfilePicture.Location = New Point(641, 55)
+        ProfilePicture.Location = New Point(624, 55)
         ProfilePicture.Name = "ProfilePicture"
         ProfilePicture.Size = New Size(100, 100)
         ProfilePicture.SizeMode = PictureBoxSizeMode.Zoom

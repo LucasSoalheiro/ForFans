@@ -67,6 +67,7 @@ Partial Class SideBar
         ButtonCreatorArea.Name = "ButtonCreatorArea"
         ButtonCreatorArea.Size = New Size(55, 55)
         ButtonCreatorArea.StateCommon.Back.Draw = Krypton.Toolkit.InheritBool.False
+        ButtonCreatorArea.StateCommon.Border.Color1 = Color.White
         ButtonCreatorArea.StateCommon.Border.Draw = Krypton.Toolkit.InheritBool.False
         ButtonCreatorArea.StateDisabled.Back.Draw = Krypton.Toolkit.InheritBool.False
         ButtonCreatorArea.TabIndex = 5
@@ -83,7 +84,7 @@ Partial Class SideBar
         KryptonButton2.StateCommon.Border.Draw = Krypton.Toolkit.InheritBool.False
         KryptonButton2.TabIndex = 6
         KryptonButton2.Values.DropDownArrowColor = Color.Empty
-        KryptonButton2.Values.Image = My.Resources.Resources.editor_choice_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24
+        KryptonButton2.Values.Image = My.Resources.Resources.favorite_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24
         KryptonButton2.Values.Text = ""
         ' 
         ' KryptonBorderEdge1
@@ -113,9 +114,11 @@ Partial Class SideBar
         KryptonButton4.Location = New Point(3, 299)
         KryptonButton4.Name = "KryptonButton4"
         KryptonButton4.Size = New Size(55, 55)
-        KryptonButton4.StateCommon.Border.Rounding = 10F
+        KryptonButton4.StateCommon.Back.Draw = Krypton.Toolkit.InheritBool.False
+        KryptonButton4.StateCommon.Border.Draw = Krypton.Toolkit.InheritBool.False
         KryptonButton4.TabIndex = 12
         KryptonButton4.Values.DropDownArrowColor = Color.Empty
+        KryptonButton4.Values.Image = My.Resources.Resources.manage_accounts_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24
         KryptonButton4.Values.Text = ""
         ' 
         ' AccountLbl
@@ -164,9 +167,11 @@ Partial Class SideBar
         KryptonButton1.Location = New Point(3, 444)
         KryptonButton1.Name = "KryptonButton1"
         KryptonButton1.Size = New Size(55, 55)
-        KryptonButton1.StateCommon.Border.Rounding = 10F
+        KryptonButton1.StateCommon.Back.Draw = Krypton.Toolkit.InheritBool.False
+        KryptonButton1.StateCommon.Border.Draw = Krypton.Toolkit.InheritBool.False
         KryptonButton1.TabIndex = 20
         KryptonButton1.Values.DropDownArrowColor = Color.Empty
+        KryptonButton1.Values.Image = My.Resources.Resources.exit_to_app_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24
         KryptonButton1.Values.Text = ""
         ' 
         ' KryptonLabel2
