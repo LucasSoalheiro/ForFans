@@ -1,4 +1,7 @@
-﻿Public Class BecomeCreator
+﻿Imports System.Collections.Generic
+Imports MySql.Data.MySqlClient
+
+Public Class BecomeCreator
     Inherits FormBase
 
     Private Sub BtnAddPhoto_Click(sender As Object, e As EventArgs) Handles BtnAddPhoto.Click
