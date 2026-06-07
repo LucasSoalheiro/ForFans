@@ -22,27 +22,76 @@ Partial Class Management
     'Não o modifique usando o editor de códigos.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        HeaderPanel = New Panel()
+        lblTitle = New Krypton.Toolkit.KryptonLabel()
+        lblSubtitle = New Krypton.Toolkit.KryptonLabel()
         FLContents = New FlowLayoutPanel()
+        HeaderPanel.SuspendLayout()
         SuspendLayout()
+        ' 
+        ' HeaderPanel
+        ' 
+        HeaderPanel.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
+        HeaderPanel.Controls.Add(lblSubtitle)
+        HeaderPanel.Controls.Add(lblTitle)
+        HeaderPanel.Location = New Point(110, 0)
+        HeaderPanel.Name = "HeaderPanel"
+        HeaderPanel.Size = New Size(920, 120)
+        HeaderPanel.TabIndex = 3
+        ' 
+        ' lblTitle
+        ' 
+        lblTitle.Location = New Point(40, 20)
+        lblTitle.Name = "lblTitle"
+        lblTitle.Size = New Size(300, 45)
+        lblTitle.StateCommon.ShortText.Color1 = Color.FromArgb(CByte(15), CByte(20), CByte(25))
+        lblTitle.StateCommon.ShortText.Font = New Font("Segoe UI", 22F, FontStyle.Bold)
+        lblTitle.TabIndex = 0
+        lblTitle.Values.Text = "Gerenciar"
+        ' 
+        ' lblSubtitle
+        ' 
+        lblSubtitle.Location = New Point(40, 65)
+        lblSubtitle.Name = "lblSubtitle"
+        lblSubtitle.Size = New Size(400, 30)
+        lblSubtitle.StateCommon.ShortText.Color1 = Color.Gray
+        lblSubtitle.StateCommon.ShortText.Font = New Font("Segoe UI", 11F)
+        lblSubtitle.TabIndex = 1
+        lblSubtitle.Values.Text = "Visualize e edite seus conteúdos publicados"
         ' 
         ' FLContents
         ' 
-        FLContents.Location = New Point(98, 12)
+        FLContents.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        FLContents.AutoScroll = True
+        FLContents.BackColor = Color.FromArgb(CByte(247), CByte(249), CByte(250))
+        FLContents.FlowDirection = FlowDirection.TopDown
+        FLContents.Location = New Point(110, 120)
         FLContents.Name = "FLContents"
-        FLContents.Size = New Size(954, 710)
+        FLContents.Padding = New Padding(40, 0, 40, 0)
+        FLContents.Size = New Size(920, 560)
         FLContents.TabIndex = 2
+        FLContents.WrapContents = False
         ' 
         ' Management
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
+        BackColor = Color.White
         ClientSize = New Size(1064, 734)
+        Controls.Add(HeaderPanel)
         Controls.Add(FLContents)
         Name = "Management"
-        Text = "Management"
+        StartPosition = FormStartPosition.CenterScreen
+        Text = "Gerenciar Conteúdo"
         Controls.SetChildIndex(FLContents, 0)
+        Controls.SetChildIndex(HeaderPanel, 0)
+        HeaderPanel.ResumeLayout(False)
+        HeaderPanel.PerformLayout()
         ResumeLayout(False)
     End Sub
 
+    Friend WithEvents HeaderPanel As Panel
+    Friend WithEvents lblTitle As Krypton.Toolkit.KryptonLabel
+    Friend WithEvents lblSubtitle As Krypton.Toolkit.KryptonLabel
     Friend WithEvents FLContents As FlowLayoutPanel
 End Class

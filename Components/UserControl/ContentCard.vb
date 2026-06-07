@@ -1,3 +1,5 @@
+Imports System.IO
+Imports System.Collections.Generic
 Imports MySql.Data.MySqlClient
 
 Public Class ContentCard
@@ -14,8 +16,46 @@ Public Class ContentCard
         Me.ContentActive = contentActive
     End Sub
 
-    Private Sub EditBtn_Click(sender As Object, e As EventArgs) Handles EditBtn.Click
-        ' TODO: Implementar edição
+    Private Async Sub EditBtn_Click(sender As Object, e As EventArgs) Handles EditBtn.Click
+        Using ofd As New OpenFileDialog()
+            ofd.Filter = "Imagens (*.jpg;*.jpeg;*.png;*.gif)|*.jpg;*.jpeg;*.png;*.gif"
+            ofd.Title = "Selecione a nova imagem/thumbnail"
+
+            If ofd.ShowDialog() <> DialogResult.OK Then Return
+
+            Try
+                ' Upload do arquivo (Copia para a pasta uploads)
+                Dim uploadsFolder = Path.Combine(Application.StartupPath, "uploads")
+                If Not Directory.Exists(uploadsFolder) Then Directory.CreateDirectory(uploadsFolder)
+
+                Dim fileName = $"{Guid.NewGuid()}{Path.GetExtension(ofd.FileName)}"
+                Dim relativePath = $"uploads/{fileName}"
+                Dim destPath = Path.Combine(uploadsFolder, fileName)
+
+                File.Copy(ofd.FileName, destPath, True)
+
+                ' Atualiza no banco de dados
+                Dim updates As New Dictionary(Of String, Object) From {
+                    {"thumbnailUrl", relativePath}
+                }
+
+                ' Se for do tipo foto, atualizamos o arquivo principal também
+                ' Para simplificar, vamos assumir que atualizar a thumbnail é o objetivo principal aqui
+                
+                Dim params As New List(Of MySqlParameter) From {
+                    New MySqlParameter("@id", ContentId)
+                }
+
+                Await Database.UpdateAsync("Content", updates, "id = @id", params)
+
+                ' Atualiza a UI
+                ImageHelper.SetImage(ThumbnailPic, destPath)
+                MessageBox.Show("Imagem atualizada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+            Catch ex As Exception
+                MessageBox.Show($"Erro ao atualizar imagem: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        End Using
     End Sub
 
     Private Async Sub DeleteBtn_Click(sender As Object, e As EventArgs) Handles DeleteBtn.Click
