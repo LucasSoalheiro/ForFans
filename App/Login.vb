@@ -36,7 +36,10 @@ Public Class Login
             }
 
             Dim user = Await ReadAsync("Users", "email = @email", params)
-
+            If user("active") = False Then
+                MsgBox("Your account is deactivated.")
+                Return
+            End If
             If user IsNot Nothing AndAlso PasswordHasher.VerifyPassword(password, user("passwordHash").ToString()) Then
                 ' Inicializa a sessão
                 SessionManager.UserId = Convert.ToInt32(user("id"))

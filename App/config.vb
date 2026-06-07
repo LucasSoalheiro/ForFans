@@ -56,7 +56,7 @@ Public Class config
             End If
 
             Dim savedPath = SaveAvatarLocally(ofd.FileName)
-            if String.IsNullOrEmpty(savedPath) Then
+            If String.IsNullOrEmpty(savedPath) Then
                 MessageBox.Show("Não foi possível salvar a imagem.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 Return
             End If
@@ -113,7 +113,7 @@ Public Class config
                 New MySqlParameter("@id", SessionManager.UserId)
             }
             Dim existingUser = Await ReadAsync("Users", "email = @email AND id <> @id", emailParams)
-            
+
             If existingUser IsNot Nothing Then
                 MessageBox.Show("Este e-mail já está sendo usado por outra conta.", "Conflito de E-mail", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 Return

@@ -43,9 +43,9 @@ Public Class Register
                 {"passwordHash", PasswordHasher.HashPassword(password)},
                 {"profilePicture", If(String.IsNullOrEmpty(_fileUrl), "", _fileUrl.Replace("\", "/"))}
             }
-            
+
             Dim newId = Await CreateAsync("Users", data)
-            
+
             ' Inicializa a sessão
             SessionManager.UserId = Convert.ToInt32(newId)
             SessionManager.UserName = name

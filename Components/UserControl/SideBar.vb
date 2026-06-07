@@ -48,6 +48,9 @@
             ElseIf isSubscriberOnly Then
                 SpecialLbl.Text = "Be a Creator"
                 SpecialPath = "BecomeCreator"
+            Else
+                SpecialBtn.Visible = False
+                SpecialLbl.Visible = False
             End If
         End If
     End Sub
