@@ -9,7 +9,11 @@
             Return AccountLbl.Text
         End Get
         Set(value As String)
-            AccountLbl.Text = value
+            If value.Length > 10 Then
+                AccountLbl.Text = value.Substring(0, 10) & "..."
+            Else
+                AccountLbl.Text = value
+            End If
         End Set
     End Property
 
