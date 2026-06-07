@@ -22,56 +22,76 @@ Partial Class signatures
     'Não o modifique usando o editor de códigos.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        KryptonLabel1 = New Krypton.Toolkit.KryptonLabel()
-        KryptonLabel2 = New Krypton.Toolkit.KryptonLabel()
+        HeaderPanel = New Panel()
+        lblTitle = New Krypton.Toolkit.KryptonLabel()
+        lblSubtitle = New Krypton.Toolkit.KryptonLabel()
         SignaturesLayout = New FlowLayoutPanel()
+        HeaderPanel.SuspendLayout()
         SuspendLayout()
         ' 
-        ' KryptonLabel1
+        ' HeaderPanel
         ' 
-        KryptonLabel1.Location = New Point(357, 26)
-        KryptonLabel1.Name = "KryptonLabel1"
-        KryptonLabel1.Size = New Size(316, 49)
-        KryptonLabel1.StateCommon.ShortText.Font = New Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        KryptonLabel1.TabIndex = 13
-        KryptonLabel1.Values.Text = "Minhas Assinaturas"
+        HeaderPanel.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
+        HeaderPanel.Controls.Add(lblSubtitle)
+        HeaderPanel.Controls.Add(lblTitle)
+        HeaderPanel.Location = New Point(110, 0)
+        HeaderPanel.Name = "HeaderPanel"
+        HeaderPanel.Size = New Size(920, 120)
+        HeaderPanel.TabIndex = 3
         ' 
-        ' KryptonLabel2
+        ' lblTitle
         ' 
-        KryptonLabel2.Location = New Point(357, 82)
-        KryptonLabel2.Name = "KryptonLabel2"
-        KryptonLabel2.Size = New Size(360, 31)
-        KryptonLabel2.StateCommon.ShortText.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        KryptonLabel2.TabIndex = 15
-        KryptonLabel2.Values.Text = "Gerencie os criadores que você atualmete apoia"
+        lblTitle.Location = New Point(40, 20)
+        lblTitle.Name = "lblTitle"
+        lblTitle.Size = New Size(300, 45)
+        lblTitle.StateCommon.ShortText.Color1 = Color.FromArgb(CByte(15), CByte(20), CByte(25))
+        lblTitle.StateCommon.ShortText.Font = New Font("Segoe UI", 22F, FontStyle.Bold)
+        lblTitle.TabIndex = 0
+        lblTitle.Values.Text = "Assinaturas"
+        ' 
+        ' lblSubtitle
+        ' 
+        lblSubtitle.Location = New Point(40, 65)
+        lblSubtitle.Name = "lblSubtitle"
+        lblSubtitle.Size = New Size(400, 30)
+        lblSubtitle.StateCommon.ShortText.Color1 = Color.Gray
+        lblSubtitle.StateCommon.ShortText.Font = New Font("Segoe UI", 11F)
+        lblSubtitle.TabIndex = 1
+        lblSubtitle.Values.Text = "Gerencie os criadores que você apoia"
         ' 
         ' SignaturesLayout
         ' 
-        SignaturesLayout.Location = New Point(235, 170)
+        SignaturesLayout.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        SignaturesLayout.AutoScroll = True
+        SignaturesLayout.BackColor = Color.FromArgb(CByte(247), CByte(249), CByte(250))
+        SignaturesLayout.FlowDirection = FlowDirection.TopDown
+        SignaturesLayout.Location = New Point(110, 120)
         SignaturesLayout.Name = "SignaturesLayout"
-        SignaturesLayout.Size = New Size(678, 564)
+        SignaturesLayout.Padding = New Padding(40, 0, 40, 0)
+        SignaturesLayout.Size = New Size(920, 560)
         SignaturesLayout.TabIndex = 16
+        SignaturesLayout.WrapContents = False
         ' 
         ' signatures
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        BackColor = Color.FromArgb(CByte(247), CByte(249), CByte(250))
+        BackColor = Color.White
         ClientSize = New Size(1064, 734)
+        Controls.Add(HeaderPanel)
         Controls.Add(SignaturesLayout)
-        Controls.Add(KryptonLabel2)
-        Controls.Add(KryptonLabel1)
         Name = "signatures"
         StartPosition = FormStartPosition.CenterScreen
         Text = "assinatura"
-        Controls.SetChildIndex(KryptonLabel1, 0)
-        Controls.SetChildIndex(KryptonLabel2, 0)
         Controls.SetChildIndex(SignaturesLayout, 0)
+        Controls.SetChildIndex(HeaderPanel, 0)
+        HeaderPanel.ResumeLayout(False)
+        HeaderPanel.PerformLayout()
         ResumeLayout(False)
-        PerformLayout()
     End Sub
 
-    Friend WithEvents KryptonLabel1 As Krypton.Toolkit.KryptonLabel
-    Friend WithEvents KryptonLabel2 As Krypton.Toolkit.KryptonLabel
+    Friend WithEvents HeaderPanel As Panel
+    Friend WithEvents lblTitle As Krypton.Toolkit.KryptonLabel
+    Friend WithEvents lblSubtitle As Krypton.Toolkit.KryptonLabel
     Friend WithEvents SignaturesLayout As FlowLayoutPanel
 End Class

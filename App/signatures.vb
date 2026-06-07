@@ -1,4 +1,5 @@
 Imports System.IO
+Imports System.Collections.Generic
 Imports MySql.Data.MySqlClient
 
 Public Class signatures
@@ -22,12 +23,24 @@ Public Class signatures
 
         Dim subscriptions = Await QueryAsync(sql, params)
 
+        SignaturesLayout.Controls.Clear()
         SignaturesLayout.SuspendLayout()
+        
+        If subscriptions.Rows.Count = 0 Then
+            Dim lblNoSub As New Krypton.Toolkit.KryptonLabel()
+            lblNoSub.Text = "Você ainda não possui assinaturas ativas."
+            lblNoSub.StateCommon.ShortText.Font = New Font("Segoe UI", 12F, FontStyle.Italic)
+            lblNoSub.StateCommon.ShortText.Color1 = Color.Gray
+            lblNoSub.Margin = New Padding(0, 50, 0, 0)
+            SignaturesLayout.Controls.Add(lblNoSub)
+        End If
+
         For Each subRow As DataRow In subscriptions.Rows
             Dim creatorId = subRow("creatorId").ToString()
             Dim creatorName = subRow("creatorName").ToString()
 
             Dim creatorCard = New SmallAccountCard(creatorId, creatorName, SessionManager.UserId.ToString(), Me)
+            creatorCard.Width = SignaturesLayout.Width - SignaturesLayout.Padding.Horizontal - 50
             creatorCard.AccountName.Text = creatorName
 
             Dim accountImageUrl As String = subRow("creatorProfilePic").ToString()

@@ -22,15 +22,31 @@ Partial Class SmallAccountCard
     'Não o modifique usando o editor de códigos.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        MainPanel = New Krypton.Toolkit.KryptonPanel()
         AccountPicProfile = New Krypton.Toolkit.KryptonPictureBox()
         AccountName = New Krypton.Toolkit.KryptonLabel()
         DeactiveSubBtn = New Krypton.Toolkit.KryptonButton()
+        CType(MainPanel, ComponentModel.ISupportInitialize).BeginInit()
+        MainPanel.SuspendLayout()
         CType(AccountPicProfile, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
+        ' MainPanel
+        ' 
+        MainPanel.Controls.Add(DeactiveSubBtn)
+        MainPanel.Controls.Add(AccountName)
+        MainPanel.Controls.Add(AccountPicProfile)
+        MainPanel.Dock = DockStyle.Fill
+        MainPanel.Location = New Point(0, 0)
+        MainPanel.Name = "MainPanel"
+        MainPanel.Padding = New Padding(10)
+        MainPanel.Size = New Size(800, 80)
+        MainPanel.StateCommon.Color1 = Color.White
+        MainPanel.TabIndex = 0
+        ' 
         ' AccountPicProfile
         ' 
-        AccountPicProfile.Location = New Point(3, 1)
+        AccountPicProfile.Location = New Point(15, 15)
         AccountPicProfile.Name = "AccountPicProfile"
         AccountPicProfile.Size = New Size(50, 50)
         AccountPicProfile.SizeMode = PictureBoxSizeMode.Zoom
@@ -39,35 +55,46 @@ Partial Class SmallAccountCard
         ' 
         ' AccountName
         ' 
-        AccountName.Location = New Point(59, 3)
+        AccountName.Location = New Point(80, 25)
         AccountName.Name = "AccountName"
-        AccountName.Size = New Size(232, 46)
+        AccountName.Size = New Size(232, 26)
+        AccountName.StateCommon.ShortText.Color1 = Color.Black
+        AccountName.StateCommon.ShortText.Font = New Font("Segoe UI", 12F, FontStyle.Bold)
         AccountName.TabIndex = 1
         AccountName.Values.Text = "Creator Account Name"
         ' 
         ' DeactiveSubBtn
         ' 
-        DeactiveSubBtn.Location = New Point(297, 3)
+        DeactiveSubBtn.Anchor = AnchorStyles.Right
+        DeactiveSubBtn.Location = New Point(650, 20)
         DeactiveSubBtn.Name = "DeactiveSubBtn"
-        DeactiveSubBtn.Size = New Size(117, 46)
+        DeactiveSubBtn.Size = New Size(130, 40)
+        DeactiveSubBtn.StateCommon.Back.Color1 = Color.Transparent
+        DeactiveSubBtn.StateCommon.Border.Color1 = Color.Firebrick
+        DeactiveSubBtn.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top Or Krypton.Toolkit.PaletteDrawBorders.Bottom Or Krypton.Toolkit.PaletteDrawBorders.Left Or Krypton.Toolkit.PaletteDrawBorders.Right
+        DeactiveSubBtn.StateCommon.Border.Rounding = 20F
+        DeactiveSubBtn.StateCommon.Content.ShortText.Color1 = Color.Firebrick
+        DeactiveSubBtn.StateCommon.Content.ShortText.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
         DeactiveSubBtn.TabIndex = 2
-        DeactiveSubBtn.Values.DropDownArrowColor = Color.Empty
-        DeactiveSubBtn.Values.Text = "Deactive Sub"
+        DeactiveSubBtn.Values.Text = "Remover"
         ' 
         ' SmallAccountCard
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        Controls.Add(DeactiveSubBtn)
-        Controls.Add(AccountName)
-        Controls.Add(AccountPicProfile)
+        BackColor = Color.Transparent
+        Controls.Add(MainPanel)
+        Margin = New Padding(0, 0, 0, 10)
         Name = "SmallAccountCard"
-        Size = New Size(417, 52)
+        Size = New Size(800, 80)
+        CType(MainPanel, ComponentModel.ISupportInitialize).EndInit()
+        MainPanel.ResumeLayout(False)
+        MainPanel.PerformLayout()
         CType(AccountPicProfile, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
-        PerformLayout()
     End Sub
 
+    Friend WithEvents MainPanel As Krypton.Toolkit.KryptonPanel
     Friend WithEvents AccountPicProfile As Krypton.Toolkit.KryptonPictureBox
     Friend WithEvents AccountName As Krypton.Toolkit.KryptonLabel
     Friend WithEvents DeactiveSubBtn As Krypton.Toolkit.KryptonButton
