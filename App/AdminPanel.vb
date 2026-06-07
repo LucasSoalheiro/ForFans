@@ -96,8 +96,11 @@ Public Class AdminPanel
         Dim userName = dgvUsers.Rows(e.RowIndex).Cells("name").Value.ToString()
 
         If dgvUsers.Columns(e.ColumnIndex).Name = "btnEdit" Then
-            ' Lógica para editar (Apenas exemplo por enquanto)
-            MsgBox($"Editar usuário: {userName}", MsgBoxStyle.Information)
+            Using dialog As New UserEditDialog(Convert.ToInt32(userId))
+                If dialog.ShowDialog() = DialogResult.OK Then
+                    Await LoadUsers()
+                End If
+            End Using
 
         ElseIf dgvUsers.Columns(e.ColumnIndex).Name = "btnBlock" Then
             Dim currentStatus = dgvUsers.Rows(e.RowIndex).Cells("status").Value.ToString()
