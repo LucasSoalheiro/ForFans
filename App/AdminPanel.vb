@@ -14,6 +14,29 @@ Public Class AdminPanel
         dgvUsers.Columns.Clear()
         dgvUsers.AutoGenerateColumns = False
 
+        ' Styling properties
+        dgvUsers.HideOuterBorders = True
+        dgvUsers.StateCommon.BackStyle = PaletteBackStyle.GridBackgroundList
+        dgvUsers.StateCommon.DataCell.Content.Font = New Font("Segoe UI", 10.0F)
+        dgvUsers.StateCommon.HeaderColumn.Content.Font = New Font("Segoe UI", 11.0F, FontStyle.Bold)
+        dgvUsers.StateCommon.HeaderColumn.Back.Color1 = Color.FromArgb(4, 41, 84)
+        dgvUsers.StateCommon.HeaderColumn.Back.Color2 = Color.FromArgb(4, 41, 84)
+        dgvUsers.StateCommon.HeaderColumn.Content.Color1 = Color.White
+        dgvUsers.StateCommon.HeaderColumn.Content.TextH = PaletteRelativeAlign.Center
+        dgvUsers.StateCommon.HeaderColumn.Border.DrawBorders = PaletteDrawBorders.None
+        
+        dgvUsers.StateCommon.DataCell.Border.DrawBorders = PaletteDrawBorders.Bottom
+        dgvUsers.StateCommon.DataCell.Border.Color1 = Color.FromArgb(240, 240, 240)
+        dgvUsers.StateCommon.DataCell.Content.Padding = New Padding(10, 5, 10, 5)
+        
+        dgvUsers.StateSelected.DataCell.Back.Color1 = Color.FromArgb(235, 243, 255)
+        dgvUsers.StateSelected.DataCell.Back.Color2 = Color.FromArgb(235, 243, 255)
+        dgvUsers.StateSelected.DataCell.Content.Color1 = Color.Black
+
+        dgvUsers.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        dgvUsers.RowTemplate.Height = 45
+        dgvUsers.ColumnHeadersHeight = 45
+
         ' ID (Hidden)
         dgvUsers.Columns.Add(New DataGridViewTextBoxColumn() With {
             .Name = "id",
@@ -35,14 +58,15 @@ Public Class AdminPanel
             .Name = "email",
             .HeaderText = "Email",
             .DataPropertyName = "email",
-            .Width = 200
+            .Width = 250
         })
 
         ' Status
         dgvUsers.Columns.Add(New DataGridViewTextBoxColumn() With {
             .Name = "status",
             .HeaderText = "Status",
-            .Width = 100
+            .Width = 120,
+            .DefaultCellStyle = New DataGridViewCellStyle() With {.Alignment = DataGridViewContentAlignment.MiddleCenter}
         })
 
         ' Botão Editar
@@ -51,7 +75,9 @@ Public Class AdminPanel
             .HeaderText = "Ações",
             .Text = "Editar",
             .UseColumnTextForButtonValue = True,
-            .Width = 100
+            .Width = 100,
+            .ButtonStyle = ButtonStyle.Standalone,
+            .DefaultCellStyle = New DataGridViewCellStyle() With {.Alignment = DataGridViewContentAlignment.MiddleCenter}
         }
         dgvUsers.Columns.Add(btnEdit)
 
@@ -61,7 +87,9 @@ Public Class AdminPanel
             .HeaderText = "",
             .Text = "Bloquear",
             .UseColumnTextForButtonValue = True,
-            .Width = 100
+            .Width = 100,
+            .ButtonStyle = ButtonStyle.Standalone,
+            .DefaultCellStyle = New DataGridViewCellStyle() With {.Alignment = DataGridViewContentAlignment.MiddleCenter}
         }
         dgvUsers.Columns.Add(btnBlock)
     End Sub
