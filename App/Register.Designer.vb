@@ -40,6 +40,7 @@ Partial Class Register
         BackgroundWorker1 = New ComponentModel.BackgroundWorker()
         PictureBtn = New Krypton.Toolkit.KryptonButton()
         ProfilePicture = New Krypton.Toolkit.KryptonPictureBox()
+        PasswordReminderLabel = New Krypton.Toolkit.KryptonLabel()
         CType(KryptonPanel1, ComponentModel.ISupportInitialize).BeginInit()
         KryptonPanel1.SuspendLayout()
         CType(KryptonPictureBox1, ComponentModel.ISupportInitialize).BeginInit()
@@ -95,6 +96,16 @@ Partial Class Register
         UserPassword.StateCommon.Border.Rounding = 8F
         UserPassword.StateCommon.Content.Padding = New Padding(10, 8, 10, 8)
         UserPassword.TabIndex = 3
+        ' 
+        ' PasswordReminderLabel
+        ' 
+        PasswordReminderLabel.Location = New Point(624, 417)
+        PasswordReminderLabel.Name = "PasswordReminderLabel"
+        PasswordReminderLabel.Size = New Size(244, 19)
+        PasswordReminderLabel.StateCommon.ShortText.Color1 = Color.Gray
+        PasswordReminderLabel.StateCommon.ShortText.Font = New Font("Segoe UI", 9.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        PasswordReminderLabel.TabIndex = 14
+        PasswordReminderLabel.Values.Text = "* A senha deve conter no mínimo 6 caracteres"
         ' 
         ' ButtonSpecAny2
         ' 
@@ -257,6 +268,7 @@ Partial Class Register
         Controls.Add(LoginLink)
         Controls.Add(RegiterBtn)
         Controls.Add(UserPassword)
+        Controls.Add(PasswordReminderLabel)
         Controls.Add(UserEmail)
         Controls.Add(UserName)
         Margin = New Padding(3, 2, 3, 2)
@@ -266,6 +278,7 @@ Partial Class Register
         Controls.SetChildIndex(KryptonPanel1, 0)
         Controls.SetChildIndex(UserName, 0)
         Controls.SetChildIndex(UserEmail, 0)
+        Controls.SetChildIndex(PasswordReminderLabel, 0)
         Controls.SetChildIndex(UserPassword, 0)
         Controls.SetChildIndex(RegiterBtn, 0)
         Controls.SetChildIndex(LoginLink, 0)
@@ -301,4 +314,5 @@ Partial Class Register
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
     Friend WithEvents PictureBtn As Krypton.Toolkit.KryptonButton
     Friend WithEvents ProfilePicture As Krypton.Toolkit.KryptonPictureBox
+    Friend WithEvents PasswordReminderLabel As Krypton.Toolkit.KryptonLabel
 End Class

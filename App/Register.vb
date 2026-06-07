@@ -22,7 +22,7 @@ Public Class Register
         End If
 
         If Not Validator.IsStrongPassword(password) Then
-            MsgBox("Password must be at least 6 characters long.")
+            MsgBox("A senha deve conter no mínimo 6 caracteres.")
             Return
         End If
 
