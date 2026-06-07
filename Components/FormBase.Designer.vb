@@ -52,6 +52,7 @@ Partial Class FormBase
         Controls.Add(sidebar)
         MinimumSize = New Size(1080, 773)
         Name = "FormBase"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "FormBase"
         ResumeLayout(False)
     End Sub

@@ -36,6 +36,8 @@ Partial Class BecomeCreator
         KryptonLabel4 = New Krypton.Toolkit.KryptonLabel()
         KryptonCheckBox1 = New Krypton.Toolkit.KryptonCheckBox()
         KryptonButton1 = New Krypton.Toolkit.KryptonButton()
+        BtnAddPhoto = New Krypton.Toolkit.KryptonButton()
+        BtnRemovePhoto = New Krypton.Toolkit.KryptonButton()
         CType(KryptonPictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -122,6 +124,7 @@ Partial Class BecomeCreator
         KryptonPictureBox1.Location = New Point(684, 169)
         KryptonPictureBox1.Name = "KryptonPictureBox1"
         KryptonPictureBox1.Size = New Size(353, 239)
+        KryptonPictureBox1.SizeMode = PictureBoxSizeMode.Zoom
         KryptonPictureBox1.TabIndex = 30
         KryptonPictureBox1.TabStop = False
         ' 
@@ -158,11 +161,38 @@ Partial Class BecomeCreator
         KryptonButton1.Values.Image = My.Resources.Resources.send_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24
         KryptonButton1.Values.Text = "Enviar"
         ' 
+        ' BtnAddPhoto
+        ' 
+        BtnAddPhoto.Location = New Point(684, 414)
+        BtnAddPhoto.Name = "BtnAddPhoto"
+        BtnAddPhoto.Size = New Size(170, 40)
+        BtnAddPhoto.StateCommon.Back.Color1 = Color.FromArgb(CByte(29), CByte(161), CByte(242))
+        BtnAddPhoto.StateCommon.Border.Rounding = 8F
+        BtnAddPhoto.StateCommon.Content.ShortText.Color1 = Color.White
+        BtnAddPhoto.StateCommon.Content.ShortText.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold)
+        BtnAddPhoto.TabIndex = 34
+        BtnAddPhoto.Values.Image = My.Resources.Resources.image_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24
+        BtnAddPhoto.Values.Text = "Adicionar Foto"
+        ' 
+        ' BtnRemovePhoto
+        ' 
+        BtnRemovePhoto.Location = New Point(867, 414)
+        BtnRemovePhoto.Name = "BtnRemovePhoto"
+        BtnRemovePhoto.Size = New Size(170, 40)
+        BtnRemovePhoto.StateCommon.Back.Color1 = Color.Firebrick
+        BtnRemovePhoto.StateCommon.Border.Rounding = 8F
+        BtnRemovePhoto.StateCommon.Content.ShortText.Color1 = Color.White
+        BtnRemovePhoto.StateCommon.Content.ShortText.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold)
+        BtnRemovePhoto.TabIndex = 35
+        BtnRemovePhoto.Values.Text = "Remover Foto"
+        ' 
         ' BecomeCreator
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1064, 734)
+        Controls.Add(BtnRemovePhoto)
+        Controls.Add(BtnAddPhoto)
         Controls.Add(KryptonButton1)
         Controls.Add(KryptonCheckBox1)
         Controls.Add(KryptonLabel4)
@@ -185,6 +215,8 @@ Partial Class BecomeCreator
         Controls.SetChildIndex(KryptonLabel4, 0)
         Controls.SetChildIndex(KryptonCheckBox1, 0)
         Controls.SetChildIndex(KryptonButton1, 0)
+        Controls.SetChildIndex(BtnAddPhoto, 0)
+        Controls.SetChildIndex(BtnRemovePhoto, 0)
         CType(KryptonPictureBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
@@ -203,4 +235,6 @@ Partial Class BecomeCreator
     Friend WithEvents KryptonLabel4 As Krypton.Toolkit.KryptonLabel
     Friend WithEvents KryptonCheckBox1 As Krypton.Toolkit.KryptonCheckBox
     Friend WithEvents KryptonButton1 As Krypton.Toolkit.KryptonButton
+    Friend WithEvents BtnAddPhoto As Krypton.Toolkit.KryptonButton
+    Friend WithEvents BtnRemovePhoto As Krypton.Toolkit.KryptonButton
 End Class

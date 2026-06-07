@@ -59,6 +59,7 @@ Partial Class SmallForm
         MaximumSize = New Size(1049, 578)
         MinimumSize = New Size(1049, 578)
         Name = "SmallForm"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "SmallForm"
         CType(KryptonPanel1, ComponentModel.ISupportInitialize).EndInit()
         KryptonPanel1.ResumeLayout(False)

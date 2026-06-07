@@ -45,14 +45,41 @@
             If isAdmin Then
                 SpecialLbl.Text = "Admin Panel"
                 SpecialPath = "AdminPanel"
+                SpecialBtn.Visible = True
+                SpecialLbl.Visible = True
             ElseIf isSubscriberOnly Then
                 SpecialLbl.Text = "Be a Creator"
                 SpecialPath = "BecomeCreator"
+                SpecialBtn.Visible = True
+                SpecialLbl.Visible = True
             Else
                 SpecialBtn.Visible = False
                 SpecialLbl.Visible = False
             End If
+
+            RepositionItems()
         End If
+    End Sub
+
+    Private Sub RepositionItems()
+        Dim currentY As Integer = 80
+        Dim spacing As Integer = 65
+
+        ' Lista ordenada de itens do menu (Excluindo os que ficam fixos no rodapé)
+        Dim menuItems = {
+            New With {.Icon = DirectCast(ButtonCreatorArea, Control), .Label = DirectCast(LabelCreatorArea, Control)},
+            New With {.Icon = DirectCast(KryptonButton2, Control), .Label = DirectCast(KryptonLabel4, Control)},
+            New With {.Icon = DirectCast(KryptonButton4, Control), .Label = DirectCast(ManageContents, Control)},
+            New With {.Icon = DirectCast(SpecialBtn, Control), .Label = DirectCast(SpecialLbl, Control)}
+        }
+
+        For Each item In menuItems
+            If item.Icon.Visible Then
+                item.Icon.Top = currentY
+                item.Label.Top = currentY
+                currentY += spacing
+            End If
+        Next
     End Sub
 
     Private Sub SpecialBtn_Click(sender As Object, e As EventArgs) Handles SpecialBtn.Click

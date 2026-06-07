@@ -100,7 +100,7 @@ Partial Class SideBar
         ' KryptonButton3
         ' 
         KryptonButton3.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
-        KryptonButton3.Location = New Point(3, 435)
+        KryptonButton3.Location = New Point(3, 580)
         KryptonButton3.Name = "KryptonButton3"
         KryptonButton3.Size = New Size(55, 55)
         KryptonButton3.StateCommon.Back.Draw = Krypton.Toolkit.InheritBool.False
@@ -126,9 +126,9 @@ Partial Class SideBar
         ' AccountLbl
         ' 
         AccountLbl.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
-        AccountLbl.Location = New Point(64, 435)
+        AccountLbl.Location = New Point(64, 580)
         AccountLbl.Name = "AccountLbl"
-        AccountLbl.Size = New Size(100, 55)
+        AccountLbl.Size = New Size(166, 55)
         AccountLbl.StateCommon.ShortText.Color1 = Color.White
         AccountLbl.StateCommon.ShortText.Font = New Font("Segoe UI", 16.15F, FontStyle.Bold)
         AccountLbl.TabIndex = 15
@@ -166,7 +166,8 @@ Partial Class SideBar
         ' 
         ' KryptonButton1
         ' 
-        KryptonButton1.Location = New Point(0, 496)
+        KryptonButton1.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
+        KryptonButton1.Location = New Point(3, 641)
         KryptonButton1.Name = "KryptonButton1"
         KryptonButton1.Size = New Size(55, 55)
         KryptonButton1.StateCommon.Back.Draw = Krypton.Toolkit.InheritBool.False
@@ -178,7 +179,8 @@ Partial Class SideBar
         ' 
         ' KryptonLabel2
         ' 
-        KryptonLabel2.Location = New Point(64, 496)
+        KryptonLabel2.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
+        KryptonLabel2.Location = New Point(64, 641)
         KryptonLabel2.Name = "KryptonLabel2"
         KryptonLabel2.Size = New Size(166, 55)
         KryptonLabel2.StateCommon.ShortText.Color1 = Color.White
